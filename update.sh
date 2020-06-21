@@ -14,7 +14,8 @@ cp ~/.config/starship.toml .
 
 cp ~/.gitconfig .
 
-rm ./Brewfile
+rm ./packages/Brewfile
 brew bundle dump
+mv Brewfile ./packages
 
-code --list-extensions > .vscode_extensions
+code --list-extensions > ./packages/.vscode_extensions
