@@ -1,5 +1,5 @@
 #!/bin/bash
-cp ~/.bash_profile ./bash
+cp ~/.bashrc ./bash
 cp -a ~/.config/bash/functions/. ./bash/functions
 rm ./bash/functions/proxy.sh
 

@@ -28,7 +28,7 @@ alias gf='git fetch'
 alias gg='git graph'
 
 # custom
-alias refresh='source ~/.bash_profile'
+alias refresh='source ~/.bashrc'
 alias virtualenv='python -m virtualenv venv'
 alias venv='source ./venv/bin/activate'
 alias brew_tree="brew leaves | xargs brew deps --installed --for-each | sed \"s/^.*:/$(tput setaf 6)&$(tput sgr0)/\""
