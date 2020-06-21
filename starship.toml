@@ -11,9 +11,6 @@ discharging_symbol = ""
 symbol = " "
 
 [directory]
-# truncation_length = 1
-# truncate_to_repo = true
-# fish_style_pwd_dir_length = 1
 style = "bold blue"
 
 [docker]

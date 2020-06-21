@@ -8,7 +8,3 @@
 [alias]
 	graph = log --all --decorate --oneline --graph
 	long = log --all --decorate --graph --abbrev-commit --date=relative
-[http]
-	proxy = http://PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80
-[https]
-	proxy = http://PITC-Zscaler-Americas-Cincinnati3PR.proxy.corporate.ge.com:80

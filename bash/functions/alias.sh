@@ -5,7 +5,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 # ls
-# alias ls='ls -a'
+alias ls='ls -a'
 alias li='ls -lh' # Display files in directory as a list w/ human readable filesizes
 alias la='ls -alh' # li + hidden files
 alias lr='ls -lhR' # li recursively
