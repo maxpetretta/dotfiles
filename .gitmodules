@@ -1,0 +1,3 @@
+[submodule "ge-proxy"]
+	path = ge-proxy
+	url = git@github.build.ge.com:212569001/ge-proxy.git
