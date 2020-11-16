@@ -1,5 +1,9 @@
 # Update go path
 export GOPATH="$HOME/.go"
+eval "$(direnv hook bash)"
+
+# Set Terraform provider cache
+export TF_PLUGIN_CACHE_DIR="/Users/212569001/.terraform.d/providers"
 
 # Source functions
 for file in $(find ~/.config/bash/functions -type f -name "*.sh"); do source $file; done

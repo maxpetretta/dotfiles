@@ -8,3 +8,5 @@
 [alias]
 	graph = log --all --decorate --oneline --graph
 	long = log --all --decorate --graph --abbrev-commit --date=relative
+[pull]
+	rebase = false
