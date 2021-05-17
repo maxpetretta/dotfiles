@@ -1,8 +1,10 @@
+bradlc.vscode-tailwindcss
 christian-kohler.path-intellisense
 dbaeumer.vscode-eslint
 donjayamanne.githistory
 eamodio.gitlens
 esbenp.prettier-vscode
+fivethree.vscode-svelte-snippets
 formulahendry.auto-close-tag
 formulahendry.code-runner
 Gimly81.matlab
@@ -10,8 +12,12 @@ GrapeCity.gc-excelviewer
 hashicorp.terraform
 monokai.theme-monokai-pro-vscode
 ms-python.python
+ms-python.vscode-pylance
+ms-toolsai.jupyter
 ms-vscode.cpptools
 PKief.material-icon-theme
 redhat.java
+silvenon.mdx
 streetsidesoftware.code-spell-checker
+svelte.svelte-vscode
 Tyriar.sort-lines

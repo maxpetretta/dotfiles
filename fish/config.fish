@@ -8,7 +8,7 @@ set -Ux GOPATH $HOME/.go
 source ~/.config/fish/alias.fish
 
 # asdf version manager
-source (brew --prefix asdf)/asdf.fish
+# source (brew --prefix asdf)/asdf.fish
 # . ~/.asdf/plugins/java/set-java-home.fish
 
 # Blastoff
