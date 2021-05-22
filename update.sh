@@ -7,7 +7,7 @@ cp ~/.config/fish/config.fish ./fish
 cp ~/.config/fish/alias.fish ./fish
 cp ~/.config/fish/colors.fish ./fish
 cp -a ~/.config/fish/functions/. ./fish/functions
-cp -a ~/.config/fish/completions ./fish/completions
+cp -a ~/.config/fish/completions/. ./fish/completions
 rm ./fish/functions/proxy.fish
 
 cp ~/.config/starship.toml .

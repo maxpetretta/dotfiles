@@ -6,11 +6,14 @@ for file in $(find ~/.config/bash/functions -type f -name "*.sh"); do source $fi
 # proxy
 
 # asdf version manager
-source $(brew --prefix asdf)/asdf.sh
+# source $(brew --prefix asdf)/asdf.sh
 # . ~/.asdf/plugins/java/set-java-home.bash
 
+# Python version manager
+eval "$(pyenv init -)"
+
 # Bash completions
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
 # Eternal bash history.
 # ---------------------
@@ -32,7 +35,7 @@ export LSCOLORS=ExGxDxCxBxdAcAfAbAgAeA
 export GIT_PS1_SHOWCOLORHINTS=true
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
-source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /opt/homebrew/etc/bash_completion.d/git-prompt.sh
 PS1="\[\033[34m\]\W\[\033[32m\]\$(__git_ps1)\[\033[00m\] $ "
 
 # Blastoff
