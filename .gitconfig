@@ -1,12 +1,10 @@
 [user]
 	name = Max Petretta
-	email = max.petretta@gmail.com
+	email = git@maxpetretta.com
 [core]
 	editor = vim
-[init]
-	templateDir = ~/.git-template
 [alias]
 	graph = log --all --decorate --oneline --graph
 	long = log --all --decorate --graph --abbrev-commit --date=relative
-[pull]
-	rebase = false
+[init]
+	defaultBranch = master

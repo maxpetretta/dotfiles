@@ -13,7 +13,7 @@ symbol = " "
 [directory]
 style = "bold blue"
 
-[docker]
+[docker_context]
 symbol = " "
 
 [elixir]
@@ -28,9 +28,6 @@ style = "bold green"
 
 [golang]
 symbol = " "
-
-[haskell]
-symbol = " "
 
 [hg_branch]
 symbol = " "

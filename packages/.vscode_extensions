@@ -1,3 +1,5 @@
+arcticicestudio.nord-visual-studio-code
+bradlc.vscode-tailwindcss
 christian-kohler.path-intellisense
 dbaeumer.vscode-eslint
 donjayamanne.githistory
@@ -7,12 +9,13 @@ formulahendry.auto-close-tag
 formulahendry.code-runner
 GrapeCity.gc-excelviewer
 hashicorp.terraform
+JuanBlanco.solidity
 monokai.theme-monokai-pro-vscode
-ms-azure-devops.azure-pipelines
 ms-python.python
-ms-vscode.azure-account
+ms-python.vscode-pylance
+ms-vscode.cpptools
 PKief.material-icon-theme
-redhat.java
-skyapps.fish-vscode
+silvenon.mdx
 streetsidesoftware.code-spell-checker
+svelte.svelte-vscode
 Tyriar.sort-lines

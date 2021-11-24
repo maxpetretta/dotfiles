@@ -3,6 +3,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 
 # ls
 alias ls='ls -GFa'
@@ -31,6 +32,5 @@ alias gg='git graph'
 alias refresh="source ~/.config/fish/config.fish"
 alias virtualenv='python -m virtualenv venv'
 alias venv='source ./venv/bin/activate.fish'
-alias pc='pre-commit run'
-
 alias ip="printf 'Private: ' && ipconfig getifaddr en0 \n && printf 'Public: ' && curl -s ifconfig.me && printf '\n'"
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
