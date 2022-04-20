@@ -6,6 +6,7 @@ donjayamanne.githistory
 eamodio.gitlens
 esbenp.prettier-vscode
 formulahendry.auto-close-tag
+formulahendry.auto-rename-tag
 formulahendry.code-runner
 GrapeCity.gc-excelviewer
 hashicorp.terraform
@@ -19,3 +20,4 @@ silvenon.mdx
 streetsidesoftware.code-spell-checker
 svelte.svelte-vscode
 Tyriar.sort-lines
+VisualStudioExptTeam.vscodeintellicode
