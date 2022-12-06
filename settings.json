@@ -1,0 +1,41 @@
+// Place your settings in this file to overwrite the default settings
+{
+  "editor.fontSize": 13,
+  "editor.fontFamily": "FiraCode Nerd Font",
+  "editor.fontLigatures": false,
+  "editor.tabSize": 2,
+  "[python][solidity]": {
+    "editor.tabSize": 4
+  },
+  "editor.minimap.enabled": true,
+  "editor.wordWrap": "off",
+  "editor.wordWrapColumn": 80,
+  "editor.rulers": [80, 120],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.bracketPairColorization.enabled": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "editor.suggestSelection": "first",
+  "workbench.colorTheme": "Monokai Pro",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorCustomizations": {
+    "[Monokai Pro]": {
+      "terminal.ansiBlue": "#78dce8",
+      "terminal.ansiBrightBlue": "#78dce8",
+      "terminal.ansiCyan": "#ab9df2",
+      "terminal.ansiBrightCyan": "#ab9df2",
+      "terminal.ansiMagenta": "#fc9867",
+      "terminal.ansiBrightMagenta": "#fc9867"
+    }
+  },
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "terminal.external.osxExec": "iTerm.app",
+  "security.workspace.trust.untrustedFiles": "open",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "cSpell.userWords": ["Petretta"],
+  "editor.accessibilitySupport": "off"
+}
