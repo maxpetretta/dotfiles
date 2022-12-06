@@ -1,0 +1,6 @@
+.DS_Store
+node_modules
+
+.config/configstore
+.config/raycast/extensions
+.config/iterm2/AppSupport

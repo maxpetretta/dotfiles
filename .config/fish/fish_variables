@@ -1,0 +1,41 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export --path GOPATH:/Users/Max/\x2ego
+SETUVAR --export PYENV_ROOT:/Users/Max/\x2epyenv
+SETUVAR __fish_initialized:3400
+SETUVAR _fisher_PatrickF1_2F_fzf_2E_fish_files:/Users/Max/\x2econfig/fish/functions/__fzf_extract_var_info\x2efish\x1e/Users/Max/\x2econfig/fish/functions/__fzf_preview_file\x2efish\x1e/Users/Max/\x2econfig/fish/functions/__fzf_report_file_type\x2efish\x1e/Users/Max/\x2econfig/fish/functions/__fzf_search_current_dir\x2efish\x1e/Users/Max/\x2econfig/fish/functions/__fzf_search_git_log\x2efish\x1e/Users/Max/\x2econfig/fish/functions/__fzf_search_git_status\x2efish\x1e/Users/Max/\x2econfig/fish/functions/__fzf_search_history\x2efish\x1e/Users/Max/\x2econfig/fish/functions/__fzf_search_shell_variables\x2efish\x1e/Users/Max/\x2econfig/fish/conf\x2ed/fzf\x2efish
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:/Users/Max/\x2econfig/fish/functions/fisher\x2efish\x1e/Users/Max/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:/Users/Max/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e/Users/Max/\x2econfig/fish/functions/_nvm_list\x2efish\x1e/Users/Max/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e/Users/Max/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e/Users/Max/\x2econfig/fish/functions/nvm\x2efish\x1e/Users/Max/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e/Users/Max/\x2econfig/fish/completions/nvm\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ePatrickF1/fzf\x2efish\x1ejorgebucaran/nvm\x2efish
+SETUVAR --export fish_color_autosuggestion:black
+SETUVAR --export fish_color_cancel:brblack\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrwhite
+SETUVAR --export fish_color_command:yellow
+SETUVAR --export fish_color_comment:black
+SETUVAR --export fish_color_cwd:blue
+SETUVAR --export fish_color_cwd_root:red
+SETUVAR --export fish_color_end:white\x1e\x2d\x2dbold
+SETUVAR --export fish_color_error:red
+SETUVAR --export fish_color_escape:magenta
+SETUVAR --export fish_color_history_current:\x2d\x2dbold
+SETUVAR --export fish_color_host:normal
+SETUVAR --export fish_color_host_remote:yellow
+SETUVAR --export fish_color_normal:normal
+SETUVAR --export fish_color_operator:magenta
+SETUVAR --export fish_color_param:blue
+SETUVAR --export fish_color_quote:green
+SETUVAR --export fish_color_redirection:cyan
+SETUVAR --export fish_color_search_match:\x2d\x2dbackground\x3dblack
+SETUVAR --export fish_color_selection:\x2d\x2dbackground\x3d434144
+SETUVAR --export fish_color_status:red
+SETUVAR --export fish_color_user:green
+SETUVAR --export fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR --export fish_pager_color_completion:normal
+SETUVAR --export fish_pager_color_description:yellow
+SETUVAR --export fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR --export fish_pager_color_progress:white\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR fish_user_paths:/Users/Max/\x2epyenv/bin
+SETUVAR nvm_data:/Users/Max/\x2elocal/share/nvm
+SETUVAR nvm_default_version:v16\x2e15\x2e1
+SETUVAR nvm_mirror:https\x3a//nodejs\x2eorg/dist

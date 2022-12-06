@@ -1,21 +1,11 @@
 #!/bin/bash
-cp ~/.bashrc ./bash
-cp -a ~/.config/bash/functions/. ./bash/functions
-rm ./bash/functions/proxy.sh
+rm -rf ./.config
 
-cp ~/.config/fish/config.fish ./fish
-cp ~/.config/fish/alias.fish ./fish
-cp ~/.config/fish/colors.fish ./fish
-cp -a ~/.config/fish/functions/. ./fish/functions
-cp -a ~/.config/fish/completions ./fish/completions
-rm ./fish/functions/proxy.fish
-
-cp ~/.config/starship.toml .
-
+cp ~/.bashrc .
 cp ~/.gitconfig .
+cp -a ~/.config .
 
-rm ./packages/Brewfile
+rm ./Brewfile
 brew bundle dump
-mv Brewfile ./packages
 
-code --list-extensions > ./packages/.vscode_extensions
+code --list-extensions > ./.vscode_extensions
