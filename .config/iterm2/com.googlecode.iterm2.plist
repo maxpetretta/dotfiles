@@ -1470,7 +1470,7 @@
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideTab</key>
-	<false/>
+	<true/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -2169,7 +2169,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>59</integer>
+			<integer>79</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -2206,6 +2206,8 @@
 			<string></string>
 			<key>Silence Bell</key>
 			<false/>
+			<key>Space</key>
+			<integer>0</integer>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tab Color</key>
@@ -2225,6 +2227,8 @@
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
+			<key>Thin Strokes</key>
+			<integer>4</integer>
 			<key>Title Components</key>
 			<integer>2</integer>
 			<key>Transparency</key>
@@ -3040,6 +3044,8 @@
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
 	<false/>
+	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -3073,6 +3079,8 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>SavePasteHistory</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>
@@ -3082,9 +3090,13 @@
 	<key>StatusBarPosition</key>
 	<integer>1</integer>
 	<key>TabStyleWithAutomaticOption</key>
-	<integer>1</integer>
+	<integer>6</integer>
 	<key>TabViewType</key>
 	<integer>1</integer>
+	<key>TerminalMargin</key>
+	<integer>20</integer>
+	<key>TerminalVMargin</key>
+	<integer>15</integer>
 	<key>UseBorder</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>

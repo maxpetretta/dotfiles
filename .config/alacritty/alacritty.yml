@@ -1,0 +1,91 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+window:
+  dimensions:
+    columns: 90
+    lines: 90
+  padding:
+    x: 15
+    y: 15
+  decorations: buttonless
+
+scrolling:
+  history: 100000
+  multiplier: 3
+
+font:
+  normal:
+    family: FiraCode Nerd Font
+    style: Regular
+  bold:
+    family: FiraCode Nerd Font
+    style: Bold
+  italic:
+    family: FiraCode Nerd Font
+    style: Italic
+  bold_italic:
+    family: FiraCode Nerd Font
+    style: Bold Italic
+
+  size: 13.0
+  offset:
+    x: 0
+    y: 1
+
+# Monokai Pro colorscheme
+colors:
+  primary:
+    background: "#2d2a2e"
+    foreground: "#fcfcfa"
+  cursor:
+    text: "#000000"
+    cursor: "#ffffff"
+  search:
+    matches:
+      foreground: "#000000"
+      background: "#ffff00"
+    focused_match:
+      foreground: "#000000"
+      background: "#ff9732"
+  selection:
+    text: "#fcfcfa"
+    background: "#434144"
+
+  normal:
+    black: "#727072"
+    red: "#ff6188"
+    green: "#a9dc76"
+    yellow: "#ffd866"
+    blue: "#78dce8"
+    magenta: "#fc9867"
+    cyan: "#ab9df2"
+    white: "#fcfcfa"
+
+  bright:
+    black: "#727072"
+    red: "#ff6188"
+    green: "#a9dc76"
+    yellow: "#ffd866"
+    blue: "#78dce8"
+    magenta: "#fc9867"
+    cyan: "#ab9df2"
+    white: "#fcfcfa"
+
+cursor:
+  style:
+    blinking: On
+  blink_interval: 600
+  blink_timeout: 0
+
+live_config_reload: true
+
+hints:
+  enabled:
+    - regex:
+        "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
+        [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+      hyperlinks: true
+      command: open
+      post_processing: true
+      mouse:
+        enabled: true
+        mods: Command
