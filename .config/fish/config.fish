@@ -1,18 +1,14 @@
-# Update go path
-set -Ux GOPATH $HOME/.go
-
-# Configure proxy
-# proxy
-
 # Fish aliases
 source ~/.config/fish/alias.fish
 
-# asdf version manager
-# source (brew --prefix asdf)/asdf.fish
-# . ~/.asdf/plugins/java/set-java-home.fish
-
 # Python version manager
 pyenv init - | source
+
+# Ruby version manager
+status --is-interactive; and rbenv init - fish | source
+
+# 1Password authentication for gh command
+source $HOME/.config/op/plugins.sh
 
 # Blastoff
 starship init fish | source
