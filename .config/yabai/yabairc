@@ -7,8 +7,8 @@
 # see this wiki page for information:
 #  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
 #
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-sudo yabai --load-sa
+# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+# sudo yabai --load-sa
 #
 
 # global settings
@@ -25,8 +25,8 @@ yabai -m config auto_balance                 off
 
 yabai -m config top_padding                  15
 yabai -m config bottom_padding               15
-# yabai -m config left_padding                 15
-# yabai -m config right_padding                15
+yabai -m config left_padding                 15
+yabai -m config right_padding                15
 yabai -m config window_gap                   15
 
 yabai -m config window_shadow                off
@@ -68,9 +68,10 @@ yabai -m rule --add app="^System Preferences$" manage=off sticky=on
 yabai -m rule --add app="^The Unarchiver$" manage=off
 
 # Run scripts on given events
-yabai -m signal --add event=window_created action="~/.config/yabai/three-columns.sh"
-yabai -m signal --add event=window_destroyed action="~/.config/yabai/three-columns.sh"
-yabai -m signal --add event=space_changed action="~/.config/yabai/three-columns.sh"
+# yabai -m signal --add event=window_created action="~/.config/yabai/three-columns.sh"
+# yabai -m signal --add event=window_destroyed action="~/.config/yabai/three-columns.sh"
+# yabai -m signal --add event=space_changed action="~/.config/yabai/three-columns.sh"
 
+# yabai -m rule --add app="Slack" space=3
 
 echo "yabai -- config loaded"

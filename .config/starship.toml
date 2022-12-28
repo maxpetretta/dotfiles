@@ -1,14 +1,5 @@
 [aws]
 symbol = " "
-disabled = true
-
-[battery]
-full_symbol = ""
-charging_symbol = ""
-discharging_symbol = ""
-
-[conda]
-symbol = " "
 
 [directory]
 style = "bold blue"
@@ -16,42 +7,27 @@ style = "bold blue"
 [docker_context]
 symbol = " "
 
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
 [git_branch]
 symbol = " "
 style = "bold green"
 
+[git_status]
+style = "bold purple"
+
 [golang]
 symbol = " "
-
-[hg_branch]
-symbol = " "
 
 [java]
 symbol = " "
 
-[julia]
-symbol = " "
-
 [memory_usage]
 symbol = " "
 
-[nix_shell]
-symbol = " "
-
 [nodejs]
-symbol = " "
+symbol = " "
 
 [package]
 symbol = " "
-
-[php]
-symbol = " "
 
 [python]
 symbol = " "
@@ -60,7 +36,12 @@ symbol = " "
 symbol = " "
 
 [rust]
-symbol = " "
+symbol = " "
+
+[sudo]
+symbol = "root"
+style = "bold red"
+disabled = false
 
 [terraform]
 symbol = "T "

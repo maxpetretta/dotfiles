@@ -3,4 +3,6 @@ node_modules
 
 .config/configstore
 .config/raycast/extensions
+.config/raycast/config.json
 .config/iterm2/AppSupport
+.config/op
