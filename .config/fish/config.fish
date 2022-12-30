@@ -1,11 +1,5 @@
-# Fish aliases
-source ~/.config/fish/alias.fish
-
-# Python version manager
-pyenv init - | source
-
-# Ruby version manager
-status --is-interactive; and rbenv init - fish | source
+# asdf version manager
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 # 1Password authentication for gh command
 source ~/.config/op/plugins.sh

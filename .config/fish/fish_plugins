@@ -1,6 +1,7 @@
 jorgebucaran/fisher
-jorgebucaran/nvm.fish
 edc/bass
 patrickf1/fzf.fish
 halostatue/fish-docker@v1.x
 jorgebucaran/autopair.fish
+jhillyerd/plugin-git
+gazorby/fish-abbreviation-tips

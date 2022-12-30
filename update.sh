@@ -10,4 +10,4 @@ rm ./Brewfile
 brew bundle dump
 
 code --list-extensions > ./.vscode_extensions
-cp $HOME/Library/Application\ Support/Code/User/settings.json .
+cp ~/Library/Application\ Support/Code/User/settings.json .

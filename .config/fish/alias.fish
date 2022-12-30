@@ -1,36 +1,22 @@
 # cd
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
+abbr -a .. cd ..
+abbr -a ... cd ../..
+abbr -a .... cd ../../..
+abbr -a ..... cd ../../../..
+abbr -a ...... cd ../../../../..
 
 # ls
-alias ls='ls -GFa'
-alias li='ls -lh' # Display files in directory as a list w/ human readable filesizes
-alias la='ls -alh' # li + hidden files
-alias lr='ls -lhR' # li recursively
-alias lar='ls -lhaR' # All of the above
+abbr -a ls exa --all --classify
+abbr -a ll exa --all --classify --long --header --git --icons --no-user
+abbr -a lt exa --all --classify --tree --git-ignore --ignore-glob ".git" --level=2
 
 # git
-alias gi='git init'
-alias gs='git status'
-alias gb='git branch'
-alias gco='git checkout'
-alias gcb="git checkout -b"
-alias ga='git add .'
-alias gd='git diff'
-alias gc='git commit -m'
-alias gp='git push'
-alias gpo='git push origin'
-alias gl='git pull'
-alias glo='git pull origin'
-alias gf='git fetch'
-alias gg='git graph'
+abbr -a gi git init
+abbr -a gs git status
+abbr -a gg git graph
+abbr -a glo git pull origin
 
 # custom
-alias refresh="source ~/.config/fish/config.fish"
-alias virtualenv='python -m virtualenv venv'
-alias venv='source ./venv/bin/activate.fish'
-alias ip="printf 'Private: ' && ipconfig getifaddr en0 \n && printf 'Public: ' && curl -s ifconfig.me && printf '\n'"
-alias ibrew='arch -x86_64 /usr/local/bin/brew'
+abbr -a refresh source ~/.config/fish/config.fish
+alias -s ip "printf 'Private: ' && ipconfig getifaddr en0 \n && printf 'Public: ' && curl -s ifconfig.me && printf '\n'"
+# alias -s ibrew "arch -x86_64 /usr/local/bin/brew"
