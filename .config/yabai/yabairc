@@ -1,17 +1,13 @@
 #!/usr/bin/env sh
-
 #
 # for this to work you must configure sudo such that
 # it will be able to run the command without password
 #
 # see this wiki page for information:
 #  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
-#
-# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-# sudo yabai --load-sa
-#
 
-# global settings
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
 
 
 # Window settings
@@ -68,10 +64,8 @@ yabai -m rule --add app="^System Preferences$" manage=off sticky=on
 yabai -m rule --add app="^The Unarchiver$" manage=off
 
 # Run scripts on given events
-# yabai -m signal --add event=window_created action="~/.config/yabai/three-columns.sh"
-# yabai -m signal --add event=window_destroyed action="~/.config/yabai/three-columns.sh"
-# yabai -m signal --add event=space_changed action="~/.config/yabai/three-columns.sh"
-
-# yabai -m rule --add app="Slack" space=3
+yabai -m signal --add event=window_created action="~/.config/yabai/three-columns.sh"
+yabai -m signal --add event=window_destroyed action="~/.config/yabai/three-columns.sh"
+yabai -m signal --add event=space_changed action="~/.config/yabai/three-columns.sh"
 
 echo "yabai -- config loaded"
