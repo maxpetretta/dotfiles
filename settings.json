@@ -37,5 +37,6 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "cSpell.userWords": ["Petretta"],
-  "editor.accessibilitySupport": "off"
+  "editor.accessibilitySupport": "off",
+  "workbench.sideBar.location": "right"
 }
