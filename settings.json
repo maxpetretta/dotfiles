@@ -1,5 +1,5 @@
-// Place your settings in this file to overwrite the default settings
 {
+  /* Editor settings */
   "editor.fontSize": 13,
   "editor.fontFamily": "FiraCode Nerd Font",
   "editor.fontLigatures": false,
@@ -7,17 +7,20 @@
   "[python][solidity]": {
     "editor.tabSize": 4
   },
-  "editor.minimap.enabled": true,
-  "editor.wordWrap": "off",
-  "editor.wordWrapColumn": 80,
   "editor.rulers": [80, 120],
+  "editor.wordWrapColumn": 100,
+  "editor.minimap.enabled": true,
+  // "editor.lineNumbers": "relative",
+  "editor.bracketPairColorization.enabled": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.bracketPairColorization.enabled": false,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true
-  },
-  "editor.suggestSelection": "first",
+  // "editor.codeActionsOnSave": {
+  //   "source.organizeImports": true
+  // },
+  // "editor.inlineSuggest.enabled": true,
+
+  /* Terminal settings */
+  "workbench.sideBar.location": "right",
   "workbench.colorTheme": "Monokai Pro",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
@@ -30,12 +33,44 @@
       "terminal.ansiBrightMagenta": "#fc9867"
     }
   },
+
+  /* Explorer settings */
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
-  "terminal.external.osxExec": "iTerm.app",
-  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.external.osxExec": "Alacritty.app",
+
+  /* Vim mode settings */
+  "vim.leader": "<space>",
+  "vim.sneak": true,
+  "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["d"],
+      "after": ["\"", "_", "d"]
+    },
+    {
+      "before": ["D"],
+      "after": ["\"", "_", "D"]
+    },
+    {
+      "before": ["d", "d"],
+      "after": ["\"", "_", "d", "d"]
+    }
+  ],
+
+  /* Extension settings */
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "cSpell.userWords": ["Petretta"],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "svelte.enable-ts-plugin": true,
+  "[svelte]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "prettier.documentSelectors": ["**/*.svelte"],
+  "cSpell.userWords": ["Petretta", "POSTHOG"],
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "editor.inlineSuggest.enabled": true,
   "editor.accessibilitySupport": "off"
 }
