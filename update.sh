@@ -7,7 +7,7 @@ cp ~/.tmux.conf .
 cp -a ~/.config .
 
 rm ./Brewfile
-brew bundle dump
+brew bundle dump --all
 
 code --list-extensions > ./.vscode_extensions
 cp ~/Library/Application\ Support/Code/User/settings.json .

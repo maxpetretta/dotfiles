@@ -63,7 +63,6 @@ brew "neovim"
 brew "node"
 brew "perl"
 brew "pipes-sh"
-brew "pyenv", args: ["HEAD"]
 brew "python@3.10"
 brew "rsync"
 brew "ruby-build"
@@ -108,11 +107,11 @@ cask "geekbench"
 cask "google-chrome"
 cask "imageoptim"
 cask "iterm2"
-cask "logi-options-plus"
 cask "logitech-options"
 cask "microsoft-auto-update"
 cask "microsoft-office"
 cask "nordvpn"
+cask "obsidian"
 cask "postman"
 cask "qmk-toolbox"
 cask "raycast"
@@ -127,6 +126,8 @@ cask "warp"
 cask "zoom"
 mas "Amphetamine", id: 937984704
 mas "iMovie", id: 408981434
+mas "Pause", id: 1599313358
+mas "Photomator", id: 1444636541
 mas "Pixelmator Pro", id: 1289583905
 mas "Things", id: 904280696
 mas "Twitter", id: 1482454543

@@ -53,14 +53,15 @@ yabai -m config mouse_drop_action            swap
 # Unmanaged applications
 yabai -m rule --add app="^1Password$" manage=off
 yabai -m rule --add app="^AppCleaner$" manage=off
-yabai -m rule --add app="^Arc$" title="^(Account|General|Shortcuts|Little Arc|Previews|Updates|Archive|Site Settings|Advanced)$" manage=off
+yabai -m rule --add app="^Arc$" title="^(Max|General|Shortcuts|Links|Advanced)$" manage=off
 yabai -m rule --add app="^CleanShot X$" manage=off
 yabai -m rule --add app="^Digital Color Meter$" manage=off sticky=on
+yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^ImageOptim$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
-yabai -m rule --add app="^System Preferences$" manage=off sticky=on
+yabai -m rule --add app="^System Settings$" manage=off sticky=on
 yabai -m rule --add app="^The Unarchiver$" manage=off
 
 # Run scripts on given events
