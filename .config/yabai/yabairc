@@ -6,8 +6,8 @@
 # see this wiki page for information:
 #  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
 
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-sudo yabai --load-sa
+# yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+# sudo yabai --load-sa
 
 
 # Window settings
@@ -30,7 +30,7 @@ yabai -m config window_opacity               off
 yabai -m config normal_window_opacity        0.90
 yabai -m config active_window_opacity        1.0
 yabai -m config window_opacity_duration      0.0
-yabai -m config window_animation_duration    0.0
+# yabai -m config window_animation_duration    0.0
 
 # Border settings
 yabai -m config window_border                on
@@ -57,6 +57,7 @@ yabai -m rule --add app="^Arc$" title="^(Max|General|Shortcuts|Links|Advanced)$"
 yabai -m rule --add app="^CleanShot X$" manage=off
 yabai -m rule --add app="^Digital Color Meter$" manage=off sticky=on
 yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Gather$" manage=off
 yabai -m rule --add app="^ImageOptim$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
@@ -65,8 +66,8 @@ yabai -m rule --add app="^System Settings$" manage=off sticky=on
 yabai -m rule --add app="^The Unarchiver$" manage=off
 
 # Run scripts on given events
-yabai -m signal --add event=window_created action="~/.config/yabai/three-columns.sh"
-yabai -m signal --add event=window_destroyed action="~/.config/yabai/three-columns.sh"
-yabai -m signal --add event=space_changed action="~/.config/yabai/three-columns.sh"
+# yabai -m signal --add event=window_created action="~/.config/yabai/three-columns.sh"
+# yabai -m signal --add event=window_destroyed action="~/.config/yabai/three-columns.sh"
+# yabai -m signal --add event=space_changed action="~/.config/yabai/three-columns.sh"
 
 echo "yabai -- config loaded"

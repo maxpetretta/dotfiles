@@ -8,3 +8,5 @@
 	long = log --all --decorate --graph --abbrev-commit --date=relative
 [init]
 	defaultBranch = master
+[credential]
+	helper = osxkeychain
