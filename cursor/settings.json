@@ -88,5 +88,6 @@
   /* Cursor settings */
   "prettier.semi": false,
   "workbench.activityBar.orientation": "horizontal",
-  "cursor.cpp.disabledLanguages": ["plaintext", "markdown", "scminput"]
+  "cursor.cpp.disabledLanguages": ["plaintext", "markdown", "scminput"],
+  "cSpell.userWords": ["Petretta"]
 }

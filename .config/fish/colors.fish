@@ -38,7 +38,7 @@ set -U fish_pager_color_selected_description yellow             # description of
 # set -U fish_pager_color_secondary_description # description of every second unselected completion
 
 # Default colors
-set -xU EXA_COLORS "ex=31;1:ur=32;1:uw=33;1:ux=31;1:ue=31;1:gr=32:gw=33:gx=31:tr=32:tw=33:tx=31:su=36:sf=36:gm=33"
+set -xU EZA_COLORS "ex=31;1:ur=32;1:uw=33;1:ux=31;1:ue=31;1:gr=32:gw=33:gx=31:tr=32:tw=33:tx=31:su=36:sf=36:gm=33"
 
 # All white except files
-set -xU EXA_COLORS "ex=31;1:ur=37:uw=37:ux=37:ue=37:gr=37:gw=37:gx=37:tr=37:tw=37:tx=37:su=36:sf=36:sn=37:sb=37:uu=37:gu=37:gm=33:gt=36:da=37"
+set -xU EZA_COLORS "ex=31;1:ur=37:uw=37:ux=37:ue=37:gr=37:gw=37:gx=37:tr=37:tw=37:tx=37:su=36:sf=36:sn=37:sb=37:uu=37:gu=37:gm=33:gt=36:da=37"
