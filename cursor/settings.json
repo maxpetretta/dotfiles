@@ -1,8 +1,8 @@
 {
   /* Editor settings */
   "editor.fontSize": 13,
-  "editor.fontFamily": "FiraCode Nerd Font",
-  "editor.fontLigatures": false,
+  "editor.fontFamily": "'Monaspace Argon', monospace",
+  "editor.fontLigatures": true,
   "editor.tabSize": 2,
   "[python][solidity]": {
     "editor.tabSize": 4
@@ -10,18 +10,17 @@
   "editor.rulers": [80, 120],
   "editor.wordWrapColumn": 100,
   "editor.minimap.enabled": true,
-  // "editor.lineNumbers": "relative",
   "editor.bracketPairColorization.enabled": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": true
+    "source.organizeImports": "explicit"
   },
-  // "editor.inlineSuggest.enabled": true,
+  "editor.inlineSuggest.enabled": true,
   "editor.quickSuggestions": {
     "strings": true
   },
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": "single",
   "workbench.sideBar.location": "right",
   "workbench.colorTheme": "Monokai Pro",
   "workbench.iconTheme": "material-icon-theme",
@@ -55,7 +54,11 @@
   "vim.leader": "<space>",
   "vim.sneak": true,
   "vim.hlsearch": true,
-  "vim.useSystemClipboard": true,
+  "vim.smartRelativeLine": true,
+  "editor.lineNumbers": "relative",
+  "editor.cursorSurroundingLines": 10,
+
+  // Do not copy into buffer on delete
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["d"],
@@ -72,21 +75,18 @@
   ],
 
   /* Extension settings */
-  "cSpell.userWords": ["Farcaster", "maxpetretta", "Petretta"],
   "javascript.updateImportsOnFileMove.enabled": "always",
-  // "javascript.preferences.importModuleSpecifier": "non-relative",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  // "typescript.preferences.importModuleSpecifier": "non-relative",
-  "svelte.enable-ts-plugin": true,
-  // "prettier.documentSelectors": ["**/*.svelte"],
-  "[svelte]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[python]": {
-    "editor.formatOnType": true
-  },
+  "javascript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.importModuleSpecifier": "non-relative",
+  "prettier.documentSelectors": ["**/*.svelte"],
+  "svelte.enable-ts-plugin": true,
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
 
   /* Cursor settings */
-  "workbench.activityBar.orientation": "horizontal"
+  "prettier.semi": false,
+  "workbench.activityBar.orientation": "horizontal",
+  "cursor.cpp.disabledLanguages": ["plaintext", "markdown", "scminput"]
 }

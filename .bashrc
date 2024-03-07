@@ -1,16 +1,8 @@
-# Update go path
-export GOPATH="$HOME/.go"
-
 # Source functions
 for file in $(find ~/.config/bash/functions -type f -name "*.sh"); do source $file; done
-# proxy
 
 # asdf version manager
-# source $(brew --prefix asdf)/asdf.sh
-# . ~/.asdf/plugins/java/set-java-home.bash
-
-# Python version manager
-eval "$(pyenv init -)"
+source $(brew --prefix asdf)/asdf.sh
 
 # Bash completions
 [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
@@ -39,4 +31,4 @@ source /opt/homebrew/etc/bash_completion.d/git-prompt.sh
 PS1="\[\033[34m\]\W\[\033[32m\]\$(__git_ps1)\[\033[00m\] $ "
 
 # Blastoff
-# eval "$(starship init bash)"
+eval "$(starship init bash)"

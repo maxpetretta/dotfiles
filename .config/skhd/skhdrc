@@ -27,11 +27,6 @@ shift + ctrl - e: yabai -m window --move rel:0:80
 shift + ctrl - i: yabai -m window --move rel:0:-80
 shift + ctrl - o: yabai -m window --move rel:480:0
 
-# shift + ctrl - left  : yabai -m window --grid 6:32:1:1:8:4
-# shift + ctrl - down  : yabai -m window --grid 6:32:12:2:8:4
-# shift + ctrl - up    : yabai -m window --grid 6:32:12:0:8:4
-# shift + ctrl - right : yabai -m window --grid 6:32:23:1:8:4
-
 # Rotate windows clockwise/counter-clockwise
 alt - r: yabai -m space --rotate 90
 shift + alt - r: yabai -m space --rotate 270
@@ -58,21 +53,6 @@ alt - b: yabai -m space --balance
 
 # Focus the previous used space
 alt - tab: yabai -m space --focus recent
-
-# Open/close new spaces
-#ctrl - n: yabai -m space --create; yabai -m space --focus last
-#ctrl - w: yabai -m space --destroy
-
-# Change space focus
-# alt - 1: yabai -m space --focus 1
-# alt - 2: yabai -m space --focus 2
-# alt - 3: yabai -m space --focus 3
-# alt - 4: yabai -m space --focus 4
-# alt - 5: yabai -m space --focus 5
-# alt - 6: yabai -m space --focus 6
-# alt - 7: yabai -m space --focus 7
-# alt - 8: yabai -m space --focus 8
-# alt - 9: yabai -m space --focus 9
 
 # Send current window to space
 ctrl + alt - 1: yabai -m window --space 1
