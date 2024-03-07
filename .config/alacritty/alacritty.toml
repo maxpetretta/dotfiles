@@ -1,0 +1,220 @@
+live_config_reload = true
+
+[colors.bright]
+black = "#727072"
+blue = "#78dce8"
+cyan = "#ab9df2"
+green = "#a9dc76"
+magenta = "#fc9867"
+red = "#ff6188"
+white = "#fcfcfa"
+yellow = "#ffd866"
+
+[colors.cursor]
+cursor = "#ffffff"
+text = "#000000"
+
+[colors.normal]
+black = "#727072"
+blue = "#78dce8"
+cyan = "#ab9df2"
+green = "#a9dc76"
+magenta = "#fc9867"
+red = "#ff6188"
+white = "#fcfcfa"
+yellow = "#ffd866"
+
+[colors.primary]
+background = "#2d2a2e"
+foreground = "#fcfcfa"
+
+[colors.search.focused_match]
+background = "#ff9732"
+foreground = "#000000"
+
+[colors.search.matches]
+background = "#ffff00"
+foreground = "#000000"
+
+[colors.selection]
+background = "#434144"
+text = "#fcfcfa"
+
+[cursor]
+blink_interval = 600
+blink_timeout = 0
+
+[cursor.style]
+blinking = "Always"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 13.0
+
+[font.bold]
+family = "MonaspiceAr Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "MonaspiceAr Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "MonaspiceAr Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "MonaspiceAr Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 0
+y = 1
+
+[[hints.enabled]]
+command = "open"
+hyperlinks = true
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0000c"
+key = "T"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0000!"
+key = "T"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0000%"
+key = "D"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0000\""
+key = "D"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u00001"
+key = "Key1"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00002"
+key = "Key2"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00003"
+key = "Key3"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00004"
+key = "Key4"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00005"
+key = "Key5"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00006"
+key = "Key6"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00007"
+key = "Key7"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00008"
+key = "Key8"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00009"
+key = "Key9"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0000p"
+key = "LBracket"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0000n"
+key = "RBracket"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0000,"
+key = "Comma"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0000$"
+key = "Comma"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0000j"
+key = "P"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0000L"
+key = "L"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0000:"
+key = "K"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0000z"
+key = "Z"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0000r"
+key = "R"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0000x"
+key = "W"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0000d"
+key = "Q"
+mods = "Command"
+
+[scrolling]
+history = 100000
+multiplier = 3
+
+[window]
+decorations = "buttonless"
+dynamic_padding = true
+
+[window.dimensions]
+columns = 90
+lines = 60
+
+[window.padding]
+x = 15
+y = 1
