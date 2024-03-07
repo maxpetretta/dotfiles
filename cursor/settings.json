@@ -1,7 +1,7 @@
 {
   /* Editor settings */
   "editor.fontSize": 13,
-  "editor.fontFamily": "'Monaspace Argon', monospace",
+  "editor.fontFamily": "'MonaspiceAr Nerd Font', monospace",
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
   "[python][solidity]": {

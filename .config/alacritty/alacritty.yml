@@ -24,16 +24,16 @@ scrolling:
 
 font:
   normal:
-    family: MonaspiceAr Nerd Font
+    family: FiraCode Nerd Font
     style: Regular
   bold:
-    family: MonaspiceAr Nerd Font
+    family: FiraCode Nerd Font
     style: Bold
   italic:
-    family: MonaspiceAr Nerd Font
+    family: FiraCode Nerd Font
     style: Italic
   bold_italic:
-    family: MonaspiceAr Nerd Font
+    family: FiraCode Nerd Font
     style: Bold Italic
 
   size: 13.0
