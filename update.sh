@@ -1,6 +1,5 @@
 #!/bin/bash
 rm -rf ./.config
-rm -rf ./vscode
 rm -rf ./cursor
 
 cp ~/.bashrc .
@@ -10,10 +9,6 @@ cp -a ~/.config .
 
 rm ./Brewfile
 brew bundle dump --all
-
-mkdir ./vscode
-code --list-extensions > ./vscode/.extensions
-cp ~/Library/Application\ Support/Code/User/settings.json ./vscode/settings.json
 
 mkdir ./cursor
 cursor --list-extensions > ./cursor/.extensions

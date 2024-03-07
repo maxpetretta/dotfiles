@@ -17,7 +17,6 @@ abbr -a gg git graph
 abbr -a glo git pull origin
 
 # custom
-abbr -a code code-insiders
 abbr -a refresh source ~/.config/fish/config.fish
 abbr -a prd pnpm run dev 
 abbr -a cf cloudflared tunnel run
