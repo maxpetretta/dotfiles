@@ -2,7 +2,7 @@
 	name = Max Petretta
 	email = git@maxpetretta.com
 [core]
-	editor = vim
+	editor = nvim
 [alias]
 	graph = log --all --decorate --oneline --graph
 	long = log --all --decorate --graph --abbrev-commit --date=relative
