@@ -11,13 +11,15 @@ yabai -m config mouse_modifier               alt
 
 # Unmanaged applications
 yabai -m rule --add app="^1Password$" manage=off
+yabai -m rule --add app="^Alacritty$" manage=off grid=9:17:4:2:9:5
 yabai -m rule --add app="^AppCleaner$" manage=off
-yabai -m rule --add app="^Arc$" title="^(Max|General|Shortcuts|Links|Advanced)$" manage=off
+yabai -m rule --add app="^Arc$" title="^(Max|General|Profiles|Links|Shortcuts|Icon|Advanced)$" manage=off
 yabai -m rule --add app="^CleanShot X$" manage=off
 yabai -m rule --add app="^Digital Color Meter$" manage=off sticky=on
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Gather$" manage=off
 yabai -m rule --add app="^ImageOptim$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^System Information$" manage=off

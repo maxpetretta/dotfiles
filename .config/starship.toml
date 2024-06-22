@@ -1,3 +1,5 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 [aws]
 symbol = "  "
 
@@ -10,6 +12,9 @@ symbol = " "
 [conda]
 symbol = " "
 
+[crystal]
+symbol = " "
+
 [dart]
 symbol = " "
 
@@ -21,10 +26,13 @@ style = "bold blue"
 symbol = " "
 
 [elixir]
-symbol = " "
+symbol = " "
 
 [elm]
 symbol = " "
+
+[fennel]
+symbol = " "
 
 [fossil_branch]
 symbol = " "
@@ -32,9 +40,6 @@ symbol = " "
 [git_branch]
 symbol = " "
 style = "bold green"
-
-[git_status]
-style = "bold red"
 
 [golang]
 symbol = " "
@@ -46,7 +51,7 @@ symbol = " "
 symbol = " "
 
 [haxe]
-symbol = "⌘ "
+symbol = " "
 
 [hg_branch]
 symbol = " "
@@ -59,6 +64,9 @@ symbol = " "
 
 [julia]
 symbol = " "
+
+[kotlin]
+symbol = " "
 
 [lua]
 symbol = " "
@@ -77,6 +85,9 @@ symbol = " "
 
 [nodejs]
 symbol = " "
+
+[ocaml]
+symbol = " "
 
 [os.symbols]
 Alpaquita = " "
@@ -122,8 +133,14 @@ Windows = "󰍲 "
 [package]
 symbol = "󰏗 "
 
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
 [pijul_channel]
-symbol = "🪺 "
+symbol = " "
 
 [python]
 symbol = " "
@@ -140,10 +157,13 @@ symbol = " "
 [scala]
 symbol = " "
 
-[spack]
-symbol = "🅢 "
-
 [sudo]
 symbol = "root"
 style = "bold red"
 disabled = false
+
+[swift]
+symbol = " "
+
+[zig]
+symbol = " "
