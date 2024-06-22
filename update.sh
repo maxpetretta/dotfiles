@@ -11,5 +11,5 @@ rm ./Brewfile
 brew bundle dump --all
 
 mkdir ./cursor
-cursor --list-extensions > ./cursor/.extensions
+cursor --list-extensions >./cursor/.extensions
 cp ~/Library/Application\ Support/Cursor/User/settings.json ./cursor/settings.json

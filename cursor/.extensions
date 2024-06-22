@@ -1,29 +1,16 @@
 FaroSystemAppender constructor
-biomejs.biome
 bradlc.vscode-tailwindcss
 chakrounanas.turbo-console-log
 christian-kohler.path-intellisense
 dbaeumer.vscode-eslint
-denoland.vscode-deno
-donjayamanne.githistory
-eamodio.gitlens
 editorconfig.editorconfig
 esbenp.prettier-vscode
-formulahendry.auto-rename-tag
-formulahendry.code-runner
-github.codespaces
-github.copilot
-github.copilot-chat
 github.vscode-github-actions
-grapecity.gc-excelviewer
-graphql.vscode-graphql
-graphql.vscode-graphql-syntax
+golang.go
 herrmannplatz.npm-dependency-links
 juanblanco.solidity
 khaeransori.json2csv
 monokai.theme-monokai-pro-vscode
-ms-azuretools.vscode-docker
-ms-vscode-remote.remote-containers
 pkief.material-icon-theme
 streetsidesoftware.code-spell-checker
 svelte.svelte-vscode
@@ -31,4 +18,5 @@ tamasfe.even-better-toml
 tyriar.sort-lines
 unifiedjs.vscode-mdx
 vscodevim.vim
-wix.vscode-import-cost
+waderyan.gitblame
+yoavbls.pretty-ts-errors

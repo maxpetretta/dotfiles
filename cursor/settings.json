@@ -2,6 +2,7 @@
   /* Editor settings */
   "editor.fontSize": 13,
   "editor.fontFamily": "'MonaspiceAr Nerd Font', monospace",
+  // "editor.fontFamily": "FiraCode Nerd Font",
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
   "[python][solidity]": {
@@ -13,9 +14,10 @@
   "editor.bracketPairColorization.enabled": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
-  },
+  // "editor.codeActionsOnSave": {
+  //   "source.organizeImports": "explicit"
+  // },
+  "editor.linkedEditing": true,
   "editor.inlineSuggest.enabled": true,
   "editor.quickSuggestions": {
     "strings": true
@@ -71,6 +73,22 @@
     {
       "before": ["d", "d"],
       "after": ["\"", "_", "d", "d"]
+    },
+    {
+      "before": ["leader", "n"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["leader", "e"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["leader", "i"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+      "before": ["leader", "o"],
+      "commands": ["workbench.action.focusRightGroup"]
     }
   ],
 
@@ -89,5 +107,7 @@
   "prettier.semi": false,
   "workbench.activityBar.orientation": "horizontal",
   "cursor.cpp.disabledLanguages": ["plaintext", "markdown", "scminput"],
-  "cSpell.userWords": ["Petretta"]
+  "cSpell.userWords": ["Petretta"],
+  "editor.accessibilitySupport": "off",
+  "cursor.cmdk.autoSelect": false
 }
