@@ -11,8 +11,8 @@ white = "#fcfcfa"
 yellow = "#ffd866"
 
 [colors.cursor]
-cursor = "#ffffff"
-text = "#000000"
+cursor = "#fcfcfa"
+text = "#2d2a2e"
 
 [colors.normal]
 black = "#727072"
@@ -37,7 +37,7 @@ background = "#ffff00"
 foreground = "#000000"
 
 [colors.selection]
-background = "#434144"
+background = "#424144"
 text = "#fcfcfa"
 
 [cursor]
@@ -90,6 +90,11 @@ mods = "Command"
 [[keyboard.bindings]]
 chars = "\u001b[27;5;9~"
 key = "Tab"
+# mods = "Control"
+
+# [[keyboard.bindings]]
+# chars = "\u0000."
+# key = "."
 # mods = "Control"
 
 # [[keyboard.bindings]]

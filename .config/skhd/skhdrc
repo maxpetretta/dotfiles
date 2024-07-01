@@ -1,6 +1,5 @@
 # Open applications
 alt - return: open -a Alacritty && alacritty msg create-window
-shift + alt - return: open -a Alacritty && alacritty msg create-window
 alt - a: open -a Arc && osascript -e 'tell application "System Events" to keystroke "n" using {command down}'
 
 # Change window focus
@@ -22,10 +21,10 @@ shift + alt - i: yabai -m window --warp north
 shift + alt - o: yabai -m window --warp east
 
 # Move floating windows
-shift + ctrl - n: yabai -m window --move rel:-480:0
-shift + ctrl - e: yabai -m window --move rel:0:80
-shift + ctrl - i: yabai -m window --move rel:0:-80
-shift + ctrl - o: yabai -m window --move rel:480:0
+# shift + ctrl - n: yabai -m window --move rel:-480:0
+# shift + ctrl - e: yabai -m window --move rel:0:80
+# shift + ctrl - i: yabai -m window --move rel:0:-80
+# shift + ctrl - o: yabai -m window --move rel:480:0
 
 # Rotate windows clockwise/counter-clockwise
 alt - r: yabai -m space --rotate 90
@@ -51,9 +50,6 @@ alt - g: yabai -m space --toggle padding; yabai -m space --toggle gap
 # Rebalance window sizes
 alt - b: yabai -m space --balance
 
-# Focus the previous used space
-alt - tab: yabai -m space --focus recent
-
 # Send current window to space
 ctrl + alt - 1: yabai -m window --space 1
 ctrl + alt - 2: yabai -m window --space 2
@@ -77,5 +73,6 @@ shift + alt - 8: yabai -m window --space 8; skhd -k "alt - 8"
 shift + alt - 9: yabai -m window --space 9; skhd -k "alt - 9"
 
 # Restart/stop yabai
+shift + ctrl + alt - s: yabai --start-service
 shift + ctrl + alt - r: yabai --restart-service
 shift + ctrl + alt - q: yabai --stop-service
