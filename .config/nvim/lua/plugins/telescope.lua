@@ -5,6 +5,7 @@ return {
       "<leader><space>",
       LazyVim.pick("find_files", {
         root = false,
+        hidden = true,
       }),
       desc = "Find Files (cwd)",
     },
