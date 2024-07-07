@@ -1,4 +1,5 @@
 FaroSystemAppender constructor
+biomejs.biome
 bradlc.vscode-tailwindcss
 chakrounanas.turbo-console-log
 christian-kohler.path-intellisense
@@ -8,6 +9,7 @@ esbenp.prettier-vscode
 github.vscode-github-actions
 golang.go
 herrmannplatz.npm-dependency-links
+johnnymorganz.stylua
 juanblanco.solidity
 khaeransori.json2csv
 monokai.theme-monokai-pro-vscode

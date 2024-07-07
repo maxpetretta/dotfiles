@@ -1,0 +1,14 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[directory]
+read_only = " 󰌾"
+style = "bold blue"
+
+[git_branch]
+symbol = " "
+style = "bold green"
+
+[sudo]
+symbol = "root"
+style = "bold red"
+disabled = false

@@ -1,3 +1,18 @@
+function brew_tree
+    set -l cyan (set_color cyan)
+    set -l white (set_color white)
+    brew leaves | xargs brew deps --formula --for-each | sed "s/^.*:/$cyan&$white/"
+end
+
+function export
+  set arr (echo $argv|tr = \n)
+  set -gx $arr[1] $arr[2]
+end
+
+function fish_greeting
+    neofetch
+end
+
 function office
 	if test (count $argv) -eq 0
 		echo -e "usage:\toffice <filename>\tAny number of files greater than 0 permitted"
