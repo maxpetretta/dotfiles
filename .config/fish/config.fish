@@ -1,5 +1,6 @@
-# fish abbreviations
+# fish scripts
 source ~/.config/fish/abbr.fish
+source ~/.config/fish/functions.fish
 
 # asdf version manager
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
