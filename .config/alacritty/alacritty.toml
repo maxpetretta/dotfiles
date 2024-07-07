@@ -88,34 +88,14 @@ enabled = true
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u001b[27;5;9~"
-key = "Tab"
+chars = "\u001b[24~\u0009"
+key = "I"
+mods = "Control"
+
+# [[keyboard.bindings]]
+# chars = "\u001b[27;5;9~"
+# key = "Tab"
 # mods = "Control"
-
-# [[keyboard.bindings]]
-# chars = "\u0000."
-# key = "."
-# mods = "Control"
-
-# [[keyboard.bindings]]
-# chars = "\u0000c"
-# key = "T"
-# mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u0000!"
-# key = "T"
-# mods = "Command|Shift"
-
-# [[keyboard.bindings]]
-# chars = "\u0000%"
-# key = "D"
-# mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u0000\""
-# key = "D"
-# mods = "Command|Shift"
 
 [[keyboard.bindings]]
 chars = "\u00001"
@@ -141,81 +121,6 @@ mods = "Command"
 chars = "\u00005"
 key = "Key5"
 mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u00006"
-# key = "Key6"
-# mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u00007"
-# key = "Key7"
-# mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u00008"
-# key = "Key8"
-# mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u00009"
-# key = "Key9"
-# mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u0000p"
-# key = "LBracket"
-# mods = "Command|Shift"
-
-# [[keyboard.bindings]]
-# chars = "\u0000n"
-# key = "RBracket"
-# mods = "Command|Shift"
-
-# [[keyboard.bindings]]
-# chars = "\u0000,"
-# key = "Comma"
-# mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u0000$"
-# key = "Comma"
-# mods = "Command|Shift"
-
-# [[keyboard.bindings]]
-# chars = "\u0000j"
-# key = "P"
-# mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u0000L"
-# key = "L"
-# mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u0000:"
-# key = "K"
-# mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u0000z"
-# key = "Z"
-# mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u0000r"
-# key = "R"
-# mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u0000x"
-# key = "W"
-# mods = "Command"
-
-# [[keyboard.bindings]]
-# chars = "\u0000d"
-# key = "Q"
-# mods = "Command"
 
 [scrolling]
 history = 100000
