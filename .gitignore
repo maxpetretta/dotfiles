@@ -1,20 +1,9 @@
-.DS_Store
-node_modules
-
-.config/configstore
-.config/github-copilot
-.config/iterm2/AppSupport
-.config/nvim
-.config/op
-.config/raycast/config.json
-.config/raycast/extensions
-
+# Fish
 .config/fish/completions/*
-!.config/fish/completions/fish_logo.fish
-.config/fish/conf.d
+.config/fish/conf.d/*
 .config/fish/functions/*
-!.config/fish/functions/brew_tree.fish
-!.config/fish/functions/export.fish
-!.config/fish/functions/fish_greeting.fish
-!.config/fish/functions/fish_logo.fish
-!.config/fish/functions/office.fish
+.config/fish/themes/*
+.config/fish/fish_variables
+
+# Misc
+.DS_Store

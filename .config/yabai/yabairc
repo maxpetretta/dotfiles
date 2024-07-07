@@ -1,13 +1,13 @@
 # Window settings
-yabai -m config layout                       bsp
-yabai -m config top_padding                  15
-yabai -m config bottom_padding               15
-yabai -m config left_padding                 15
-yabai -m config right_padding                15
-yabai -m config window_gap                   15
+yabai -m config layout          bsp
+yabai -m config top_padding     15
+yabai -m config bottom_padding  15
+yabai -m config left_padding    15
+yabai -m config right_padding   15
+yabai -m config window_gap      15
 
 # Mouse settings
-yabai -m config mouse_modifier               alt
+yabai -m config mouse_modifier  alt
 
 # Unmanaged applications
 yabai -m rule --add app="^1Password$" manage=off
