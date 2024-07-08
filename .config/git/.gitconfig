@@ -2,7 +2,7 @@
 	name = Max Petretta
 	email = m@maxp.co
 [core]
-	editor = vim
+	editor = nvim
 [alias]
 	graph = log --all --decorate --oneline --graph
 	long = log --all --decorate --graph --abbrev-commit --date=relative
@@ -10,3 +10,4 @@
 	defaultBranch = master
 [credential]
 	helper = osxkeychain
+

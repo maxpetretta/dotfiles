@@ -1,0 +1,6 @@
+[tools]
+usage = "latest"
+node = "latest"
+go = "latest"
+pnpm = "latest"
+python = "latest"

@@ -4,7 +4,7 @@
       force: true
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     # Directories
@@ -13,11 +13,11 @@
     ~/.config/btop: .config/btop
     ~/.config/fish: .config/fish
     ~/.config/gh: .config/gh
-    ~/.config/neofetch: .config/neofetch
+    ~/.config/mise: .config/mise
     ~/.config/nvim: .config/nvim
     ~/.config/skhd: .config/skhd
     ~/.config/yabai: .config/yabai
-    
+
     # Files
     ~/.bashrc: .config/bash/.bashrc
     ~/.config/starship.toml: .config/starship/starship.toml
@@ -25,6 +25,12 @@
     ~/.tmux.conf: .config/tmux/.tmux.conf
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - [rm -f .config/homebrew/Brewfile && brew bundle dump --all --file=.config/homebrew/Brewfile, Save snapshot of homebrew packages]
-  - [mkdir -p .config/cursor && cursor --list-extensions > .config/cursor/.extensions && cp ~/Library/Application\ Support/Cursor/User/settings.json .config/cursor/settings.json, Save all cursor settings and extensions]
+    - [git submodule update --init --recursive, Installing submodules]
+    - [
+        rm -f .config/homebrew/Brewfile && brew bundle dump --all --file=.config/homebrew/Brewfile,
+        Save snapshot of homebrew packages,
+      ]
+    - [
+        mkdir -p .config/cursor && cursor --list-extensions > .config/cursor/.extensions && cp ~/Library/Application\ Support/Cursor/User/settings.json .config/cursor/settings.json,
+        Save all cursor settings and extensions,
+      ]
