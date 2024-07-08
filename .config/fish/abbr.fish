@@ -16,9 +16,16 @@ abbr -a gs git status
 abbr -a gg git graph
 abbr -a glo git pull origin
 
+# tmux
+abbr -a ta tmux attach-session
+abbr -a tas tmux attach-session -t
+abbr -a td tmux detach
+abbr -a ts tmux list-sessions
+abbr -a tns tmux new-session -s
+abbr -a tks tmux kill-session -t
+
 # custom
 abbr -a vim nvim
 abbr -a code cursor
-abbr -a prd pnpm run dev 
 abbr -a cf cloudflared tunnel run
 abbr -a refresh source ~/.config/fish/config.fish
