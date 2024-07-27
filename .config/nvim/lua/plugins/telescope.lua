@@ -13,6 +13,7 @@ return {
       "<leader>/",
       LazyVim.pick("live_grep", {
         root = false,
+        hidden = true,
       }),
       desc = "Grep (cwd)",
     },
