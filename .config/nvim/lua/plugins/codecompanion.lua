@@ -46,6 +46,14 @@ return {
       noremap = true,
       silent = true,
     },
+    {
+      "<leader>ai",
+      "<cmd>'<,'>CodeCompanion<cr>",
+      desc = "Code Companion Inline",
+      mode = { "v" },
+      noremap = true,
+      silent = true,
+    },
     { "ga", "<cmd>CodeCompanionAdd<cr>", desc = "Code Companion Add", mode = { "v" }, noremap = true, silent = true },
   },
 }
