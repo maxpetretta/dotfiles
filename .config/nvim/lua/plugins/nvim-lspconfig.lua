@@ -8,6 +8,11 @@ return {
           tsserver = {
             maxTsServerMemory = 8192,
           },
+          vtsls = {
+            experimental = {
+              maxInlayHintLength = 25,
+            },
+          },
         },
       },
     },
