@@ -4,6 +4,7 @@ abbr -a ... cd ../..
 abbr -a .... cd ../../..
 abbr -a ..... cd ../../../..
 abbr -a ...... cd ../../../../..
+abbr -a cd z
 
 # ls
 abbr -a ls eza --all --classify
@@ -15,6 +16,7 @@ abbr -a gi git init
 abbr -a gs git status
 abbr -a gg git graph
 abbr -a glo git pull origin
+abbr -a lg lazygit
 
 # tmux
 abbr -a ta tmux attach-session
