@@ -10,3 +10,11 @@ vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
 
 -- Expand "cc" to "CodeCompanion"
 vim.cmd([[cab cc CodeCompanion]])
+
+-- Set .example filetypes
+vim.filetype.add({
+  extension = {
+    example = "conf",
+    vars = "conf",
+  },
+})

@@ -9,9 +9,6 @@ return {
       opts = {},
     },
   },
-  -- config = function()
-  --   vim.cmd([[cab cc CodeCompanion]])
-  -- end,
   opts = function(_, opts)
     opts.adapters = {
       openai = require("codecompanion.adapters").use("openai", {

@@ -2,21 +2,18 @@
   /* Editor settings */
   "editor.fontSize": 13,
   "editor.fontFamily": "'MonaspiceAr Nerd Font', monospace",
-  // "editor.fontFamily": "FiraCode Nerd Font",
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
   "[python][solidity]": {
     "editor.tabSize": 4
   },
   "editor.rulers": [80, 120],
-  // "editor.wordWrapColumn": 100,
   "editor.minimap.enabled": true,
   "editor.bracketPairColorization.enabled": false,
-  // "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.defaultFormatter": "biomejs.biome",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.organizeImports.biome": "explicit"
+    "source.organizeImports.biome": "always"
   },
   "editor.linkedEditing": true,
   "editor.inlineSuggest.enabled": true,
@@ -114,5 +111,9 @@
   "cSpell.userWords": ["Petretta"],
   "editor.accessibilitySupport": "off",
   "cursor.cmdk.autoSelect": false,
-  "workbench.editor.editorActionsLocation": "titleBar"
+  "workbench.editor.editorActionsLocation": "titleBar",
+  "[sql]": {
+    "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc"
+  },
+  "search.useParentIgnoreFiles": true
 }
