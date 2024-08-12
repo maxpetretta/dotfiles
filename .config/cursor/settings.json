@@ -16,11 +16,10 @@
     "source.organizeImports.biome": "always"
   },
   "editor.linkedEditing": true,
-  "editor.inlineSuggest.enabled": true,
   "editor.quickSuggestions": {
     "strings": true
   },
-  "workbench.editor.showTabs": "single",
+  "workbench.editor.showTabs": "none",
   "workbench.sideBar.location": "right",
   "workbench.colorTheme": "Monokai Pro",
   "workbench.iconTheme": "material-icon-theme",
@@ -29,12 +28,14 @@
   "terminal.external.osxExec": "Alacritty.app",
   "workbench.colorCustomizations": {
     "[Monokai Pro]": {
+      "terminal.ansiBlack": "#727072",
       "terminal.ansiBlue": "#78dce8",
       "terminal.ansiBrightBlue": "#78dce8",
-      "terminal.ansiCyan": "#ab9df2",
       "terminal.ansiBrightCyan": "#ab9df2",
+      "terminal.ansiBrightMagenta": "#fc9867",
+      "terminal.ansiCyan": "#ab9df2",
       "terminal.ansiMagenta": "#fc9867",
-      "terminal.ansiBrightMagenta": "#fc9867"
+      "terminal.background": "#2d2a2e",
     }
   },
 
@@ -42,8 +43,8 @@
   "files.associations": {
     "*.css": "tailwindcss",
     "*.svg": "html",
+    "*.example": "properties",
     "*.vars": "properties",
-    "*.example": "properties"
   },
 
   /* Explorer settings */
@@ -51,44 +52,44 @@
   "explorer.confirmDragAndDrop": false,
 
   /* Vim mode settings */
-  "vim.leader": "<space>",
-  "vim.sneak": true,
-  "vim.hlsearch": true,
-  "vim.smartRelativeLine": true,
+  // "vim.leader": "<space>",
+  // "vim.sneak": true,
+  // "vim.hlsearch": true,
+  // "vim.smartRelativeLine": true,
   "editor.lineNumbers": "relative",
-  "editor.cursorSurroundingLines": 10,
+  "editor.cursorSurroundingLines": 9,
 
   // Do not copy into buffer on delete
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["d"],
-      "after": ["\"", "_", "d"]
-    },
-    {
-      "before": ["D"],
-      "after": ["\"", "_", "D"]
-    },
-    {
-      "before": ["d", "d"],
-      "after": ["\"", "_", "d", "d"]
-    },
-    {
-      "before": ["leader", "n"],
-      "commands": ["workbench.action.focusLeftGroup"]
-    },
-    {
-      "before": ["leader", "e"],
-      "commands": ["workbench.action.focusBelowGroup"]
-    },
-    {
-      "before": ["leader", "i"],
-      "commands": ["workbench.action.focusAboveGroup"]
-    },
-    {
-      "before": ["leader", "o"],
-      "commands": ["workbench.action.focusRightGroup"]
-    }
-  ],
+  // "vim.normalModeKeyBindingsNonRecursive": [
+  //   {
+  //     "before": ["d"],
+  //     "after": ["\"", "_", "d"]
+  //   },
+  //   {
+  //     "before": ["D"],
+  //     "after": ["\"", "_", "D"]
+  //   },
+  //   {
+  //     "before": ["d", "d"],
+  //     "after": ["\"", "_", "d", "d"]
+  //   },
+  //   {
+  //     "before": ["leader", "n"],
+  //     "commands": ["workbench.action.focusLeftGroup"]
+  //   },
+  //   {
+  //     "before": ["leader", "e"],
+  //     "commands": ["workbench.action.focusBelowGroup"]
+  //   },
+  //   {
+  //     "before": ["leader", "i"],
+  //     "commands": ["workbench.action.focusAboveGroup"]
+  //   },
+  //   {
+  //     "before": ["leader", "o"],
+  //     "commands": ["workbench.action.focusRightGroup"]
+  //   }
+  // ],
 
   /* Extension settings */
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -105,15 +106,19 @@
   },
 
   /* Cursor settings */
-  "prettier.semi": false,
+  // "prettier.semi": false,
   "workbench.activityBar.orientation": "horizontal",
   "cursor.cpp.disabledLanguages": ["plaintext", "markdown", "scminput"],
-  "cSpell.userWords": ["Petretta"],
+  // "cSpell.userWords": ["Petretta"],
   "editor.accessibilitySupport": "off",
   "cursor.cmdk.autoSelect": false,
-  "workbench.editor.editorActionsLocation": "titleBar",
+  // "workbench.editor.editorActionsLocation": "default",
   "[sql]": {
     "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc"
   },
-  "search.useParentIgnoreFiles": true
+  "search.useParentIgnoreFiles": true,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "workbench.layoutControl.enabled": false
 }

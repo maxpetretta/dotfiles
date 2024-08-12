@@ -3,23 +3,25 @@
 -- Add any additional keymaps here
 
 -- Moving between splits & tmux panes
-vim.keymap.set("n", "<C-n>", require("smart-splits").move_cursor_left, { desc = "Move Cursor Left" })
-vim.keymap.set("n", "<C-e>", require("smart-splits").move_cursor_down, { desc = "Move Cursor Down" })
-vim.keymap.set("n", "<C-i>", require("smart-splits").move_cursor_up, { desc = "Move Cursor Up" }) -- Overrides jumplist next
-vim.keymap.set("n", "<C-o>", require("smart-splits").move_cursor_right, { desc = "Move Cursor Right" }) -- Overrides jumplist previous
--- vim.keymap.set("n", "<C-Tab>", require("smart-splits").move_cursor_previous, { desc = "Move Cursor Previous" })
+if not vim.g.vscode then
+  vim.keymap.set("n", "<C-n>", require("smart-splits").move_cursor_left, { desc = "Move Cursor Left" })
+  vim.keymap.set("n", "<C-e>", require("smart-splits").move_cursor_down, { desc = "Move Cursor Down" })
+  vim.keymap.set("n", "<C-i>", require("smart-splits").move_cursor_up, { desc = "Move Cursor Up" }) -- Overrides jumplist next
+  vim.keymap.set("n", "<C-o>", require("smart-splits").move_cursor_right, { desc = "Move Cursor Right" }) -- Overrides jumplist previous
+  -- vim.keymap.set("n", "<C-Tab>", require("smart-splits").move_cursor_previous, { desc = "Move Cursor Previous" })
 
--- Resize splits & tmux panes
-vim.keymap.set("n", "<C-Left>", require("smart-splits").resize_left, { desc = "Resize Left" })
-vim.keymap.set("n", "<C-Down>", require("smart-splits").resize_down, { desc = "Resize Down" })
-vim.keymap.set("n", "<C-Up>", require("smart-splits").resize_up, { desc = "Resize Up" })
-vim.keymap.set("n", "<C-Right>", require("smart-splits").resize_right, { desc = "Resize Right" })
+  -- Resize splits & tmux panes
+  vim.keymap.set("n", "<C-Left>", require("smart-splits").resize_left, { desc = "Resize Left" })
+  vim.keymap.set("n", "<C-Down>", require("smart-splits").resize_down, { desc = "Resize Down" })
+  vim.keymap.set("n", "<C-Up>", require("smart-splits").resize_up, { desc = "Resize Up" })
+  vim.keymap.set("n", "<C-Right>", require("smart-splits").resize_right, { desc = "Resize Right" })
 
--- Swapping buffers between windows
-vim.keymap.set("n", "<leader>bn", require("smart-splits").swap_buf_left, { desc = "Swap Buffer Left" })
-vim.keymap.set("n", "<leader>be", require("smart-splits").swap_buf_down, { desc = "Swap Buffer Down" })
-vim.keymap.set("n", "<leader>bi", require("smart-splits").swap_buf_up, { desc = "Swap Buffer Up" })
-vim.keymap.set("n", "<leader>bo", require("smart-splits").swap_buf_right, { desc = "Swap Buffer Right" })
+  -- Swapping buffers between windows
+  vim.keymap.set("n", "<leader>bn", require("smart-splits").swap_buf_left, { desc = "Swap Buffer Left" })
+  vim.keymap.set("n", "<leader>be", require("smart-splits").swap_buf_down, { desc = "Swap Buffer Down" })
+  vim.keymap.set("n", "<leader>bi", require("smart-splits").swap_buf_up, { desc = "Swap Buffer Up" })
+  vim.keymap.set("n", "<leader>bo", require("smart-splits").swap_buf_right, { desc = "Swap Buffer Right" })
+end
 
 -- Move lines
 vim.keymap.set("n", "<A-Down>", "<cmd>m .+1<cr>==", { desc = "Move Line Down" })
