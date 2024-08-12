@@ -4,7 +4,6 @@ abbr -a ... cd ../..
 abbr -a .... cd ../../..
 abbr -a ..... cd ../../../..
 abbr -a ...... cd ../../../../..
-abbr -a cd z
 
 # ls
 abbr -a ls eza --all --classify

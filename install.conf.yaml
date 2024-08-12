@@ -8,8 +8,10 @@
 
 - link:
     # Directories
+    ~/.config/aerospace: .config/aerospace
     ~/.config/alacritty: .config/alacritty
     ~/.config/bash: .config/bash
+    ~/.config/borders: .config/borders
     ~/.config/btop: .config/btop
     ~/.config/fish: .config/fish
     ~/.config/gh: .config/gh
