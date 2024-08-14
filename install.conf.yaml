@@ -15,10 +15,10 @@
     ~/.config/btop: .config/btop
     ~/.config/fish: .config/fish
     ~/.config/gh: .config/gh
+    ~/.config/kitty: .config/kitty
     ~/.config/mise: .config/mise
     ~/.config/nvim: .config/nvim
-    ~/.config/skhd: .config/skhd
-    ~/.config/yabai: .config/yabai
+    ~/.config/wezterm: .config/wezterm
 
     # Files
     ~/.bashrc: .config/bash/.bashrc
