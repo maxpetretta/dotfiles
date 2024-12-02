@@ -51,6 +51,12 @@ config.colors = {
 -- Window
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
+config.window_padding = {
+	left = 22,
+	right = 22,
+	top = 18,
+	bottom = 0,
+}
 
 -- Cursor
 config.default_cursor_style = "BlinkingBlock"

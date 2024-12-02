@@ -1,0 +1,71 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+[
+  {
+    "bindings": {
+      // "cmd-k": "command_palette::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-k cmd-left": [
+        "workspace::ActivatePaneInDirection",
+        "Left"
+      ],
+      "cmd-shift-k cmd-right": [
+        "workspace::ActivatePaneInDirection",
+        "Right"
+      ],
+      "cmd-shift-k cmd-up": [
+        "workspace::ActivatePaneInDirection",
+        "Up"
+      ],
+      "cmd-shift-k cmd-down": [
+        "workspace::ActivatePaneInDirection",
+        "Down"
+      ]
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-d": "pane::SplitRight",
+      "cmd-shift-d": "pane::SplitDown",
+      "ctrl-h": [
+        "workspace::SendKeystrokes",
+        "cmd-shift-k cmd-left escape"
+      ],
+      "ctrl-j": [
+        "workspace::SendKeystrokes",
+        "cmd-shift-k cmd-down escape"
+      ],
+      "ctrl-k": [
+        "workspace::SendKeystrokes",
+        "cmd-shift-k cmd-up escape"
+      ],
+      "ctrl-l": [
+        "workspace::SendKeystrokes",
+        "cmd-shift-k cmd-right escape"
+      ],
+      "ctrl-n": [
+        "workspace::SendKeystrokes",
+        "cmd-shift-k cmd-left escape"
+      ],
+      "ctrl-e": [
+        "workspace::SendKeystrokes",
+        "cmd-shift-k cmd-down escape"
+      ],
+      "ctrl-i": [
+        "workspace::SendKeystrokes",
+        "cmd-shift-k cmd-up escape"
+      ],
+      "ctrl-o": [
+        "workspace::SendKeystrokes",
+        "cmd-shift-k cmd-right escape"
+      ]
+    }
+  }
+]

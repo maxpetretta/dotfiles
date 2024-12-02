@@ -1,0 +1,27 @@
+# Font settings
+font-family = "MonaspiceAr Nerd Font"
+font-feature = calt
+font-feature = -liga
+font-feature = -dlig
+adjust-cell-width = -1
+adjust-cell-height = 7
+adjust-underline-position = 7
+
+# Window settings
+theme = Monokai Pro
+window-padding-x = 11
+window-padding-y = 1
+window-new-tab-position = end
+
+# Keybindings
+keybind = ctrl+n=goto_split:left
+keybind = ctrl+e=goto_split:bottom
+keybind = ctrl+i=goto_split:top
+keybind = ctrl+o=goto_split:right
+keybind = alt+`=toggle_quick_terminal
+
+# OS settings
+auto-update = check
+macos-titlebar-style = tabs
+shell-integration-features = no-cursor,no-sudo,title
+quick-terminal-position = bottom

@@ -1,0 +1,115 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+{
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
+    },
+    "version": "2"
+  },
+  "theme": {
+    "mode": "system",
+    "light": "Solarized Light",
+    "dark": "Zedokai Darker"
+  },
+  // Editor settings
+  "tab_size": 2,
+  "buffer_font_size": 13,
+  "buffer_font_family": "MonaspiceAr Nerd Font",
+  "buffer_font_features": {
+    "calt": true // Enable texture healing
+  },
+  "buffer_line_height": "comfortable",
+  "ui_font_size": 14,
+  "ui_font_family": "Zed Plex Sans",
+  // Behavior settings
+  "autosave": "on_focus_change",
+  "extend_comment_on_newline": false,
+  // Scroll settings
+  "show_wrap_guides": true,
+  "wrap_guides": [
+    80,
+    120
+  ],
+  "preferred_line_length": 120,
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  // UI settings
+  "tab_bar": {
+    "show": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "chat_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  // Terminal settings
+  "terminal": {
+    "blinking": "on",
+    "copy_on_select": true,
+    "line_height": "standard"
+  },
+  // Vim settings
+  "vim_mode": true,
+  "vertical_scroll_margin": 9,
+  "relative_line_numbers": true,
+  "vim": {
+    "toggle_relative_line_numbers": true,
+    "use_multiline_find": true,
+    "use_smartcase_find": true
+  },
+  // Language settings
+  "languages": {
+    "Markdown": {
+      "show_inline_completions": false
+    }
+  },
+  // Biome settings
+  "formatter": {
+    "language_server": {
+      "name": "biome"
+    }
+  },
+  "lsp": {
+    "biome": {
+      "settings": {
+        "require_config_file": true
+      }
+    },
+    "vtsls": {
+      "initialization_options": {
+        "typescript": {
+          "preferences": {
+            "importModuleSpecifier": "non-relative"
+          }
+        }
+      }
+    }
+  },
+  "code_actions_on_format": {
+    "source.fixAll.biome": true,
+    "source.organizeImports.biome": true
+  },
+  // Theme overrides
+  "experimental.theme_overrides": {
+    "editor.wrap_guide": "#424043",
+    "terminal.ansi.black": "#727072",
+    "terminal.ansi.blue": "#78dce8",
+    "terminal.ansi.bright_blue": "#78dce8",
+    "terminal.ansi.cyan": "#ab9df2",
+    "terminal.ansi.bright_cyan": "#ab9df2",
+    "terminal.ansi.magenta": "#fc9867",
+    "terminal.ansi.bright_magenta": "#fc9867"
+  }
+}
