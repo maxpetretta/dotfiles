@@ -14,8 +14,8 @@
     ~/.config/borders: .config/borders
     ~/.config/btop: .config/btop
     ~/.config/fish: .config/fish
+    ~/.config/ghostty: .config/ghostty
     ~/.config/gh: .config/gh
-    ~/.config/kitty: .config/kitty
     ~/.config/mise: .config/mise
     ~/.config/nvim: .config/nvim
     ~/.config/wezterm: .config/wezterm
@@ -23,6 +23,8 @@
     # Files
     ~/.bashrc: .config/bash/.bashrc
     ~/.config/starship.toml: .config/starship/starship.toml
+    ~/.config/zed/keymap.json: .config/zed/keymap.json
+    ~/.config/zed/settings.json: .config/zed/settings.json
     ~/.gitconfig: .config/git/.gitconfig
     ~/.tmux.conf: .config/tmux/.tmux.conf
 

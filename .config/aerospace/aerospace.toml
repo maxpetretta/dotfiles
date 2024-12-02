@@ -44,8 +44,8 @@ key-mapping.preset = 'qwerty'
 # Drop it from your config, if you don't like this behavior
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
-on-focused-monitor-changed = ['move-mouse window-lazy-center']
-on-focus-changed = ['move-mouse window-lazy-center']
+# on-focused-monitor-changed = ['move-mouse window-lazy-center']
+# on-focus-changed = ['move-mouse window-lazy-center']
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
@@ -99,7 +99,7 @@ alt-comma = 'layout accordion horizontal vertical'
 alt-f = 'fullscreen'
 alt-t = 'layout floating tiling'
 
-alt-enter = 'exec-and-forget open -a Alacritty && alacritty msg create-window'
+# alt-enter = 'exec-and-forget open -a Alacritty && alacritty msg create-window'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 alt-h = 'focus left'
@@ -209,28 +209,35 @@ alt-shift-o = ['join-with right', 'mode main']
 
 [[on-window-detected]]
 if.app-id = 'com.1password.1password'
+check-further-callbacks = true
 run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
+check-further-callbacks = true
 run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
+check-further-callbacks = true
 run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
+check-further-callbacks = true
 run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.gather.Gather'
+check-further-callbacks = true
 run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'net.freemacsoft.AppCleaner'
+check-further-callbacks = true
 run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'net.pornel.ImageOptim'
+check-further-callbacks = true
 run = 'layout floating'

@@ -1,4 +1,3 @@
-FaroSystemAppender constructor
 asvetliakov.vscode-neovim
 biomejs.biome
 bradlc.vscode-tailwindcss
@@ -13,6 +12,7 @@ herrmannplatz.npm-dependency-links
 johnnymorganz.stylua
 juanblanco.solidity
 khaeransori.json2csv
+million.million-lint
 monokai.theme-monokai-pro-vscode
 pkief.material-icon-theme
 renesaarsoo.sql-formatter-vsc
@@ -21,6 +21,5 @@ svelte.svelte-vscode
 tamasfe.even-better-toml
 tyriar.sort-lines
 unifiedjs.vscode-mdx
-vscodevim.vim
 waderyan.gitblame
 yoavbls.pretty-ts-errors

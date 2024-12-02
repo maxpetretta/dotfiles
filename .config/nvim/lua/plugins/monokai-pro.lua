@@ -5,6 +5,7 @@ return {
       return {
         MiniIconsGrey = {}, -- Fixes crash w/ mini.nvim
         MiniIconsOrange = {},
+        MiniIconsGreen = {},
         FloatBorder = { fg = c.base.dimmed2 }, -- ChatGPT border
         ["@markup.raw.block.markdown"] = { bg = c.editor.background }, -- ChatGPT background
         NoiceCmdlineIcon = { fg = c.base.green }, -- Cmdline ">"
