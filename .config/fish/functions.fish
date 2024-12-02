@@ -10,7 +10,7 @@ function export
 end
 
 function fish_greeting
-    neofetch
+    fastfetch
 end
 
 function office
@@ -31,7 +31,7 @@ function office
         or string match -q '*.dotm' -- "$argv[1]";
         or string match -q '*.docb' -- "$argv[1]"
 			open -a "Microsoft Word" $argv[1]
-        
+
         # EXCEL
 		else if string match -q '*.xls' -- "$argv[1]";
         or string match -q '*.xlt' -- "$argv[1]";
@@ -40,7 +40,7 @@ function office
         or string match -q '*.xltx' -- "$argv[1]";
         or string match -q '*.xltm' -- "$argv[1]"
 			open -a "Microsoft Excel" $argv[1]
-		
+
         # POWERPOINT
         else if string match -q '*.ppt' -- "$argv[1]";
         or string match -q '*.pot' -- "$argv[1]";
@@ -55,7 +55,7 @@ function office
         or string match -q "*.sldx" -- "$argv[1]";
         or string match -q "*.sldm" -- "$argv[1]"
 			open -a "Microsoft PowerPoint" $argv[1]
-		
+
         else
 			echo -e "\033[91m$1 is not a recognized Word, Excel,; or PowerPoint file.\033[0m"
 		end

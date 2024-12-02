@@ -13,6 +13,7 @@
     ~/.config/bash: .config/bash
     ~/.config/borders: .config/borders
     ~/.config/btop: .config/btop
+    ~/.config/fastfetch: .config/fastfetch
     ~/.config/fish: .config/fish
     ~/.config/ghostty: .config/ghostty
     ~/.config/gh: .config/gh

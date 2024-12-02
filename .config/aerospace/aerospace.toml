@@ -233,6 +233,11 @@ check-further-callbacks = true
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = "com.mitchellh.ghostty"
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'net.freemacsoft.AppCleaner'
 check-further-callbacks = true
 run = 'layout floating'
