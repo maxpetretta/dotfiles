@@ -18,7 +18,7 @@ keybind = ctrl+n=goto_split:left
 keybind = ctrl+e=goto_split:bottom
 keybind = ctrl+i=goto_split:top
 keybind = ctrl+o=goto_split:right
-keybind = alt+`=toggle_quick_terminal
+keybind = global:alt+`=toggle_quick_terminal
 
 # OS settings
 auto-update = check
