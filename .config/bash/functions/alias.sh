@@ -31,6 +31,6 @@ alias gg='git graph'
 alias refresh='source ~/.bashrc'
 alias virtualenv='python -m virtualenv venv'
 alias venv='source ./venv/bin/activate'
-alias brew_tree="brew leaves | xargs brew deps --installed --for-each | sed \"s/^.*:/$(tput setaf 6)&$(tput sgr0)/\""
+alias brewdeps='brew leaves | xargs brew deps --formula --for-each | sed "s/^.*:/$(tput setaf 4)&$(tput sgr0)/"'
 alias ip="printf 'Private: ' && ipconfig getifaddr en0
 printf 'Public: ' && curl -s ifconfig.me && printf '\n'"

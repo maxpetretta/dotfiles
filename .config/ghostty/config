@@ -18,10 +18,16 @@ keybind = ctrl+n=goto_split:left
 keybind = ctrl+e=goto_split:bottom
 keybind = ctrl+i=goto_split:top
 keybind = ctrl+o=goto_split:right
+
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
+
 keybind = global:alt+`=toggle_quick_terminal
 
 # OS settings
-auto-update = check
+auto-update = download
 macos-titlebar-style = tabs
 shell-integration-features = no-cursor,no-sudo,title
 quick-terminal-position = bottom
