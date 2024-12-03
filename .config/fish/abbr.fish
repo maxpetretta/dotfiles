@@ -30,3 +30,4 @@ abbr -a vim nvim
 abbr -a code cursor
 abbr -a cf cloudflared tunnel run
 abbr -a refresh source ~/.config/fish/config.fish
+abbr -a brewdeps 'brew leaves | xargs brew deps --formula --for-each | sed "s/^.*:/$(tput setaf 4)&$(tput sgr0)/"'

@@ -5,7 +5,11 @@
 .config/fish/themes/*
 .config/fish/fish_variables
 
+# Zed
+.config/zed/*
+!.config/zed/keymap.json
+!.config/zed/settings.json
+
 # Misc
 .DS_Store
 .ignore
-
