@@ -12,22 +12,26 @@ theme = Monokai Pro
 window-padding-x = 11
 window-padding-y = 1
 window-new-tab-position = end
+cursor-style-blink = true
 
 # Keybindings
-keybind = ctrl+n=goto_split:left
-keybind = ctrl+e=goto_split:bottom
-keybind = ctrl+i=goto_split:top
-keybind = ctrl+o=goto_split:right
-
 keybind = ctrl+h=goto_split:left
 keybind = ctrl+j=goto_split:bottom
 keybind = ctrl+k=goto_split:top
 keybind = ctrl+l=goto_split:right
 
+keybind = ctrl+n=goto_split:left
+keybind = ctrl+e=goto_split:bottom
+keybind = ctrl+i=goto_split:top
+keybind = ctrl+o=goto_split:right
+
+keybind = ctrl+z=toggle_split_zoom
+keybind = ctrl+shift+r=reload_config
+keybind = global:alt+enter=new_window
 keybind = global:alt+`=toggle_quick_terminal
 
 # OS settings
 auto-update = download
-macos-titlebar-style = tabs
+macos-titlebar-style = hidden
 shell-integration-features = no-cursor,no-sudo,title
 quick-terminal-position = bottom
