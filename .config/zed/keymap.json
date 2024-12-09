@@ -34,6 +34,7 @@
     "bindings": {
       "cmd-d": "pane::SplitRight",
       "cmd-shift-d": "pane::SplitDown",
+      "cmd-alt-z": "workspace::ToggleZoom",
       "ctrl-h": [
         "workspace::SendKeystrokes",
         "cmd-k cmd-left escape"

@@ -103,6 +103,7 @@
   },
   // Theme overrides
   "experimental.theme_overrides": {
+    "surface.background": "#262427", // Broke recently, see: https://github.com/zed-industries/zed/issues/21266
     "editor.wrap_guide": "#424043",
     "terminal.ansi.black": "#727072",
     "terminal.ansi.blue": "#78dce8",
