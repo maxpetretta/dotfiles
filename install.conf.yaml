@@ -9,7 +9,6 @@
 - link:
     # Directories
     ~/.config/aerospace: .config/aerospace
-    ~/.config/alacritty: .config/alacritty
     ~/.config/bash: .config/bash
     ~/.config/borders: .config/borders
     ~/.config/btop: .config/btop
@@ -19,7 +18,6 @@
     ~/.config/gh: .config/gh
     ~/.config/mise: .config/mise
     ~/.config/nvim: .config/nvim
-    ~/.config/wezterm: .config/wezterm
     ~/.config/zed: .config/zed
 
     # Files
