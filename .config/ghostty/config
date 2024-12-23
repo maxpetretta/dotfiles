@@ -6,6 +6,7 @@ font-feature = -dlig
 adjust-cell-width = -1
 adjust-cell-height = 7
 adjust-underline-position = 7
+adjust-cursor-thickness = 200%
 
 # Window settings
 theme = Monokai Pro

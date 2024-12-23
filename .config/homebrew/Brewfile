@@ -75,7 +75,6 @@ brew "sst/tap/sst"
 cask "1password"
 cask "1password-cli"
 cask "aerospace"
-cask "alacritty"
 cask "appcleaner"
 cask "backblaze"
 cask "bartender"
@@ -121,7 +120,6 @@ cask "vlc"
 cask "zed"
 cask "zoom"
 mas "1Password for Safari", id: 1569813296
-mas "Actions", id: 1586435171
 mas "Amphetamine", id: 937984704
 mas "Dark Reader for Safari", id: 1438243180
 mas "Ghostery Privacy Ad Blocker", id: 6504861501
@@ -130,5 +128,5 @@ mas "Perplexity", id: 6714467650
 mas "Photomator", id: 1444636541
 mas "Pixelmator Pro", id: 1289583905
 mas "stoic.", id: 1312926037
-mas "Things", id: 904280696
+mas "TestFlight", id: 899247664
 mas "Xcode", id: 497799835

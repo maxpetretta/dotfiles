@@ -63,11 +63,12 @@
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
+  "SQL-Formatter-VSCode.dialect": "postgresql",
   "[lua]": {
     "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
   "[sql]": {
-    "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc"
+    "editor.defaultFormatter": "ReneSaarsoo.sql-formatter-vsc",
   },
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"

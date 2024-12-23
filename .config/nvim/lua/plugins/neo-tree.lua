@@ -9,8 +9,5 @@ return {
         never_show = { ".DS_Store" },
       },
     },
-    window = {
-      position = "right",
-    },
   },
 }
