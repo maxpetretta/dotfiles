@@ -65,6 +65,10 @@ vim.keymap.del("n", "<leader><tab>]")
 vim.keymap.del("n", "<leader><tab>d")
 vim.keymap.del("n", "<leader><tab>[")
 
+-- Split buffers using d/D
+vim.keymap.set("n", "<leader>d", "<cmd>vsplit<cr>", { desc = "Split Window Right" })
+vim.keymap.set("n", "<leader>D", "<cmd>split<cr>", { desc = "Split Window Below" })
+
 -- Open URL under cursor
 vim.keymap.set("n", "gx", function()
   vim.cmd("URLOpenUnderCursor")

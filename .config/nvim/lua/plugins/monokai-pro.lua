@@ -6,8 +6,7 @@ return {
         MiniIconsGrey = {}, -- Fixes crash w/ mini.nvim
         MiniIconsOrange = {},
         MiniIconsGreen = {},
-        FloatBorder = { fg = c.base.dimmed2 }, -- ChatGPT border
-        ["@markup.raw.block.markdown"] = { bg = c.editor.background }, -- ChatGPT background
+        MiniIconsAzure = {},
         NoiceCmdlineIcon = { fg = c.base.green }, -- Cmdline ">"
         NoiceCmdlinePopupTitle = { fg = c.base.green }, -- Cmdline title
         Structure = { italic = false }, -- interface identifiers
@@ -23,6 +22,10 @@ return {
         ["@tag.builtin"] = { fg = c.base.red }, -- HTML tags
         ["@type"] = { fg = c.base.white }, -- imported objects
         ["@variable.member"] = { fg = c.base.white }, -- object properties
+        SnacksIndent = { fg = c.base.dimmed5 },
+        SnacksIndentScope = { fg = c.base.green },
+        BlinkCmpGhostText = { fg = c.base.dimmed2 },
+        WinSeparator = { fg = c.base.dimmed2 },
       }
     end,
   },
