@@ -25,7 +25,7 @@ return {
         SnacksIndent = { fg = c.base.dimmed5 },
         SnacksIndentScope = { fg = c.base.green },
         BlinkCmpGhostText = { fg = c.base.dimmed2 },
-        WinSeparator = { fg = c.base.dimmed2 },
+        WinSeparator = { fg = c.base.dimmed3 },
       }
     end,
   },

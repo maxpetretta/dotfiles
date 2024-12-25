@@ -22,7 +22,6 @@ return {
       dependencies = { "kkharji/sqlite.lua" },
       opts = {
         extensions = {
-          smart_splits = true,
           lazy_nvim = { auto_register = true },
           which_key = { auto_register = true },
         },
