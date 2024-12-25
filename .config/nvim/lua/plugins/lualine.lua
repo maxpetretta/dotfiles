@@ -14,30 +14,30 @@ return {
     local theme = {
       normal = {
         a = { bg = colors.base.green, fg = colors.base.black, gui = "bold" },
-        b = { bg = colors.base.dimmed5, fg = colors.base.white },
-        c = { bg = colors.base.dimmed5, fg = colors.base.white },
-        x = { bg = colors.base.dimmed5, fg = colors.base.green },
-        y = { bg = colors.base.dimmed5, fg = colors.base.green },
+        b = { bg = colors.base.black, fg = colors.base.white },
+        c = { bg = colors.base.black, fg = colors.base.white },
+        x = { bg = colors.base.black, fg = colors.base.green },
+        y = { bg = colors.base.black, fg = colors.base.green },
       },
       insert = {
         a = { bg = colors.base.yellow, fg = colors.base.black, gui = "bold" },
-        x = { bg = colors.base.dimmed5, fg = colors.base.yellow },
-        y = { bg = colors.base.dimmed5, fg = colors.base.yellow },
+        x = { bg = colors.base.black, fg = colors.base.yellow },
+        y = { bg = colors.base.black, fg = colors.base.yellow },
       },
       command = {
         a = { bg = colors.base.blue, fg = colors.base.black, gui = "bold" },
-        x = { bg = colors.base.dimmed5, fg = colors.base.blue },
-        y = { bg = colors.base.dimmed5, fg = colors.base.blue },
+        x = { bg = colors.base.black, fg = colors.base.blue },
+        y = { bg = colors.base.black, fg = colors.base.blue },
       },
       visual = {
         a = { bg = colors.base.magenta, fg = colors.base.black, gui = "bold" },
-        x = { bg = colors.base.dimmed5, fg = colors.base.magenta },
-        y = { bg = colors.base.dimmed5, fg = colors.base.magenta },
+        x = { bg = colors.base.black, fg = colors.base.magenta },
+        y = { bg = colors.base.black, fg = colors.base.magenta },
       },
       replace = {
         a = { bg = colors.base.red, fg = colors.base.black, gui = "bold" },
-        x = { bg = colors.base.dimmed5, fg = colors.base.red },
-        y = { bg = colors.base.dimmed5, fg = colors.base.red },
+        x = { bg = colors.base.black, fg = colors.base.red },
+        y = { bg = colors.base.black, fg = colors.base.red },
       },
       inactive = {
         a = { bg = colors.base.black, fg = colors.base.yellow, gui = "bold" },
@@ -53,18 +53,23 @@ return {
         disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
       },
       sections = {
-        lualine_a = { "mode" },
+        lualine_a = { { "mode", padding = { left = 1, right = 1 }, separator = { left = "" } } },
         lualine_b = {
           {
             "branch",
             icon = { "", color = { fg = colors.base.white } },
-            color = { fg = colors.base.white, bg = colors.base.dimmed3 },
+            color = { fg = colors.base.white, bg = colors.base.dimmed4 },
+            separator = { right = "" },
           },
         },
         lualine_c = {
-          LazyVim.lualine.root_dir({ icon = "", color = { fg = colors.base.white, bg = colors.base.dimmed5 } }),
-          { "filetype", colored = false, icon_only = true, padding = { left = 0, right = 0 } },
-          { LazyVim.lualine.pretty_path({ color = { fg = colors.base.white, bg = colors.base.dimmed5 } }) },
+          { "filetype", colored = false, icon_only = true, padding = { left = 1, right = 0 } },
+          LazyVim.lualine.root_dir({
+            icon = "",
+            color = { fg = colors.base.white, bg = colors.base.black },
+            padding = { left = 0, right = 0 },
+          }),
+          { LazyVim.lualine.pretty_path({ color = { fg = colors.base.white, bg = colors.base.black } }) },
           {
             "diff",
             symbols = {
@@ -96,43 +101,6 @@ return {
           },
           -- stylua: ignore
           {
-            function() return require("noice").api.status.command.get() end,
-            cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-            color = { bg = colors.base.dimmed5, fg = colors.base.blue, gui = "bold" },
-          },
-          -- Copilot status
-          {
-            function()
-              local icon = LazyVim.config.icons.kinds.Copilot
-              local status = require("copilot.api").status.data
-              return icon .. (status.message or "")
-            end,
-            cond = function()
-              if not package.loaded["copilot"] then
-                return
-              end
-              local ok, clients = pcall(LazyVim.lsp.get_clients, { name = "copilot", bufnr = 0 })
-              if not ok then
-                return false
-              end
-              return ok and #clients > 0
-            end,
-            color = function()
-              if not package.loaded["copilot"] then
-                return
-              end
-              local status = require("copilot.api").status.data
-              local status_colors = {
-                [""] = { fg = colors.base.green },
-                ["Normal"] = { fg = colors.base.green },
-                ["Warning"] = { fg = colors.base.red },
-                ["InProgress"] = { fg = colors.base.cyan },
-              }
-              return status_colors[status.status] or status_colors[""]
-            end,
-          },
-          -- stylua: ignore
-          {
             function() return require("noice").api.status.mode.get() end,
             cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
           },
@@ -145,12 +113,70 @@ return {
             require("lazy.status").updates,
             cond = require("lazy.status").has_updates,
           },
+          -- Copilot status
+          -- {
+          --   function()
+          --     local icon = LazyVim.config.icons.kinds.Copilot
+          --     local status = require("copilot.api").status.data
+          --     return icon .. (status.message or "")
+          --   end,
+          --   cond = function()
+          --     if not package.loaded["copilot"] then
+          --       return
+          --     end
+          --     local ok, clients = pcall(LazyVim.lsp.get_clients, { name = "copilot", bufnr = 0 })
+          --     if not ok then
+          --       return false
+          --     end
+          --     return ok and #clients > 0
+          --   end,
+          --   color = function()
+          --     if not package.loaded["copilot"] then
+          --       return
+          --     end
+          --     local status = require("copilot.api").status.data
+          --     local status_colors = {
+          --       [""] = { fg = colors.base.green, bg = colors.base.black },
+          --       ["Normal"] = { fg = colors.base.green, bg = colors.base.black },
+          --       ["Warning"] = { fg = colors.base.red, bg = colors.base.black },
+          --       ["InProgress"] = { fg = colors.base.cyan, bg = colors.base.black },
+          --     }
+          --     return status_colors[status.status] or status_colors[""]
+          --   end,
+          -- },
         },
         lualine_y = {
-          { "progress", padding = { left = 1, right = 1 } },
+          -- stylua: ignore
+          {
+            function()
+              local cmd = require("noice").api.status.command.get()
+              -- Append a space if the string is only one character
+              if #cmd == 1 then
+                -- Center a single character in three spaces: " x "
+                cmd = " " .. cmd .. " "
+              elseif #cmd == 2 then
+                -- If two characters, prepend one space: " xy"
+                cmd = " " .. cmd
+              end
+              return cmd
+            end,
+            cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+            color = { bg = colors.base.dimmed4, fg = colors.base.white },
+            padding = { left = 1, right = 1 },
+            separator = { left = "" },
+          },
+          {
+            "progress",
+            color = { fg = colors.base.white, bg = colors.base.dimmed4 },
+            padding = { left = 1, right = 1 },
+          },
         },
         lualine_z = {
-          { "location", padding = { left = 1, right = 1 } },
+          {
+            "location",
+            padding = { left = 1, right = 1 },
+            separator = { right = "" },
+          },
         },
       },
       extensions = { "neo-tree", "lazy" },
