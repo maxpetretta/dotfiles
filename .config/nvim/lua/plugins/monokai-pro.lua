@@ -3,12 +3,16 @@ return {
   opts = {
     override = function(c)
       return {
-        MiniIconsGrey = {}, -- Fixes crash w/ mini.nvim
-        MiniIconsOrange = {},
+        BlinkCmpGhostText = { fg = c.base.dimmed2 }, -- copilot suggestions
+        MiniIconsAzure = {}, -- Fixes crash w/ mini.nvim
         MiniIconsGreen = {},
-        MiniIconsAzure = {},
+        MiniIconsGrey = {},
+        MiniIconsOrange = {},
         NoiceCmdlineIcon = { fg = c.base.green }, -- Cmdline ">"
         NoiceCmdlinePopupTitle = { fg = c.base.green }, -- Cmdline title
+        SnacksIndent = { fg = c.base.dimmed5 }, -- indent guides
+        SnacksIndentScope = { fg = c.base.green }, -- active indent
+        WinSeparator = { fg = c.base.dimmed3 }, -- split border
         Structure = { italic = false }, -- interface identifiers
         ["@keyword.function"] = { bold = false }, -- "function"
         ["@keyword.overrides"] = { fg = c.base.cyan, italic = true }, -- custom capture group for "const", "let", "type"
@@ -22,10 +26,6 @@ return {
         ["@tag.builtin"] = { fg = c.base.red }, -- HTML tags
         ["@type"] = { fg = c.base.white }, -- imported objects
         ["@variable.member"] = { fg = c.base.white }, -- object properties
-        SnacksIndent = { fg = c.base.dimmed5 },
-        SnacksIndentScope = { fg = c.base.green },
-        BlinkCmpGhostText = { fg = c.base.dimmed2 },
-        WinSeparator = { fg = c.base.dimmed3 },
       }
     end,
   },

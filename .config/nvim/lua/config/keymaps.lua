@@ -11,15 +11,15 @@ vim.keymap.set("v", "<A-Down>", ":m '>+1<cr>gv=gv", { desc = "Move Line Down" })
 vim.keymap.set("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move Line Up" })
 
 -- Move between splits
-vim.keymap.set({ "n", "t" }, "<C-S-h>", "<cmd>wincmd h<cr>", { desc = "Go to Left Window" })
-vim.keymap.set({ "n", "t" }, "<C-S-j>", "<cmd>wincmd j<cr>", { desc = "Go to Lower Window" })
-vim.keymap.set({ "n", "t" }, "<C-S-k>", "<cmd>wincmd k<cr>", { desc = "Go to Upper Window" })
-vim.keymap.set({ "n", "t" }, "<C-S-l>", "<cmd>wincmd l<cr>", { desc = "Go to Right Window" })
+vim.keymap.set({ "n", "t" }, "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to Left Window" })
+vim.keymap.set({ "n", "t" }, "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to Lower Window" })
+vim.keymap.set({ "n", "t" }, "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to Upper Window" })
+vim.keymap.set({ "n", "t" }, "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to Right Window" })
 
-vim.keymap.set({ "n", "t" }, "<C-S-n>", "<cmd>wincmd h<cr>", { desc = "Go to Left Window" })
-vim.keymap.set({ "n", "t" }, "<C-S-e>", "<cmd>wincmd j<cr>", { desc = "Go to Lower Window" })
-vim.keymap.set({ "n", "t" }, "<C-S-i>", "<cmd>wincmd k<cr>", { desc = "Go to Upper Window" })
-vim.keymap.set({ "n", "t" }, "<C-S-o>", "<cmd>wincmd l<cr>", { desc = "Go to Right Window" })
+vim.keymap.set({ "n", "t" }, "<C-n>", "<cmd>wincmd h<cr>", { desc = "Go to Left Window" })
+vim.keymap.set({ "n", "t" }, "<C-e>", "<cmd>wincmd j<cr>", { desc = "Go to Lower Window" })
+vim.keymap.set({ "n", "t" }, "<C-i>", "<cmd>wincmd k<cr>", { desc = "Go to Upper Window" })
+vim.keymap.set({ "n", "t" }, "<C-o>", "<cmd>wincmd l<cr>", { desc = "Go to Right Window" })
 
 -- Buffer management
 vim.keymap.del("n", "<leader>`")
