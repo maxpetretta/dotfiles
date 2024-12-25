@@ -28,7 +28,6 @@ keybind = ctrl+o=goto_split:right
 
 keybind = ctrl+z=toggle_split_zoom
 keybind = ctrl+shift+r=reload_config
-keybind = global:alt+enter=new_window
 keybind = global:alt+`=toggle_quick_terminal
 
 # OS settings

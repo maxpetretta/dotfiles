@@ -55,6 +55,17 @@ alt-shift-e = 'move down'
 alt-shift-i = 'move up'
 alt-shift-o = 'move right'
 
+# See: https://nikitabobko.github.io/AeroSpace/commands#join-with
+alt-ctrl-h = 'join-with left'
+alt-ctrl-j = 'join-with down'
+alt-ctrl-k = 'join-with up'
+alt-ctrl-l = 'join-with right'
+
+alt-ctrl-n = 'join-with left'
+alt-ctrl-e = 'join-with down'
+alt-ctrl-i = 'join-with up'
+alt-ctrl-o = 'join-with right'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
