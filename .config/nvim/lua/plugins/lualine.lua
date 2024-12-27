@@ -1,3 +1,7 @@
+local function get_short_cwd()
+  return vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
+end
+
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
@@ -179,7 +183,21 @@ return {
           },
         },
       },
-      extensions = { "neo-tree", "lazy" },
+      extensions = {
+        "lazy",
+        {
+          filetypes = { "neo-tree" },
+          sections = {
+            lualine_a = {
+              {
+                get_short_cwd,
+                padding = { left = 1, right = 1 },
+                separator = { left = "", right = "" },
+              },
+            },
+          },
+        },
+      },
     }
   end,
 }
