@@ -10,8 +10,9 @@ adjust-cursor-thickness = 200%
 
 # Window settings
 theme = Monokai Pro
-window-padding-x = 11
-window-padding-y = 0
+window-padding-x = 8
+window-padding-y = 1
+window-padding-balance = true
 window-new-tab-position = end
 cursor-style-blink = true
 
@@ -25,6 +26,11 @@ keybind = ctrl+shift+n=goto_split:left
 keybind = ctrl+shift+e=goto_split:bottom
 keybind = ctrl+shift+i=goto_split:top
 keybind = ctrl+shift+o=goto_split:right
+
+keybind = ctrl+shift+left=resize_split:left,50
+keybind = ctrl+shift+down=resize_split:down,50
+keybind = ctrl+shift+up=resize_split:up,50
+keybind = ctrl+shift+right=resize_split:right,50
 
 keybind = ctrl+z=toggle_split_zoom
 keybind = ctrl+shift+r=reload_config
