@@ -12,6 +12,7 @@ return {
         NoiceCmdlinePopupTitle = { fg = c.base.green }, -- Cmdline title
         SnacksIndent = { fg = c.base.dimmed5 }, -- indent guides
         SnacksIndentScope = { fg = c.base.green }, -- active indent
+        StatusLine = { bg = "#2C2A2E" }, -- statusline background
         WinSeparator = { fg = c.base.dimmed3 }, -- split border
         Structure = { italic = false }, -- interface identifiers
         ["@keyword.function"] = { bold = false }, -- "function"

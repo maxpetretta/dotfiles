@@ -19,3 +19,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     LazyVim.lsp.action["source.organizeImports.biome"]()
   end,
 })
+
+-- Save current buffer when window loses focus
+vim.api.nvim_create_autocmd("WinLeave", {
+  pattern = "*",
+  callback = function()
+    if vim.bo.modifiable and not vim.bo.readonly and vim.fn.expand("%") ~= "" and vim.bo.modified then
+      vim.cmd("silent! write")
+    end
+  end,
+})
