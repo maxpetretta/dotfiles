@@ -9,9 +9,6 @@ vim.g.ai_cmp = false -- Disable Copilot suggestions as a cmp source
 -- Prepend mise shims to PATH
 vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
 
--- Expand "cc" to "CodeCompanion"
-vim.cmd([[cab cc CodeCompanion]])
-
 -- Set .example filetypes
 vim.filetype.add({
   extension = {
