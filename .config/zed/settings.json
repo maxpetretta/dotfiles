@@ -17,6 +17,7 @@
   },
   // Editor settings
   "tab_size": 2,
+  "hard_tabs": true,
   "buffer_font_size": 13,
   "buffer_font_family": "MonaspiceAr Nerd Font",
   "buffer_font_features": {
