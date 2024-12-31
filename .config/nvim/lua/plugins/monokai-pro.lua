@@ -1,6 +1,7 @@
 return {
   "loctvl842/monokai-pro.nvim",
   opts = {
+    terminal_colors = false,
     override = function(c)
       return {
         BlinkCmpGhostText = { fg = c.base.dimmed2 }, -- copilot suggestions
