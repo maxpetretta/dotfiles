@@ -57,7 +57,12 @@ return {
         disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
       },
       sections = {
-        lualine_a = { { "mode", padding = { left = 1, right = 1 }, separator = { left = "" } } },
+        lualine_a = {
+          {
+            "mode",
+            padding = { left = 1, right = 1 },
+          },
+        },
         lualine_b = {
           {
             "branch",
@@ -103,54 +108,28 @@ return {
               hint = icons.diagnostics.Hint,
             },
           },
-          -- stylua: ignore
           {
-            function() return require("noice").api.status.mode.get() end,
-            cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+            function()
+              return require("noice").api.status.mode.get()
+            end,
+            cond = function()
+              return package.loaded["noice"] and require("noice").api.status.mode.has()
+            end,
           },
-          -- stylua: ignore
           {
-            function() return "  " .. require("dap").status() end,
-            cond = function () return package.loaded["dap"] and require("dap").status() ~= "" end,
+            function()
+              return "  " .. require("dap").status()
+            end,
+            cond = function()
+              return package.loaded["dap"] and require("dap").status() ~= ""
+            end,
           },
           {
             require("lazy.status").updates,
             cond = require("lazy.status").has_updates,
           },
-          -- Copilot status
-          -- {
-          --   function()
-          --     local icon = LazyVim.config.icons.kinds.Copilot
-          --     local status = require("copilot.api").status.data
-          --     return icon .. (status.message or "")
-          --   end,
-          --   cond = function()
-          --     if not package.loaded["copilot"] then
-          --       return
-          --     end
-          --     local ok, clients = pcall(LazyVim.lsp.get_clients, { name = "copilot", bufnr = 0 })
-          --     if not ok then
-          --       return false
-          --     end
-          --     return ok and #clients > 0
-          --   end,
-          --   color = function()
-          --     if not package.loaded["copilot"] then
-          --       return
-          --     end
-          --     local status = require("copilot.api").status.data
-          --     local status_colors = {
-          --       [""] = { fg = colors.base.green, bg = colors.base.black },
-          --       ["Normal"] = { fg = colors.base.green, bg = colors.base.black },
-          --       ["Warning"] = { fg = colors.base.red, bg = colors.base.black },
-          --       ["InProgress"] = { fg = colors.base.cyan, bg = colors.base.black },
-          --     }
-          --     return status_colors[status.status] or status_colors[""]
-          --   end,
-          -- },
         },
         lualine_y = {
-          -- stylua: ignore
           {
             function()
               local cmd = require("noice").api.status.command.get()
@@ -164,7 +143,9 @@ return {
               end
               return cmd
             end,
-            cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+            cond = function()
+              return package.loaded["noice"] and require("noice").api.status.command.has()
+            end,
             color = { bg = colors.base.dimmed4, fg = colors.base.white },
             padding = { left = 1, right = 1 },
             separator = { left = "" },
@@ -179,7 +160,6 @@ return {
           {
             "location",
             padding = { left = 1, right = 1 },
-            separator = { right = "" },
           },
         },
       },
@@ -192,7 +172,7 @@ return {
               {
                 get_short_cwd,
                 padding = { left = 1, right = 1 },
-                separator = { left = "", right = "" },
+                separator = { right = "" },
               },
             },
           },

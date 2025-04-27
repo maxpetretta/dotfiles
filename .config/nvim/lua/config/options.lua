@@ -6,6 +6,9 @@ vim.opt.list = false
 vim.opt.scrolloff = 9
 vim.g.ai_cmp = false -- Disable Copilot suggestions as a cmp source
 
+-- Expand 'cc' into 'CodeCompanion' in the command line
+vim.cmd([[cab cc CodeCompanion]])
+
 -- Prepend mise shims to PATH
 vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
 

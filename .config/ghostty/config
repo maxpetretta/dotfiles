@@ -10,6 +10,7 @@ adjust-cursor-thickness = 200%
 
 # Window settings
 theme = Monokai Pro
+theme = dark:Monokai Pro,light:GruvboxLightHard
 window-padding-x = 8
 window-padding-y = 1
 window-padding-balance = true
@@ -34,7 +35,7 @@ keybind = ctrl+shift+right=resize_split:right,50
 
 keybind = ctrl+z=toggle_split_zoom
 keybind = ctrl+shift+r=reload_config
-keybind = global:alt+`=toggle_quick_terminal
+keybind = global:ctrl+shift+`=toggle_quick_terminal
 
 # OS settings
 auto-update = download
