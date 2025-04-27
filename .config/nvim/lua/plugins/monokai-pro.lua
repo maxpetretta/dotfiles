@@ -5,6 +5,9 @@ return {
     override = function(c)
       return {
         BlinkCmpGhostText = { fg = c.base.dimmed2 }, -- copilot suggestions
+        DiffAdd = { fg = c.base.green }, -- markdown headers
+        DiffChange = { fg = c.base.blue }, -- markdown headers
+        DiffDelete = { fg = c.base.red }, -- markdown headers
         MiniIconsAzure = {}, -- Fixes crash w/ mini.nvim
         MiniIconsGreen = {},
         MiniIconsGrey = {},
