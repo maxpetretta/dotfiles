@@ -1,6 +1,6 @@
 {
   /* Editor settings */
-  "editor.fontSize": 13,
+  "editor.fontSize": 14,
   "editor.fontFamily": "'MonaspiceAr Nerd Font', monospace",
   "editor.fontLigatures": true,
   "editor.tabSize": 2,
@@ -21,7 +21,6 @@
   },
   "workbench.editor.showTabs": "none",
   "workbench.colorTheme": "Monokai Pro",
-  "workbench.iconTheme": "material-icon-theme",
   "search.useParentIgnoreFiles": true,
 
   /* Terminal settings */
@@ -76,7 +75,15 @@
   
   /* Cursor settings */
   "workbench.activityBar.orientation": "horizontal",
-  "cursor.cpp.disabledLanguages": ["plaintext", "markdown", "scminput"],
+  "cursor.cpp.disabledLanguages": [
+    "plaintext",
+    "markdown",
+    "scminput"
+  ],
+  "workbench.iconTheme": "Monokai Pro Icons",
+  "cursor.cmdk.autoSelect": false,
+  "cursor.cmdk.useThemedDiffBackground": false,
+  "extensions.ignoreRecommendations": true,
   // "cSpell.userWords": ["Petretta"],
   // "cursor.chat.smoothStreaming": true,
   // "cursor.cmdk.autoSelect": false,
