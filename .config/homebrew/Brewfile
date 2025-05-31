@@ -136,6 +136,16 @@ cask "vlc"
 cask "windsurf"
 cask "zed"
 cask "zoom"
+mas "1Password for Safari", id: 1569813296
+mas "Dark Reader for Safari", id: 1438243180
+mas "Ghostery Privacy Ad Blocker", id: 6504861501
+mas "Pause", id: 1599313358
+mas "Perplexity", id: 6714467650
+mas "Photomator", id: 1444636541
+mas "Pixelmator Pro", id: 1289583905
+mas "stoic", id: 1312926037
+mas "TestFlight", id: 899247664
+mas "Xcode", id: 497799835
 vscode "asvetliakov.vscode-neovim"
 vscode "biomejs.biome"
 vscode "bradlc.vscode-tailwindcss"

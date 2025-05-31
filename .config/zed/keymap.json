@@ -54,17 +54,17 @@
     "bindings": {
       "cmd-shift-l": [
         "workspace::SendKeystrokes",
-        "escape v i w y o console.log(`🚀 space ~ space cmd-v : space ${ cmd-v }`) escape"
+        "escape v i w y o console.log(\"🚀 space ~ space cmd-v :\", space cmd-v ) escape"
       ]
     }
   },
-  {
-    "context": "MessageEditor > Editor",
-    "bindings": {
-      "enter": "editor::NewlineBelow",
-      "cmd-enter": "agent::Chat"
-    }
-  },
+  // {
+  //   "context": "MessageEditor > Editor",
+  //   "bindings": {
+  //     "enter": "editor::NewlineBelow",
+  //     "cmd-enter": "agent::Chat"
+  //   }
+  // },
   {
     "context": "Terminal",
     "bindings": {
