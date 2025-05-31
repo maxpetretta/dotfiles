@@ -26,6 +26,7 @@ abbr -a tns tmux new-session -s
 abbr -a tks tmux kill-session -t
 
 # custom
+abbr -a n nvim
 abbr -a vim nvim
 abbr -a code cursor
 abbr -a cf cloudflared tunnel run
