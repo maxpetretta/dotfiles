@@ -3,6 +3,12 @@
 // For information on binding keys, see the Zed
 // documentation: https://zed.dev/docs/key-bindings
 [
+  // {
+  //   "context": "Workspace",
+  //   "bindings": {
+  //     "cmd-shift-g": "git_panel::ToggleFocus"
+  //   }
+  // },
   {
     "context": "Editor",
     "bindings": {
@@ -44,6 +50,22 @@
     }
   },
   {
+    "context": "Editor && (extension==js || extension==jsx || extension==ts || extension==tsx )",
+    "bindings": {
+      "cmd-shift-l": [
+        "workspace::SendKeystrokes",
+        "escape v i w y o console.log(`🚀 space ~ space cmd-v : space ${ cmd-v }`) escape"
+      ]
+    }
+  },
+  {
+    "context": "MessageEditor > Editor",
+    "bindings": {
+      "enter": "editor::NewlineBelow",
+      "cmd-enter": "agent::Chat"
+    }
+  },
+  {
     "context": "Terminal",
     "bindings": {
       "cmd-d": "pane::SplitRight",
@@ -56,6 +78,18 @@
       "ctrl-e": "workspace::ActivatePaneDown",
       "ctrl-i": "workspace::ActivatePaneUp",
       "ctrl-o": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+    "bindings": {
+      // Traditional Vim behavior
+      // "q": "vim::AnyQuotes",
+      // "b": "vim::AnyBrackets",
+
+      // mini.ai plugin behavior
+      "q": "vim::MiniQuotes",
+      "b": "vim::MiniBrackets"
     }
   }
 ]

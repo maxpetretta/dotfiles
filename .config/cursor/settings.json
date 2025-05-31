@@ -21,8 +21,8 @@
   },
   "workbench.editor.showTabs": "none",
   "workbench.colorTheme": "Monokai Pro",
-  "search.useParentIgnoreFiles": true,
-
+  "workbench.iconTheme": "Monokai Pro Icons",
+  
   /* Terminal settings */
   "terminal.external.osxExec": "Ghostty.app",
   "workbench.colorCustomizations": {
@@ -37,7 +37,7 @@
       "terminal.background": "#2d2a2e",
     }
   },
-
+  
   /* File settings */
   "files.associations": {
     "*.css": "tailwindcss",
@@ -45,10 +45,11 @@
     "*.svg": "html",
     "*.vars": "properties",
   },
-
+  
   /* Explorer settings */
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
+  "search.useParentIgnoreFiles": true,
 
   /* Vim settings */
   "editor.lineNumbers": "relative",
@@ -80,10 +81,11 @@
     "markdown",
     "scminput"
   ],
-  "workbench.iconTheme": "Monokai Pro Icons",
-  "cursor.cmdk.autoSelect": false,
-  "cursor.cmdk.useThemedDiffBackground": false,
-  "extensions.ignoreRecommendations": true,
+  
+  /* Disabled */
+  // "cursor.cmdk.autoSelect": false,
+  // "cursor.cmdk.useThemedDiffBackground": false,
+  // "extensions.ignoreRecommendations": true,
   // "cSpell.userWords": ["Petretta"],
   // "cursor.chat.smoothStreaming": true,
   // "cursor.cmdk.autoSelect": false,
