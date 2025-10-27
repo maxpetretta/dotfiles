@@ -4,12 +4,24 @@
 // documentation: https://zed.dev/docs/configuring-zed
 {
   // AI settings
+  "context_servers": {
+    "mcp-server-context7": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {
+        "default_minimum_tokens": "10000"
+      }
+    }
+  },
+  "auto_update_extensions": {
+    "biome": false
+  },
   "agent": {
+    "play_sound_when_agent_done": true,
     "inline_assistant_model": {
       "provider": "anthropic",
       "model": "claude-sonnet-4-latest"
     },
-    "version": "2",
     "default_profile": "write",
     "default_model": {
       "provider": "anthropic",
@@ -38,10 +50,7 @@
   "buffer_line_height": "comfortable",
   "preferred_line_length": 120,
   "show_wrap_guides": true,
-  "wrap_guides": [
-    80,
-    120
-  ],
+  "wrap_guides": [80, 120],
   "scroll_beyond_last_line": "vertical_scroll_margin",
   "autosave": "on_focus_change",
   "extend_comment_on_newline": false,
@@ -78,7 +87,6 @@
   "relative_line_numbers": true,
   "vim": {
     "toggle_relative_line_numbers": true,
-    "use_multiline_find": true,
     "use_smartcase_find": true,
     "use_system_clipboard": "on_yank"
   },

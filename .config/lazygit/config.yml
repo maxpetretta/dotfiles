@@ -1,0 +1,13 @@
+git:
+  paging:
+    externalDiffCommand: difft --display=inline --tab-width=2 --syntax-highlight=off
+
+gui:
+  theme:
+    selectedLineBgColor:
+      - "#5B595C"
+    activeBorderColor:
+      - yellow
+      - bold
+    inactiveBorderColor:
+      - "#939293"

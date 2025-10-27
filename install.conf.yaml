@@ -25,6 +25,7 @@
     ~/.config/starship.toml: .config/starship/starship.toml
     ~/.gitconfig: .config/git/.gitconfig
     ~/.tmux.conf: .config/tmux/.tmux.conf
+    "~/Library/Application Support/lazygit/config.yml": .config/lazygit/config.yml
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

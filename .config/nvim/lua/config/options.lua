@@ -6,9 +6,6 @@ vim.opt.list = false
 vim.opt.scrolloff = 9
 vim.g.ai_cmp = false -- Disable Copilot suggestions as a cmp source
 
--- Expand 'cc' into 'CodeCompanion' in the command line
-vim.cmd([[cab cc CodeCompanion]])
-
 -- Prepend mise shims to PATH
 vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
 
@@ -27,3 +24,9 @@ if vim.g.vscode then
   vim.api.nvim_set_hl(0, "FlashLabel", { bg = "#4d494c", fg = "#c8d3f5" })
   vim.api.nvim_set_hl(0, "FlashMatch", { bg = "#4d494c", fg = "#727072" })
 end
+
+-- Auto-reload files when changed externally
+vim.opt.autoread = true
+
+-- Setup file watcher to auto-open externally modified files
+require("config.file-watcher").setup()

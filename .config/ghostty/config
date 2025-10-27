@@ -10,12 +10,16 @@ adjust-cursor-thickness = 200%
 
 # Window settings
 theme = Monokai Pro
-theme = dark:Monokai Pro,light:GruvboxLightHard
+theme = dark:Monokai Pro,light:Gruvbox Light Hard
 window-padding-x = 8
 window-padding-y = 1
 window-padding-balance = true
 window-new-tab-position = end
 cursor-style-blink = true
+
+# Cursor trail animation
+custom-shader-animation = true
+custom-shader = ./shaders/cursor_smear.glsl
 
 # Keybindings
 keybind = ctrl+shift+h=goto_split:left
@@ -36,6 +40,8 @@ keybind = ctrl+shift+right=resize_split:right,50
 keybind = ctrl+z=toggle_split_zoom
 keybind = ctrl+shift+r=reload_config
 keybind = global:ctrl+shift+`=toggle_quick_terminal
+
+keybind = shift+enter=text:\n
 
 # OS settings
 auto-update = download

@@ -18,30 +18,30 @@ return {
     local theme = {
       normal = {
         a = { bg = colors.base.green, fg = colors.base.black, gui = "bold" },
-        b = { bg = colors.base.black, fg = colors.base.white },
-        c = { bg = colors.base.black, fg = colors.base.white },
-        x = { bg = colors.base.black, fg = colors.base.green },
-        y = { bg = colors.base.black, fg = colors.base.green },
+        b = { bg = colors.base.dimmed4, fg = colors.base.white },
+        c = { bg = colors.base.dimmed5, fg = colors.base.white },
+        x = { bg = colors.base.dimmed5, fg = colors.base.green },
+        y = { bg = colors.base.dimmed4, fg = colors.base.green },
       },
       insert = {
         a = { bg = colors.base.yellow, fg = colors.base.black, gui = "bold" },
-        x = { bg = colors.base.black, fg = colors.base.yellow },
-        y = { bg = colors.base.black, fg = colors.base.yellow },
+        x = { bg = colors.base.dimmed5, fg = colors.base.yellow },
+        y = { bg = colors.base.dimmed4, fg = colors.base.yellow },
       },
       command = {
         a = { bg = colors.base.blue, fg = colors.base.black, gui = "bold" },
-        x = { bg = colors.base.black, fg = colors.base.blue },
-        y = { bg = colors.base.black, fg = colors.base.blue },
+        x = { bg = colors.base.dimmed5, fg = colors.base.blue },
+        y = { bg = colors.base.dimmed4, fg = colors.base.blue },
       },
       visual = {
         a = { bg = colors.base.magenta, fg = colors.base.black, gui = "bold" },
-        x = { bg = colors.base.black, fg = colors.base.magenta },
-        y = { bg = colors.base.black, fg = colors.base.magenta },
+        x = { bg = colors.base.dimmed5, fg = colors.base.magenta },
+        y = { bg = colors.base.dimmed4, fg = colors.base.magenta },
       },
       replace = {
         a = { bg = colors.base.red, fg = colors.base.black, gui = "bold" },
-        x = { bg = colors.base.black, fg = colors.base.red },
-        y = { bg = colors.base.black, fg = colors.base.red },
+        x = { bg = colors.base.dimmed5, fg = colors.base.red },
+        y = { bg = colors.base.dimmed4, fg = colors.base.red },
       },
       inactive = {
         a = { bg = colors.base.black, fg = colors.base.yellow, gui = "bold" },
@@ -68,17 +68,23 @@ return {
             "branch",
             icon = { "", color = { fg = colors.base.white } },
             color = { fg = colors.base.white, bg = colors.base.dimmed4 },
-            separator = { right = "" },
+            -- separator = { right = "" },
           },
         },
         lualine_c = {
-          { "filetype", colored = false, icon_only = true, padding = { left = 1, right = 0 } },
+          {
+            "filetype",
+            colored = false,
+            color = { fg = colors.base.white, bg = colors.base.dimmed5 },
+            icon_only = true,
+            padding = { left = 1, right = 0 },
+          },
           LazyVim.lualine.root_dir({
             icon = "",
-            color = { fg = colors.base.white, bg = colors.base.black },
+            color = { fg = colors.base.white, bg = colors.base.dimmed5 },
             padding = { left = 0, right = 0 },
           }),
-          { LazyVim.lualine.pretty_path({ color = { fg = colors.base.white, bg = colors.base.black } }) },
+          { LazyVim.lualine.pretty_path({ color = { fg = colors.base.white, bg = colors.base.dimmed5 } }) },
           {
             "diff",
             symbols = {
@@ -148,7 +154,7 @@ return {
             end,
             color = { bg = colors.base.dimmed4, fg = colors.base.white },
             padding = { left = 1, right = 1 },
-            separator = { left = "" },
+            -- separator = { left = "" },
           },
           {
             "progress",
@@ -172,7 +178,7 @@ return {
               {
                 get_short_cwd,
                 padding = { left = 1, right = 1 },
-                separator = { right = "" },
+                -- separator = { right = "" },
               },
             },
           },

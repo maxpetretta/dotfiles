@@ -18,7 +18,6 @@ return {
       opts = {
         extensions = {
           smart_splits = true,
-          codecompanion = true,
           lazy_nvim = { auto_register = true },
           which_key = { auto_register = true },
         },

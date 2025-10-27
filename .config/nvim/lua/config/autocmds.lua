@@ -29,3 +29,27 @@ vim.api.nvim_create_autocmd("WinLeave", {
     end
   end,
 })
+
+-- Auto-close lazygit when opening a file from it
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    local buftype = vim.bo.buftype
+    local bufname = vim.api.nvim_buf_get_name(0)
+
+    -- Only close lazygit if we're entering a normal file buffer (not terminal, not empty)
+    if buftype == "" and bufname ~= "" and not bufname:match("term://") then
+      vim.defer_fn(function()
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+          local buf = vim.api.nvim_win_get_buf(win)
+          local buf_name = vim.api.nvim_buf_get_name(buf)
+          -- Close any lazygit terminal windows
+          if vim.bo[buf].buftype == "terminal" and buf_name:match("lazygit") then
+            vim.api.nvim_win_close(win, true)
+            break
+          end
+        end
+      end, 100)
+    end
+  end,
+})

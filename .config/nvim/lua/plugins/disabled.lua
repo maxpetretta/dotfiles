@@ -3,5 +3,4 @@ return {
   { "folke/tokyonight.nvim", enabled = false },
   { "akinsho/bufferline.nvim", enabled = false },
   { "rafamadriz/friendly-snippets", enabled = false },
-  -- { "zbirenbaum/copilot.lua", enabled = false },
 }

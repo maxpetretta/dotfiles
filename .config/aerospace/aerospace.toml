@@ -15,12 +15,12 @@ default-root-container-orientation = 'auto'
 preset = 'qwerty'
 
 [gaps]
-inner.horizontal = 16
-inner.vertical = 16
-outer.left = 16
-outer.bottom = 16
-outer.top = 16
-outer.right = 16
+inner.horizontal = 11
+inner.vertical = 11
+outer.left = 11
+outer.bottom = 11
+outer.top = 11
+outer.right = 11
 
 # 'main' binding mode declaration. See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.main.binding]
@@ -67,8 +67,8 @@ alt-ctrl-i = 'join-with up'
 alt-ctrl-o = 'join-with right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-shift-minus = 'resize smart -50'
-alt-shift-equal = 'resize smart +50'
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
@@ -118,6 +118,16 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Passwords'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.electron.aqua-voice'
 check-further-callbacks = true
 run = 'layout floating'
 

@@ -18,7 +18,7 @@ return {
   "maxpetretta/debugprint.nvim",
   event = "VeryLazy",
   dependencies = {
-    "echasnovski/mini.nvim", -- Needed to enable :ToggleCommentDebugPrints for NeoVim 0.9
+    "nvim-mini/mini.nvim", -- Needed to enable :ToggleCommentDebugPrints for NeoVim 0.9
   },
   opts = {
     print_tag = "🪵",
