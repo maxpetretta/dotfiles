@@ -19,7 +19,7 @@ cursor-style-blink = true
 
 # Cursor trail animation
 custom-shader-animation = true
-custom-shader = ./shaders/cursor_smear.glsl
+custom-shader = ./shaders/cursor_warp.glsl
 
 # Keybindings
 keybind = ctrl+shift+h=goto_split:left
@@ -45,6 +45,7 @@ keybind = shift+enter=text:\n
 
 # OS settings
 auto-update = download
+auto-update-channel = tip
 macos-titlebar-style = hidden
 shell-integration-features = no-cursor,no-sudo,title
 quick-terminal-position = bottom

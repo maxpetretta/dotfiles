@@ -4,17 +4,21 @@
 // documentation: https://zed.dev/docs/configuring-zed
 {
   // AI settings
+  "file_finder": {
+    "include_ignored": "smart"
+  },
+  "project_panel": {
+    "hide_hidden": false,
+    "hide_gitignore": false
+  },
+  // "use_system_prompts": false,
   "context_servers": {
     "mcp-server-context7": {
-      "source": "extension",
       "enabled": true,
       "settings": {
         "default_minimum_tokens": "10000"
       }
     }
-  },
-  "auto_update_extensions": {
-    "biome": false
   },
   "agent": {
     "play_sound_when_agent_done": true,
@@ -57,7 +61,7 @@
   "seed_search_query_from_cursor": "selection",
   // UI settings
   "ui_font_size": 14,
-  "ui_font_family": "Zed Plex Sans",
+  "ui_font_family": ".ZedSans",
   "tab_bar": {
     "show": false
   },
@@ -69,9 +73,9 @@
   "collaboration_panel": {
     "button": false
   },
-  "chat_panel": {
-    "button": null
-  },
+  // "chat_panel": {
+  //   "button": null
+  // },
   "notification_panel": {
     "button": false
   },
@@ -84,7 +88,7 @@
   // Vim settings
   "vim_mode": true,
   "vertical_scroll_margin": 9,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "vim": {
     "toggle_relative_line_numbers": true,
     "use_smartcase_find": true,

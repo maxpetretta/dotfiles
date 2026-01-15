@@ -27,6 +27,3 @@ end
 
 -- Auto-reload files when changed externally
 vim.opt.autoread = true
-
--- Setup file watcher to auto-open externally modified files
-require("config.file-watcher").setup()

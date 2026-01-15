@@ -6,10 +6,16 @@
 .config/fish/themes/*
 .config/fish/fish_variables
 
+# Ghostty
+.config/ghostty/shaders/*
+
 # Zed
 .config/zed/*
 !.config/zed/keymap.json
 !.config/zed/settings.json
+
+# GitHub CLI
+.config/gh/hosts.yml
 
 # Misc
 .DS_Store
