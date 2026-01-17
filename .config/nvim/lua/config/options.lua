@@ -27,3 +27,16 @@ end
 
 -- Auto-reload files when changed externally
 vim.opt.autoread = true
+
+-- Custom highlight for diagnostic error codes (italic comment)
+vim.api.nvim_set_hl(0, "DiagnosticCodeItalic", { link = "Comment", italic = true })
+
+-- Diagnostics: disable virtual text, keep signs + underline
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function()
+    local current = vim.diagnostic.config()
+    current.virtual_text = false
+    vim.diagnostic.config(current)
+  end,
+  once = true,
+})

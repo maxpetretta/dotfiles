@@ -8,6 +8,12 @@ return {
           tsserver = {
             maxTsServerMemory = 8192,
           },
+          typescript = {
+            inlayHints = {
+              parameterTypes = { enabled = true },
+              variableTypes = { enabled = true, suppressWhenTypeMatchesName = true },
+            },
+          },
           vtsls = {
             experimental = {
               maxInlayHintLength = 25,

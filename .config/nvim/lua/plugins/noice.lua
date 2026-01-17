@@ -6,5 +6,12 @@ return {
         silent = true,
       },
     },
+    views = {
+      hover = {
+        size = {
+          max_width = 80,
+        },
+      },
+    },
   },
 }

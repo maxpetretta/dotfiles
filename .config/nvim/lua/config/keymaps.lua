@@ -79,3 +79,40 @@ vim.keymap.set({ "n", "v" }, "c", '"_c', { desc = "Change without yanking" })
 vim.keymap.set({ "n", "v" }, "C", '"_C', { desc = "Change to EOL without yanking" })
 vim.keymap.set({ "n", "v" }, "d", '"_d', { desc = "Delete without yanking" })
 vim.keymap.set({ "n", "v" }, "D", '"_D', { desc = "Delete to EOL without yanking" })
+
+-- Combined hover + diagnostics on K (deferred to override LazyVim)
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    vim.schedule(function()
+      vim.keymap.set("n", "K", function()
+        local diagnostics = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+        if #diagnostics > 0 then
+          vim.diagnostic.open_float({
+            max_width = 120,
+            header = "",
+            prefix = function(d)
+              local source = d.source or "unknown"
+              if source:match("typescript") then
+                source = "ts"
+              elseif source:match("biome") then
+                source = "biome"
+              end
+              return source .. ": ", "NormalFloat"
+            end,
+            suffix = function(d)
+              if d.code then
+                return " (" .. d.code .. ")", "DiagnosticCodeItalic"
+              end
+              return "", ""
+            end,
+            format = function(d)
+              return d.message
+            end,
+          })
+        else
+          vim.lsp.buf.hover()
+        end
+      end, { desc = "Hover / Diagnostics", buffer = args.buf })
+    end)
+  end,
+})
