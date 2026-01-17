@@ -13,12 +13,7 @@
   },
   // "use_system_prompts": false,
   "context_servers": {
-    "mcp-server-context7": {
-      "enabled": true,
-      "settings": {
-        "default_minimum_tokens": "10000"
-      }
-    }
+    
   },
   "agent": {
     "play_sound_when_agent_done": true,

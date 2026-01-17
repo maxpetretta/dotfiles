@@ -1,10 +1,11 @@
 # Font settings
 font-family = "MonaspiceAr Nerd Font"
+font-size = 14
 font-feature = calt
 font-feature = -liga
 font-feature = -dlig
-adjust-cell-width = -1
-adjust-cell-height = 7
+adjust-cell-width = 0
+adjust-cell-height = 11
 adjust-underline-position = 7
 adjust-cursor-thickness = 200%
 

@@ -214,7 +214,8 @@
       "WebFetch(domain:api.github.com)",
       "WebFetch(domain:farcasterhq.notion.site)",
       "WebFetch(domain:docs.privy.io)",
-      "WebFetch(domain:registry.npmjs.org)"
+      "WebFetch(domain:registry.npmjs.org)",
+      "Skill(issue-workflow)"
     ],
     "deny": [
       "Bash(rm -rf /)",
@@ -277,6 +278,7 @@
     "context7@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
+  "promptSuggestionEnabled": false,
   "feedbackSurveyState": {
     "lastShownTime": 1754089405142
   }
