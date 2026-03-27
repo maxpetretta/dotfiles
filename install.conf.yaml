@@ -20,13 +20,12 @@
     ~/.config/nvim: .config/nvim
     ~/.config/opencode: .config/opencode
     ~/.config/zed: .config/zed
+    ~/.claude: .claude
+    ~/.codex: .codex
+    ~/.pi: .pi
 
     # Files
     ~/.bashrc: .config/bash/.bashrc
-    ~/.claude/agents: .config/claude/agents
-    ~/.claude/CLAUDE.md: .config/claude/CLAUDE.md
-    ~/.claude/commands: .config/claude/commands
-    ~/.claude/settings.json: .config/claude/settings.json
     ~/.config/starship.toml: .config/starship/starship.toml
     ~/.gitconfig: .config/git/.gitconfig
     ~/.tmux.conf: .config/tmux/.tmux.conf

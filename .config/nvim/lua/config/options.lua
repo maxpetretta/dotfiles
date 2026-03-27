@@ -4,6 +4,7 @@
 
 vim.opt.list = false
 vim.opt.scrolloff = 9
+vim.opt.conceallevel = 0
 vim.g.ai_cmp = false -- Disable Copilot suggestions as a cmp source
 
 -- Prepend mise shims to PATH

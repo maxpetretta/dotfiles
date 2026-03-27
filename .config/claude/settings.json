@@ -277,9 +277,11 @@
     "code-simplifier@claude-plugins-official": true,
     "context7@claude-plugins-official": true
   },
-  "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false,
+  "skipDangerousModePermissionPrompt": true,
+  "sessionMaxAgeSeconds": 999999999,
   "feedbackSurveyState": {
     "lastShownTime": 1754089405142
-  }
+  },
+  "effortLevel": "high"
 }

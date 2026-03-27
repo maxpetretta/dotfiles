@@ -1,13 +1,11 @@
 git:
-  paging:
-    externalDiffCommand: difft --display=inline --tab-width=2 --syntax-highlight=off
-
+  pagers:
+    - externalDiffCommand: difft --display=inline --tab-width=2 --syntax-highlight=off
 os:
   edit: "nvr --remote {{filename}}"
   editAtLine: "nvr --remote +{{line}} {{filename}}"
   editAtLineAndWait: "nvr --remote-wait +{{line}} {{filename}}"
   editInTerminal: false
-
 gui:
   theme:
     selectedLineBgColor:

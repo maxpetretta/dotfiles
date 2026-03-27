@@ -3,4 +3,6 @@ return {
   { "folke/tokyonight.nvim", enabled = false },
   { "akinsho/bufferline.nvim", enabled = false },
   { "rafamadriz/friendly-snippets", enabled = false },
+  { "MeanderingProgrammer/render-markdown.nvim", enabled = false },
+  { "epwalsh/obsidian.nvim", enabled = false },
 }

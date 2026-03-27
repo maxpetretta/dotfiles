@@ -1,19 +1,34 @@
 # fish scripts
-source ~/.config/fish/abbr.fish
-source ~/.config/fish/functions.fish
-source ~/.config/fish/secrets.fish
+for file in ~/.config/fish/abbr.fish ~/.config/fish/functions.fish ~/.config/fish/secrets.fish
+    if test -f $file
+        source $file
+    end
+end
 
 # 1Password authentication for gh command
-source ~/.config/op/plugins.sh
+if test -f ~/.config/op/plugins.sh
+    source ~/.config/op/plugins.sh
+end
 
-# Added by OrbStack: command-line tools and integration
-# This won't be added again if you remove it.
-source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+# OrbStack CLI shims
+if test -d ~/.orbstack/bin
+    if not contains -- ~/.orbstack/bin $PATH
+        set -gx PATH ~/.orbstack/bin $PATH
+    end
+end
+
+# Unlock Keychain for SSH sessions (enables gh, claude, etc.)
+if set -q SSH_CONNECTION
+    security list-keychains -d user -s ~/Library/Keychains/login.keychain-db /Library/Keychains/System.keychain 2>/dev/null
+    security default-keychain -d user -s ~/Library/Keychains/login.keychain-db 2>/dev/null
+    security unlock-keychain ~/Library/Keychains/login.keychain-db
+end
+
+# Shell init
+mise activate fish --shims | source
+zoxide init fish --cmd cd | source
 
 # Blastoff
 if status is-interactive
-    mise activate fish | source
     starship init fish | source
-else
-    mise activate fish --shims | source
 end

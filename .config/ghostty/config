@@ -42,7 +42,7 @@ keybind = ctrl+z=toggle_split_zoom
 keybind = ctrl+shift+r=reload_config
 keybind = global:ctrl+shift+`=toggle_quick_terminal
 
-keybind = shift+enter=text:\n
+keybind = shift+enter=text:\x1b\r
 
 # OS settings
 auto-update = download
@@ -50,3 +50,4 @@ auto-update-channel = tip
 macos-titlebar-style = hidden
 shell-integration-features = no-cursor,no-sudo,title
 quick-terminal-position = bottom
+desktop-notifications = true

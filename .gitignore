@@ -17,6 +17,38 @@
 # GitHub CLI
 .config/gh/hosts.yml
 
+# Mise
+.config/mise/*
+!.config/mise/config.toml
+
+# OpenCode
+.config/opencode/*
+!.config/opencode/AGENTS.md
+!.config/opencode/opencode.json
+.config/opencode/.gitignore
+
+# Claude
+.claude/*
+!.claude/CLAUDE.md
+!.claude/settings.json
+!.claude/commands
+!.claude/commands/**
+!.claude/agents
+!.claude/agents/**
+
+# Codex
+.codex/*
+!.codex/AGENTS.md
+!.codex/config.toml
+
+# Pi
+.pi/*
+!.pi/agent
+.pi/agent/*
+!.pi/agent/AGENTS.md
+!.pi/agent/settings.json
+!.pi/agent/keybindings.json
+
 # Misc
 .DS_Store
 .ignore

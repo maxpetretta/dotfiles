@@ -1,0 +1,1 @@
+/Users/max/dev/dotfiles/.config/pi/AGENTS.md

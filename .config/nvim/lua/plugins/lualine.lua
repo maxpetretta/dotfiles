@@ -2,6 +2,15 @@ local function get_short_cwd()
   return vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
 end
 
+local function get_monokai_scheme()
+  local ok, monokai = pcall(require, "monokai-pro")
+  if ok and type(monokai.get_scheme) == "function" then
+    return monokai.get_scheme()
+  end
+
+  return require("monokai-pro.colorscheme")
+end
+
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
@@ -12,7 +21,7 @@ return {
     lualine_require.require = require
 
     local icons = require("lazyvim.config").icons
-    local colors = require("monokai-pro.colorscheme")
+    local colors = get_monokai_scheme()
     vim.o.laststatus = vim.g.lualine_laststatus
 
     local theme = {
