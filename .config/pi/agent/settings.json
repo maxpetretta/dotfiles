@@ -1,0 +1,12 @@
+{
+  "packages": [
+    "/Users/max/dev/pi-editor",
+    "/Users/max/dev/pi-stash",
+    "../../dev/pi-upgrade",
+    "../../dev/pi-alert"
+  ],
+  "lastChangelogVersion": "0.63.1",
+  "defaultThinkingLevel": "high",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.4"
+}

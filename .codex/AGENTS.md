@@ -1,1 +1,0 @@
-/Users/max/dev/dotfiles/.config/codex/AGENTS.md
