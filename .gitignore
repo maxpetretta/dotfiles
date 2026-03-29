@@ -28,26 +28,33 @@
 .config/opencode/.gitignore
 
 # Claude
-.claude/*
-!.claude/CLAUDE.md
-!.claude/settings.json
-!.claude/commands
-!.claude/commands/**
-!.claude/agents
-!.claude/agents/**
+.claude/
+.config/claude/*
+!.config/claude/CLAUDE.md
+!.config/claude/settings.json
+!.config/claude/commands
+!.config/claude/commands/**
+!.config/claude/agents
+!.config/claude/agents/**
 
 # Codex
-.codex/*
-!.codex/AGENTS.md
-!.codex/config.toml
+.codex/
+.config/codex/*
+!.config/codex/AGENTS.md
+!.config/codex/config.toml
 
 # Pi
-.pi/*
-!.pi/agent
-.pi/agent/*
-!.pi/agent/AGENTS.md
-!.pi/agent/settings.json
-!.pi/agent/keybindings.json
+.pi/
+.config/pi/*
+!.config/pi/agent
+.config/pi/agent/*
+!.config/pi/agent/AGENTS.md
+!.config/pi/agent/settings.json
+!.config/pi/agent/keybindings.json
+
+# Runtime Artifacts
+.cache/
+.local/
 
 # Misc
 .DS_Store

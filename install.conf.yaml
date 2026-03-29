@@ -20,9 +20,15 @@
     ~/.config/nvim: .config/nvim
     ~/.config/opencode: .config/opencode
     ~/.config/zed: .config/zed
-    ~/.claude: .claude
-    ~/.codex: .codex
-    ~/.pi: .pi
+    ~/.claude/CLAUDE.md: .config/claude/CLAUDE.md
+    ~/.claude/agents: .config/claude/agents
+    ~/.claude/commands: .config/claude/commands
+    ~/.claude/settings.json: .config/claude/settings.json
+    ~/.codex/AGENTS.md: .config/codex/AGENTS.md
+    ~/.codex/config.toml: .config/codex/config.toml
+    ~/.pi/agent/AGENTS.md: .config/pi/agent/AGENTS.md
+    ~/.pi/agent/keybindings.json: .config/pi/agent/keybindings.json
+    ~/.pi/agent/settings.json: .config/pi/agent/settings.json
 
     # Files
     ~/.bashrc: .config/bash/.bashrc
