@@ -11,6 +11,24 @@
         ],
         "store": false
       }
+    },
+    "anthropic": {
+      "options": {
+        "baseURL": "http://127.0.0.1:3456/v1",
+        "apiKey": "x"
+      }
+    }
+  },
+  "plugins": [
+    "/Users/max/.config/opencode/meridian-autostart/v2",
+    "/Users/max/.local/share/mise/installs/npm-rynfar-meridian/latest/node_modules/@rynfar/meridian/dist/meridian-v2"
+  ],
+  "providers": {
+    "anthropic": {
+      "settings": {
+        "apiKey": "x",
+        "baseURL": "http://127.0.0.1:3456/v1"
+      }
     }
   }
 }

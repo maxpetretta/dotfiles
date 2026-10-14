@@ -1,6 +1,7 @@
 git:
-  pagers:
-    - externalDiffCommand: difft --display=inline --tab-width=2 --syntax-highlight=off
+  diffRenderers:
+    - command: difft --display=inline --tab-width=2 --syntax-highlight=off
+      type: extDiff
 os:
   edit: "nvr --remote {{filename}}"
   editAtLine: "nvr --remote +{{line}} {{filename}}"

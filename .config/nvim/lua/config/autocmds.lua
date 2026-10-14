@@ -20,8 +20,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- Save current buffer when window loses focus
-vim.api.nvim_create_autocmd("WinLeave", {
+-- Save current buffer when window loses focus, including switching tmux panes
+vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
   pattern = "*",
   callback = function()
     if vim.bo.modifiable and not vim.bo.readonly and vim.fn.expand("%") ~= "" and vim.bo.modified then
@@ -53,3 +53,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
   end,
 })
+
+-- Reload files changed on disk (by agents in other tmux panes) without waiting for focus
+local checktime_timer = vim.uv.new_timer()
+checktime_timer:start(1000, 1000, vim.schedule_wrap(function()
+  if vim.fn.mode() ~= "c" and vim.fn.getcmdwintype() == "" then
+    vim.cmd("silent! checktime")
+  end
+end))
