@@ -44,6 +44,10 @@ keybind = global:ctrl+shift+`=toggle_quick_terminal
 
 keybind = shift+enter=text:\x1b\r
 
+# Open every window straight into the "home" tmux session (attach, or create if missing);
+# detaching drops back to a fish shell instead of closing the window
+command = /opt/homebrew/bin/fish -l -c "~/dev/dotfiles/.config/tmux/tmux-home.sh; exec fish -l"
+
 # OS settings
 auto-update = download
 auto-update-channel = tip

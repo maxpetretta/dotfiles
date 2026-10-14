@@ -17,16 +17,15 @@ if test -d ~/.orbstack/bin
     end
 end
 
-# Unlock Keychain for SSH sessions (enables gh, claude, etc.)
-if set -q SSH_CONNECTION
-    security list-keychains -d user -s ~/Library/Keychains/login.keychain-db /Library/Keychains/System.keychain 2>/dev/null
-    security default-keychain -d user -s ~/Library/Keychains/login.keychain-db 2>/dev/null
-    security unlock-keychain ~/Library/Keychains/login.keychain-db
-end
+# Non-interactive, predictable Homebrew for agents
+set -gx HOMEBREW_NO_AUTO_UPDATE 1
+set -gx HOMEBREW_NO_ENV_HINTS 1
+set -gx HOMEBREW_NO_INSTALL_CLEANUP 1
 
 # Shell init
 mise activate fish --shims | source
 zoxide init fish --cmd cd | source
+direnv hook fish | source
 
 # Blastoff
 if status is-interactive

@@ -1,12 +1,57 @@
 {
   "packages": [
-    "/Users/max/dev/pi-editor",
-    "/Users/max/dev/pi-stash",
-    "../../dev/pi-upgrade",
-    "../../dev/pi-alert"
+    {
+      "source": "../../dev/pi-enhanced",
+      "extensions": []
+    },
+    "npm:pi-claude-bridge"
   ],
-  "lastChangelogVersion": "0.63.1",
+  "extensions": [
+    "!**"
+  ],
+  "lastChangelogVersion": "1.0.0",
   "defaultThinkingLevel": "high",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.4"
+  "defaultModel": "gpt-5.4",
+  "piEnhanced": {
+    "features": {
+      "alert": {
+        "enabled": true
+      },
+      "editor": {
+        "enabled": true
+      },
+      "help": {
+        "enabled": true,
+        "panelPosition": "right"
+      },
+      "footer": {
+        "enabled": true
+      },
+      "stash": {
+        "enabled": true,
+        "shortcut": "alt+s",
+        "filePath": ".pi/stash.md"
+      },
+      "upgrade": {
+        "enabled": true,
+        "checkOnStart": true
+      },
+      "fastMode": {
+        "enabled": true,
+        "defaultOn": true
+      },
+      "planUsage": {
+        "enabled": true
+      },
+      "compactTools": {
+        "enabled": true,
+        "mode": "compact",
+        "maxPreviewLines": 10,
+        "experimentalTransparentToolBackground": true
+      }
+    }
+  },
+  "tuiMode": "regular",
+  "theme": "dark"
 }

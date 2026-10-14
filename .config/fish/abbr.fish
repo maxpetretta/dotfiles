@@ -27,6 +27,7 @@ abbr -a tns tmux new-session -s
 abbr -a tks tmux kill-session -t
 
 # custom
+abbr -a rm trash
 abbr -a n nvim
 abbr -a vim nvim
 abbr -a c codex --yolo

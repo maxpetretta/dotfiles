@@ -4,10 +4,22 @@
 // documentation: https://zed.dev/docs/configuring-zed
 {
   // AI settings
+  "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    }
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "file_finder": {
     "include_ignored": "smart"
   },
   "project_panel": {
+    "dock": "left",
     "hide_hidden": false,
     "hide_gitignore": false
   },
@@ -16,6 +28,7 @@
     
   },
   "agent": {
+    "dock": "right",
     "play_sound_when_agent_done": true,
     "inline_assistant_model": {
       "provider": "anthropic",
@@ -66,6 +79,7 @@
     "selections_menu": true
   },
   "collaboration_panel": {
+    "dock": "left",
     "button": false
   },
   // "chat_panel": {

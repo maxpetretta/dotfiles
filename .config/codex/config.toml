@@ -1,17 +1,869 @@
-model = "gpt-5.4"
+model = "gpt-6.1-sol"
 model_reasoning_effort = "high"
+approval_policy = "on-request"
+approvals_reviewer = "auto_review"
 tool_output_token_limit = 25000
 model_auto_compact_token_limit = 233000
-service_tier = "fast"
 web_search = "live"
+service_tier = "fast"
+suppress_unstable_features_warning = true
+
+notify = ["/Users/max/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+personality = "pragmatic"
+sandbox_mode = "danger-full-access"
+plan_mode_reasoning_effort = "medium"
+review_model = "gpt-6.1-sol"
 
 [features]
-unified_exec = true
-apply_patch_freeform = true
-shell_snapshot = true
+memories = true
+chronicle = true
+hooks = true
+js_repl = false
+prevent_idle_sleep = true
+fast_mode = true
 
-[projects."/Users/max/dev"]
+[notice]
+fast_default_opt_out = true
+
+[tui]
+theme = "monokai-pro"
+screen_reader_detection_done = true
+fullscreen_transcript = true
+resume_cwd = "session"
+
+[tui.model_availability_nux]
+"gpt-6.1-sol" = 4
+
+[marketplaces.openai-bundled]
+source_type = "local"
+source = "/Users/max/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+source_type = "local"
+source = "/Users/max/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[marketplaces.remctl-local]
+source_type = "local"
+source = "/Users/max/Applications/RemCTL Capability Host.app/Contents/Resources"
+
+[plugins."documents@openai-primary-runtime"]
+enabled = false
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = false
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = false
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."gmail@openai-curated"]
+enabled = true
+
+[plugins."google-calendar@openai-curated"]
+enabled = true
+
+[plugins."vercel@openai-curated"]
+enabled = false
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = false
+
+[plugins."slack@openai-curated"]
+enabled = true
+
+[plugins."build-ios-apps@openai-curated"]
+enabled = true
+
+[plugins."codex-app-tools@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."unified-computer-use@openai-bundled"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."computer-history@openai-bundled"]
+enabled = true
+
+[plugins."code-review@openai-bundled"]
+enabled = true
+
+[plugins."remctl@remctl-local"]
+enabled = true
+
+[plugins."finances@openai-curated-remote"]
+enabled = false
+
+[plugins."github@openai-curated-remote"]
+enabled = true
+
+[plugins."google-drive@openai-curated-remote"]
+enabled = false
+
+[plugins."vercel@openai-curated-remote"]
+enabled = false
+
+[desktop]
+ambient-suggestions-enabled = true
+appearanceDarkCodeThemeId = "codex"
+preventSleepWhileRunning = true
+usePointerCursors = true
+codeFontSize = 13
+keepRemoteControlAwakeWhilePluggedIn = true
+git-show-sidebar-pr-icons = true
+followUpQueueMode = "queue"
+dock-icon-preference = "app-default"
+conversationDetailMode = "STEPS_COMMANDS"
+realtimeVoiceScreenContextEnabled = true
+appearanceDiffMarkerStyle = "color"
+mac-menu-bar-enabled = false
+show-context-window-usage = true
+enabled-reasoning-efforts = ["low", "medium", "high", "xhigh", "ultra", "max"]
+sidebar-show-projects-in-recents = false
+avatar-overlay-pet-visible = false
+agent-usage-reset-enabled = true
+
+[desktop.appearanceDarkChromeTheme]
+accent = "#0169cc"
+accentSource = "custom"
+contrast = 60
+ink = "#fcfcfc"
+opaqueWindows = false
+surface = "#111111"
+
+[desktop.appearanceDarkChromeTheme.fonts]
+code = '"MonaspiceAr Nerd Font"'
+
+[desktop.appearanceDarkChromeTheme.semanticColors]
+diffAdded = "#00a240"
+diffRemoved = "#e02e2a"
+skill = "#b06dff"
+
+[desktop.open-in-target-preferences]
+global = "zed"
+
+[mcp_servers.memo]
+command = "/Users/max/.local/share/mise/installs/node/22.23.1/bin/node"
+args = ["/Users/max/.local/share/memo/codex-integration/mcp-server.mjs"]
+startup_timeout_sec = 10.0
+tool_timeout_sec = 40.0
+
+[mcp_servers.memo.env]
+MEMO_MCP_ALLOW_FORGET = "0"
+MEMO_MCP_ALLOW_WRITES = "1"
+MEMO_PYTHON_BIN = "/Users/max/.local/share/mise/installs/python/3.13/bin/python3"
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/max/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+CODEX_HOME = "/Users/max/.codex"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab,mcpapps"
+BROWSER_USE_TINYSKY_ENABLED = "1"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.1007.30912"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/max/.codex/plugins/cache/openai-bundled/browser/26.1007.30912/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+SKY_CUA_SERVICE_PATH = "/Users/max/.codex/computer-use/Codex Computer Use.app"
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
+
+[mcp_servers.computer-use]
+command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+args = ["mcp"]
+cwd = "."
+enabled = false
+
+[mcp_servers.xcode]
+command = "xcrun"
+args = ["mcpbridge"]
+
+[memories]
+generate_memories = true
+use_memories = true
+
+[shell_environment_policy.set]
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "9230e2bd8b24b7ac7a0ba6774c64bf0d78ecdabbdd91d0ed627b02a587bae2df"
+
+[projects."/Users/max"]
 trust_level = "trusted"
 
-[notice.model_migrations]
-"gpt-5.2-codex" = "gpt-5.4"
+[projects."/Users/max/Documents/Codex/2026-08-03/show"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-03/look-up-if-holiday-hollywood-markets"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-03/what-is-the-best-cut-of"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-03/what-does-the-latest-science-say"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-03/what"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-04/when-i-do-lateral-raise-exercises"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-04/in"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-04/incog"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-05/in-the-hindsight-system-working"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-05/we-need-to-diagnose-the-congestion"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-06/comp"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-06/how-did-i-spend-my-usage"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-06/what-capabilities-do-you-still-lack"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-06/let-s-set-up-a-scheduled"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/01 Projects/Lifemaxx"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-08/before-changing-anything-about-my-codex"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-10/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-10/new-realtime-voice-chat-2"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-10/new-realtime-voice-chat-3"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-10/should-i-get-the-original-or"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-10/here-is-what-my-hair-currently"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-11/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-11/new-realtime-voice-chat-2"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-11/which-toothbrush-did-you-recommend-to"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-11/new-realtime-voice-chat-3"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-11/new-realtime-voice-chat-4"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-11/new-realtime-voice-chat-5"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-11/https-money-x-com-en-features"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/01 Projects/Codex-mem"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-12/my-brother-s-birthday-is-coming"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-12/what-do-you-think-is-better"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-12/in"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-13/i-n"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-14/i-need-to-get-my-dads"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-14/ive"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-14/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-14/new-realtime-voice-chat-2"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-14/new-realtime-voice-chat-3"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-15/can-you-search-the-web-and"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-15/can-you-make-a-new-list"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-17/compare-my-current-vacuum-the-dyson"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-17/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-17/new-realtime-voice-chat-2"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/01 Projects/Vacation"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-18/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/01 Projects/AirChat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-18/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-18/new-realtime-voice-chat-2"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-18/new-realtime-voice-chat-3"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-18/new-realtime-voice-chat-4"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-19/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-19/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-20/i"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-20/w"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-20/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-20/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-21/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-21/what-is-the-name-of-the"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-22/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-22/give-me-a-recap-of-tottenhams"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-23/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-23/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-23/what-cleaner-i-can-buy-at"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-23/how-long-to-air-fry-yellow"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-24/what-are-some-duffel-bags-under"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-24/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-24/i-spilled-ramen-broth-on-my"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-25/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-25/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-25/new-realtime-voice-chat-2"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-26/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-27/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-27/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-27/new-realtime-voice-chat-2"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-28/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-29/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-29/what-store-nearby-has-the-best"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-29/what-s-the-best-way-to"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-29/how-can-i-store-steaks-in"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-30/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/01 Projects/Mellon"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-30/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-08-31/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-01/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-01/re"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-01/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-01/new-realtime-voice-chat-2"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-01/new-realtime-voice-chat-3"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-01/new-realtime-voice-chat-4"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-02/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-02/i-m-trying-to-figure-out"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-02/help-me-set-up-executor-and"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-02/https-executor-sh-https-executor-sh"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-02/can-x20"]
+trust_level = "trusted"
+
+[projects."/private/tmp/memo-import-e2e.LB2VAb/vault"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-03/during-a-bad-thunderstorm-should-i"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-03/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-03/1-chatgpt-can-t-load-config"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-03/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-03/download-claude-grok-exports"]
+trust_level = "trusted"
+
+[projects."/Users/max/.memo"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-04/are-there-any-extensions-that-sync"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-04/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-04/can-x20"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/01 Projects/memo"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-04/new-realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/max/.memo-reextract-20260904/.memo-work/batch-e366b16d-258e-415a-866e-d965c4bdc364"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-05/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/.memo-reextract-20260904/.memo-work/batch-34199d94-dc8a-4dde-b930-db864d57c3a1"]
+trust_level = "trusted"
+
+[projects."/Users/max/.memo-reextract-20260904/.memo-work/batch-47e62066-befa-4561-ab3a-16c7963f5ed6"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-05/when-you-wash-a-button-down"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-06/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/01 Projects/Mellon/spikes/memo-topic-routing/minmax-v1/validation-run/baseline/vault/.memo-work/batch-f3d30648-af57-4ec7-a9e8-17778f091ebf"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-07/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-07/what-is-my-usage-at-this"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-07/what"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-07/l"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-07/l-2"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-08/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-09/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/private/tmp/memo-lifecycle-test-20260909/.memo-work/batch-49030cb9-a200-4cf0-b988-23b29c9ce9cc"]
+trust_level = "trusted"
+
+[projects."/private/tmp/memo-lifecycle-test-20260909/.memo-work/batch-d7eb0183-1034-449d-82c5-e56b69c10c65"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-09/wh"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-09/wha"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-10/you-are-the-nightly-memo-projection"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-10/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/01 Projects/Memo"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-10/brew-install-cask-tornikegomareli-talkify-talkify"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-11/you-are-the-nightly-memo-projection"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-11/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-11/can-x20"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-11/i"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-12/run-the-codex-memo-pack-exporter"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-12/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-13/run-the-codex-memo-pack-exporter"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-13/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-14/run-the-codex-memo-pack-exporter"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-14/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-15/run-the-codex-memo-pack-exporter"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-15/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-16/run-the-codex-memo-pack-exporter"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-16/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-17/run-the-codex-memo-pack-exporter"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-17/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-18/run-the-codex-memo-pack-exporter"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-18/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-19/run-the-codex-memo-pack-exporter"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-19/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-20/run-the-codex-memo-pack-exporter"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-20/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-21/run-the-codex-memo-pack-exporter"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-21/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-22/run-the-codex-memo-pack-exporter"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-22/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-23/run-the-codex-memo-pack-exporter"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-23/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-26/at-the-start-of-the-run"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/Codex/2026-09-26/run-the-codex-memo-pack-exporter"]
+trust_level = "trusted"
+
+[projects."/Users/max/Documents/01 Projects/Orchard"]
+trust_level = "trusted"
+
+[projects."/Users/max/dev/dotfiles"]
+trust_level = "trusted"
+
+[hooks.state]
+
+[hooks.state."/Users/max/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:3848d1072729999d804bcdbf3f29c70620d496fcf430ddec0edd5ec46f8eee07"
+
+[hooks.state."/Users/max/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:4a332bae4fe5983b3933e68ef6538fa11cfc2eadcad38096b17ebfc3559cf98e"
+
+[hooks.state."/Users/max/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:780afae43ef40118077b924fe571508bf2a7cd81842d3a1b5c5a52c12b2b9227"
+
+[apps.connector_openai_codex_document_control]
+enabled = false
+
+[hooks.state."/Users/max/.codex/hooks.json:session_end:0:0"]
+trusted_hash = "sha256:4022e9832f152e2ad8785d59d3b821485521e7c67736b9111f504df4961e5b71"
+
+# Memo extraction state and vault access for scheduled workspace-write runs.
+[sandbox_workspace_write]
+writable_roots = ["/Users/max/.memo", "/Users/max/.local/share/memo/codex"]
+network_access = true
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/google-drive/0.1.16/skills/google-docs/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/google-drive/0.1.16/skills/google-drive/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/google-drive/0.1.16/skills/google-drive-comments/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/google-drive/0.1.16/skills/google-sheets/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/google-drive/0.1.16/skills/google-slides/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-developers/1.3.6/skills/agents/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-developers/1.3.6/skills/devday-guide/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-developers/1.3.6/skills/openai-api-troubleshooting/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-developers/1.3.6/skills/openai-platform-api-key/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-analytics-dashboard/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-business-review/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-design-report/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-experiment-analysis/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-financial-budget/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-investment-committee-memo/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-legal-memorandum/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-market-trends-report/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-minimal-letterhead/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-operating-calendar/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-operating-review/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-project-kickoff/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-project-tracker/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-sales-pipeline/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-simple-dark-mode/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-simple-light-mode/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-strategy-memorandum/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-system-design/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-team-alignment/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/openai-templates/0.1.1/skills/artifact-template-three-statement-forecast/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/pages/0.1.20/skills/maintain-space/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/pages/0.1.20/skills/manage-schedules/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/pages/0.1.20/skills/organize-space/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/pages/0.1.20/skills/write-page/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/skills/use-1password/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/work-pets/0.1.6/skills/create-pet/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/work-pets/0.1.6/skills/pets/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/plugins/cache/openai-curated-remote/work-pets/0.1.6/skills/update-pet/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/skills/memo/SKILL.md"
+enabled = false
+
+[[skills.config]]
+path = "/Users/max/.codex/skills/manage-apple-reminders/SKILL.md"
+enabled = false
