@@ -19,6 +19,7 @@
     ~/.config/mise: .config/mise
     ~/.config/nvim: .config/nvim
     ~/.config/opencode: .config/opencode
+    ~/.config/rex: .config/rex
     ~/.config/zed: .config/zed
     ~/.claude/CLAUDE.md: .config/claude/CLAUDE.md
     ~/.claude/agents: .config/claude/agents
