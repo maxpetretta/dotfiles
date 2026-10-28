@@ -1,5 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "cleanupPeriodDays": 36500,
   "permissions": {
     "deny": [
       "Bash(rm -rf /)",
@@ -67,7 +68,155 @@
       "Bash(npm publish:*)",
       "Bash(bun publish:*)",
       "Bash(vercel --prod:*)",
-      "Bash(vercel deploy --prod:*)"
+      "Bash(vercel deploy --prod:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(git push origin +main:*)",
+      "Bash(git push origin +master:*)"
+    ],
+    "allow": [
+      "Edit(/tmp/**)",
+      "Edit(/Users/max/dev/**)",
+      "Edit(/Users/max/.cache/**)",
+      "Write(/tmp/**)",
+      "Write(/Users/max/dev/**)",
+      "Write(/Users/max/.cache/**)",
+      "Read(/tmp/**)",
+      "Read(/Users/max/dev/**)",
+      "Bash(git add:*)",
+      "Bash(git blame:*)",
+      "Bash(git branch:*)",
+      "Bash(git cherry-pick:*)",
+      "Bash(git clone:*)",
+      "Bash(git commit:*)",
+      "Bash(git config --get:*)",
+      "Bash(git config --list:*)",
+      "Bash(git diff:*)",
+      "Bash(git fetch:*)",
+      "Bash(git log:*)",
+      "Bash(git mv:*)",
+      "Bash(git pull:*)",
+      "Bash(git rebase:*)",
+      "Bash(git reset --soft:*)",
+      "Bash(git reset --mixed:*)",
+      "Bash(git revert:*)",
+      "Bash(git show:*)",
+      "Bash(git status:*)",
+      "Bash(git switch:*)",
+      "Bash(git tag:*)",
+      "Bash(gh auth status:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh release list:*)",
+      "Bash(gh release view:*)",
+      "Bash(gh repo list:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh run watch:*)",
+      "Bash(tsc:*)",
+      "Bash(brew list:*)",
+      "Bash(brew search:*)",
+      "Bash(brew info:*)",
+      "Bash(brew doctor:*)",
+      "Bash(docker compose logs:*)",
+      "Bash(docker compose ps:*)",
+      "Bash(docker images:*)",
+      "Bash(docker inspect:*)",
+      "Bash(docker logs:*)",
+      "Bash(docker ps:*)",
+      "Bash(docker stats:*)",
+      "Bash(cast block:*)",
+      "Bash(cast block-number:*)",
+      "Bash(cast chain-id:*)",
+      "Bash(cast chain:*)",
+      "Bash(cast gas-price:*)",
+      "Bash(cast base-fee:*)",
+      "Bash(cast balance:*)",
+      "Bash(cast nonce:*)",
+      "Bash(cast code:*)",
+      "Bash(cast codesize:*)",
+      "Bash(cast call:*)",
+      "Bash(cast calldata:*)",
+      "Bash(cast 4byte:*)",
+      "Bash(cast 4byte-decode:*)",
+      "Bash(cast abi-encode:*)",
+      "Bash(cast abi-decode:*)",
+      "Bash(cast sig:*)",
+      "Bash(cast storage:*)",
+      "Bash(cast index:*)",
+      "Bash(cast proof:*)",
+      "Bash(cast tx:*)",
+      "Bash(cast receipt:*)",
+      "Bash(cast logs:*)",
+      "Bash(cast find-block:*)",
+      "Bash(cast lookup-address:*)",
+      "Bash(cast resolve-name:*)",
+      "Bash(cast to-base:*)",
+      "Bash(cast to-hex:*)",
+      "Bash(cast to-dec:*)",
+      "Bash(cast to-wei:*)",
+      "Bash(cast from-wei:*)",
+      "Bash(cast to-unit:*)",
+      "Bash(cast from-unit:*)",
+      "Bash(cast keccak:*)",
+      "Bash(cast compute-address:*)",
+      "Bash(cast parse-bytes32-string:*)",
+      "Bash(openssl rand:*)",
+      "Bash(bat:*)",
+      "Bash(cat:*)",
+      "Bash(cut:*)",
+      "Bash(diff:*)",
+      "Bash(eza:*)",
+      "Bash(grep:*)",
+      "Bash(head:*)",
+      "Bash(paste:*)",
+      "Bash(pbcopy:*)",
+      "Bash(pbpaste:*)",
+      "Bash(printf:*)",
+      "Bash(rg:*)",
+      "Bash(sg:*)",
+      "Bash(sed:*)",
+      "Bash(sort:*)",
+      "Bash(tail:*)",
+      "Bash(tr:*)",
+      "Bash(uniq:*)",
+      "Bash(wc:*)",
+      "Bash(du:*)",
+      "Bash(echo:*)",
+      "Bash(file:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(touch:*)",
+      "Bash(tree:*)",
+      "Bash(which:*)",
+      "Bash(whoami)",
+      "Bash(pwd)",
+      "Bash(date:*)",
+      "Bash(uname:*)",
+      "Bash(jq:*)",
+      "Bash(ps:*)",
+      "Bash(lsof:*)",
+      "Bash(gzip:*)",
+      "Bash(gunzip:*)",
+      "WebFetch(domain:developer.mozilla.org)",
+      "WebFetch(domain:docs.rs)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:npmjs.com)",
+      "WebFetch(domain:pypi.org)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:stackoverflow.com)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:registry.npmjs.org)",
+      "WebFetch(domain:code.claude.com)",
+      "WebSearch",
+      "mcp__claude_ai_Context7__*",
+      "mcp__codex-computer-use",
+      "mcp__memo",
+      "Skill(*)"
     ],
     "defaultMode": "auto",
     "_disabled_2026_08_31": {
@@ -332,10 +481,19 @@
       ]
     }
   },
-  "model": "opus",
+  "model": "claude-opus-5-5",
   "skillOverrides": {
     "codex": "off",
-    "survey": "off"
+    "survey": "off",
+    "anthropic-skills:docs": "off",
+    "anthropic-skills:docx": "off",
+    "anthropic-skills:google-workspace": "off",
+    "anthropic-skills:import-memory": "off",
+    "anthropic-skills:morning": "off",
+    "anthropic-skills:pptx": "off",
+    "anthropic-skills:xlsx": "off",
+    "anthropic-skills:computer-use": "off",
+    "anthropic-skills:codex-computer-use": "off"
   },
   "hooks": {
     "UserPromptSubmit": [
@@ -360,6 +518,17 @@
           }
         ]
       }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/sh -c 'rex __internal session-start --agent claude 2>/dev/null || true'",
+            "timeout": 5
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {
@@ -369,7 +538,7 @@
     "code-review@claude-plugins-official": false,
     "typescript-lsp@claude-plugins-official": false,
     "mattpocock-skills@claude-plugins-official": true,
-    "cloudflare@claude-plugins-official": true,
+    "cloudflare@claude-plugins-official": false,
     "agent-sdk-dev@claude-plugins-official": false,
     "claude-code-setup@claude-plugins-official": false,
     "claude-md-management@claude-plugins-official": false,
@@ -384,11 +553,11 @@
     "superpowers@claude-plugins-official": false,
     "vercel@claude-plugins-official": false,
     "cc-plugin-plugin-authoring@builtin": false,
-    "swiftui-pro@swiftui-agent-skill": true,
-    "ios-simulator-skill@conorluddy": true,
-    "swift-concurrency-pro@swift-concurrency-agent-skill": true,
-    "swift-testing-pro@swift-testing-agent-skill": true,
-    "asc@rorkai": true,
+    "swiftui-pro@swiftui-agent-skill": false,
+    "ios-simulator-skill@conorluddy": false,
+    "swift-concurrency-pro@swift-concurrency-agent-skill": false,
+    "swift-testing-pro@swift-testing-agent-skill": false,
+    "asc@rorkai": false,
     "typesafe@typesafe-ai": true
   },
   "extraKnownMarketplaces": {
@@ -444,6 +613,10 @@
       "effortLevel": "low"
     },
     "claude-opus-5-5": {
+      "effortLevel": "xhigh",
+      "autoCompactWindow": 400000
+    },
+    "claude-fable-5-1": {
       "effortLevel": "high"
     }
   },
@@ -478,9 +651,22 @@
       "**Machine**: personal macOS laptop (mba15) with Ghostty + tmux + fish; tooling via mise, Homebrew, and Bun",
       "**Secrets management**: none for agents; never print, copy, or send tokens, SSH keys, or ~/.config/gh contents anywhere",
       "**Sensitive remote targets**: any host, namespace, or deployment whose name carries prod or production as a whole word, and Vercel --prod deploys",
-      "Reversible file ops only: move files to the Trash with `trash` rather than deleting; never permanently delete without approval; never create commits unless explicitly asked"
+      "Reversible file ops only: move files to the Trash with `trash` rather than deleting; never permanently delete without approval",
+      "**Personal local services**: memo (~/.local/share/memo, ~/.memo), meridian, and their com.max.* LaunchAgents are the user's own tools on this laptop, not production. Copying, rebuilding, re-running, and reloading them is routine; words like nightly, replay, or prod inside these paths don't make them production. Copying stays on this laptop: sending memo data off the machine is still exfiltration"
+    ],
+    "allow": [
+      "$defaults",
+      "Own LaunchAgents: creating, editing, loading, or unloading ~/Library/LaunchAgents/com.max.* plists for the user's own tools (memo, meridian, codex-remote, or one the user named) whose ProgramArguments run binaries or scripts under ~/dev, ~/.local, ~/.codex, /opt/homebrew, or mise installs. What the plist runs is still judged by every other rule",
+      "Local session tools: listing, killing, or restarting tmux sessions the user named or the agent created this session, `tmux kill-server` when the user asked to restart tmux, and opening System Settings panes with `open x-apple.systempreferences:`. Does not cover `send-keys` into the agent's own pane",
+      "Dotfiles: editing files in ~/dev/dotfiles and in ~/.config/ghostty, ~/.config/tmux, ~/.config/fish, ~/.config/mise, or ~/.config/nvim when the task is about that config. Judge by the resolved path. Not covered: Claude Code, Codex, or agent-instruction config (~/.claude, ~/.codex, and ~/dev/dotfiles/.config/claude, codex, or agents), ~/.config/gh, or edits that add secrets, base-URL, proxy, or registry variables, or commands that fetch and run remote code",
+      "Homebrew: `brew install` from homebrew/core and homebrew/cask, and from these third-party taps: getsentry/xcodebuildmcp. Other new taps are still judged as code from an external source",
+      "Own artifacts: republishing to, or uploading assets to, a claude.ai artifact this session published. Content rules (secrets, personal data, live-shared changes) still apply"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Merge Into Main: merging into main or master by any route, including `gh pr merge`, the GitHub API or web UI, or a local merge or rebase onto main or master followed by a push",
+      "Force-Push Over Main: any force push or history rewrite whose target is main or master, including `--force`, `-f`, `--force-with-lease`, a `+main` or `+master` refspec, or deleting and recreating the branch, even on the user's own repos"
     ]
   },
-  "voiceEnabled": false,
-  "cleanupPeriodDays": 36500
+  "voiceEnabled": false
 }

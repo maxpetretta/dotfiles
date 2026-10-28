@@ -26,6 +26,8 @@
     ~/.claude/settings.json: .config/claude/settings.json
     ~/.codex/AGENTS.md: .config/codex/AGENTS.md
     ~/.codex/config.toml: .config/codex/config.toml
+    ~/.codex/rules/destructive.rules: .config/codex/rules/destructive.rules
+    ~/.codex/skills/use-github-cli: .config/codex/skills/use-github-cli
     ~/.pi/agent/AGENTS.md: .config/pi/agent/AGENTS.md
     ~/.pi/agent/keybindings.json: .config/pi/agent/keybindings.json
     ~/.pi/agent/settings.json: .config/pi/agent/settings.json
@@ -46,4 +48,8 @@
     - [
         mkdir -p .config/cursor && cursor --list-extensions > .config/cursor/.extensions && cp ~/Library/Application\ Support/Cursor/User/settings.json .config/cursor/settings.json,
         Save all cursor settings and extensions,
+      ]
+    - [
+        mkdir -p .config/codex/computer-use && cp ~/Library/Group\ Containers/2DC432GLL2.com.openai.sky.CUAService/Library/Application\ Support/Software/ComputerUseAppApprovals.json .config/codex/computer-use/ComputerUseAppApprovals.json,
+        Save Codex computer use app approvals,
       ]

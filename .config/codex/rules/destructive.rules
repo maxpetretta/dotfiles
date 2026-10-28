@@ -1,0 +1,129 @@
+# Mirrors the Claude Code deny/ask lists in ~/.claude/settings.json.
+# Strictest matching rule wins: forbidden > prompt > allow.
+
+# --- forbidden (Claude "deny") ---
+prefix_rule(
+    pattern = ["rm", ["-rf", "-fr"], ["/", "/*", "~", "~/", ".", "./"]],
+    decision = "forbidden",
+    justification = "Recursive delete of a root, home, or current directory. Use trash on specific paths.",
+    match = ["rm -rf /", "rm -fr ~", "rm -rf ."],
+    not_match = ["rm -rf build"],
+)
+prefix_rule(
+    pattern = ["rm", "-r", ["/usr", "/bin", "/etc", "/System"]],
+    decision = "forbidden",
+    justification = "Deleting system directories.",
+)
+prefix_rule(
+    pattern = ["mv", ["/usr", "/bin", "/etc", "/System"]],
+    decision = "forbidden",
+    justification = "Moving system directories.",
+)
+prefix_rule(
+    pattern = ["sudo", ["rm", "kill", "chmod", "chown", "nvram", "pmset"]],
+    decision = "forbidden",
+    justification = "Privileged destructive command.",
+)
+prefix_rule(
+    pattern = ["sudo", "csrutil", "disable"],
+    decision = "forbidden",
+    justification = "Disables System Integrity Protection.",
+)
+prefix_rule(
+    pattern = [["dd", "mkfs", "fdisk", "shred", "shutdown", "reboot", "halt", "eval"]],
+    decision = "forbidden",
+    justification = "Disk-level, power, or eval command.",
+    match = ["dd if=/dev/zero of=/dev/disk2", "shutdown -h now"],
+)
+prefix_rule(
+    pattern = ["diskutil", ["eraseDisk", "eraseVolume", "secureErase", "zeroDisk", "randomDisk", "reformat", "partitionDisk"]],
+    decision = "forbidden",
+    justification = "Erases or repartitions a disk.",
+)
+prefix_rule(
+    pattern = ["chmod", "-R", "777"],
+    decision = "forbidden",
+    justification = "Recursive world-writable permissions.",
+)
+prefix_rule(
+    pattern = ["chown", "-R", ["root", "root:wheel", "root:admin"]],
+    decision = "forbidden",
+    justification = "Recursive chown to root.",
+)
+
+# --- prompt (Claude "ask") ---
+prefix_rule(
+    pattern = ["rm", ["-rf", "-fr", "-r"]],
+    decision = "prompt",
+    justification = "Recursive delete. Prefer trash.",
+    match = ["rm -rf build"],
+)
+prefix_rule(
+    pattern = ["git", "push", ["-f", "--force", "--force-with-lease"]],
+    decision = "prompt",
+    justification = "Force push rewrites remote history.",
+)
+prefix_rule(
+    pattern = ["git", "push", ["origin", "upstream"], ["+main", "+master"]],
+    decision = "prompt",
+    justification = "Force push over main or master via a + refspec.",
+)
+prefix_rule(
+    pattern = ["gh", "pr", "merge"],
+    decision = "prompt",
+    justification = "Merges a pull request.",
+)
+prefix_rule(
+    pattern = ["git", "reset", "--hard"],
+    decision = "prompt",
+    justification = "Discards uncommitted work.",
+)
+prefix_rule(
+    pattern = [["npm", "bun"], "publish"],
+    decision = "prompt",
+    justification = "Publishes a package.",
+)
+prefix_rule(
+    pattern = ["vercel", "--prod"],
+    decision = "prompt",
+    justification = "Production deploy.",
+)
+prefix_rule(
+    pattern = ["vercel", "deploy", "--prod"],
+    decision = "prompt",
+    justification = "Production deploy.",
+)
+
+# --- added 2026-10-13 ---
+prefix_rule(
+    pattern = ["diskutil", "apfs", ["deleteContainer", "deleteVolume", "eraseVolume"]],
+    decision = "forbidden",
+    justification = "Deletes or erases an APFS container or volume.",
+)
+prefix_rule(
+    pattern = ["crontab", "-r"],
+    decision = "forbidden",
+    justification = "Deletes every cron job with no confirmation or undo.",
+)
+prefix_rule(
+    pattern = ["rm", ["-rf", "-fr", "-r"], ["~/.Trash", "~/.Trash/", "~/.Trash/*", "$HOME/.Trash", "$HOME/.Trash/*", "/Users/max/.Trash", "/Users/max/.Trash/", "/Users/max/.Trash/*"]],
+    decision = "forbidden",
+    justification = "Empties the Trash, the recovery path for deleted files.",
+)
+prefix_rule(
+    pattern = ["osascript", "-e", [
+        "tell application \"Finder\" to empty trash",
+        "tell application \"Finder\" to empty the trash",
+        "tell app \"Finder\" to empty trash",
+        "tell app \"Finder\" to empty the trash",
+        "tell application \"Finder\" to empty",
+        "tell app \"Finder\" to empty",
+    ]],
+    decision = "forbidden",
+    justification = "Empties the Trash, the recovery path for deleted files.",
+)
+prefix_rule(
+    pattern = ["gh", "repo", "delete"],
+    decision = "prompt",
+    justification = "Deletes a GitHub repository.",
+)

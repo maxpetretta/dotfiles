@@ -24,7 +24,7 @@
 
 ## Git Workflow
 
-**Never create commits unless explicitly asked.** Wait for review and approval.
+Never merge into `main` or `master` (including `gh pr merge`), and never force-push over them, unless explicitly asked.
 
 ## Web Search Routing
 

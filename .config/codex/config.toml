@@ -5,7 +5,7 @@ approvals_reviewer = "auto_review"
 tool_output_token_limit = 25000
 model_auto_compact_token_limit = 233000
 web_search = "live"
-service_tier = "fast"
+service_tier = "priority"
 suppress_unstable_features_warning = true
 
 notify = ["/Users/max/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
@@ -13,6 +13,22 @@ personality = "pragmatic"
 sandbox_mode = "danger-full-access"
 plan_mode_reasoning_effort = "medium"
 review_model = "gpt-6.1-sol"
+
+# Mirrors the autoMode environment and rules in ~/.claude/settings.json.
+[auto_review]
+extra_policy = '''
+## Environment
+- Personal macOS laptop (mba15) with one user. Source control is github.com/maxpetretta; pushing to those repos and opening PRs on them is routine.
+- Development lives in ~/dev. ~/Documents holds personal files and research notes; copying them into repos or off the machine needs the user to name the source and destination.
+- memo (~/.local/share/memo, ~/.memo), meridian, and their com.max.* LaunchAgents are the user's own local tools, not production. Sending memo data off the machine is exfiltration.
+- Agents get no secrets: never print, copy, or send tokens, SSH keys, or ~/.config/gh contents.
+- Local git commits on any branch are routine.
+
+## Deny unless the user's message asks for this exact action
+- Merging into main or master by any route: `gh pr merge`, the GitHub API or web UI, or a local merge or rebase onto main or master followed by a push.
+- Force-pushing or rewriting history on main or master: `--force`, `-f`, `--force-with-lease`, a `+main` or `+master` refspec, or deleting and recreating the branch.
+- Permanently deleting files that existed before the task. Use `trash`.
+'''
 
 [features]
 memories = true
@@ -53,7 +69,7 @@ enabled = false
 enabled = false
 
 [plugins."github@openai-curated"]
-enabled = true
+enabled = false
 
 [plugins."gmail@openai-curated"]
 enabled = true
@@ -76,8 +92,9 @@ enabled = false
 [plugins."slack@openai-curated"]
 enabled = true
 
+# Enabled only in ~/dev/orchard/.codex/config.toml
 [plugins."build-ios-apps@openai-curated"]
-enabled = true
+enabled = false
 
 [plugins."codex-app-tools@openai-bundled"]
 enabled = true
@@ -94,9 +111,6 @@ enabled = true
 [plugins."computer-history@openai-bundled"]
 enabled = true
 
-[plugins."code-review@openai-bundled"]
-enabled = true
-
 [plugins."remctl@remctl-local"]
 enabled = true
 
@@ -111,6 +125,9 @@ enabled = false
 
 [plugins."vercel@openai-curated-remote"]
 enabled = false
+
+[plugins."chrome@openai-bundled"]
+enabled = true
 
 [desktop]
 ambient-suggestions-enabled = true
@@ -165,6 +182,7 @@ MEMO_PYTHON_BIN = "/Users/max/.local/share/mise/installs/python/3.13/bin/python3
 [mcp_servers.node_repl]
 args = []
 command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+env_vars = ["BROWSER_USE_ACCESS_EXECUTOR_ID", "BROWSER_USE_ACCESS_PIPE_PATH", "BROWSER_USE_ACCESS_VERIFYING_IDENTITY"]
 startup_timeout_sec = 120
 
 [mcp_servers.node_repl.env]
@@ -179,8 +197,8 @@ NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.1007.30912"
-NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/max/.codex/plugins/cache/openai-bundled/browser/26.1007.30912/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+BROWSER_USE_CODEX_APP_VERSION = "26.1023.50603"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/max/.codex/plugins/cache/openai-bundled/browser/26.1023.50603/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
 SKY_CUA_SERVICE_PATH = "/Users/max/.codex/computer-use/Codex Computer Use.app"
 CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
 
@@ -204,7 +222,7 @@ NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "9230e2bd8b24b7ac7a0ba6774c64bf0d78ec
 [hooks.state]
 
 [hooks.state."/Users/max/.codex/hooks.json:session_start:0:0"]
-trusted_hash = "sha256:3848d1072729999d804bcdbf3f29c70620d496fcf430ddec0edd5ec46f8eee07"
+trusted_hash = "sha256:7ac16f27c7b29bec5952047d0a2193dc7595d731faca5a12c3c476194bd2d532"
 
 [hooks.state."/Users/max/.codex/hooks.json:user_prompt_submit:0:0"]
 trusted_hash = "sha256:4a332bae4fe5983b3933e68ef6538fa11cfc2eadcad38096b17ebfc3559cf98e"
