@@ -58,6 +58,9 @@
 !.config/pi/agent/settings.json
 !.config/pi/agent/keybindings.json
 
+# Rex
+.config/rex/terminfo-hosts
+
 # Runtime Artifacts
 .cache/
 .local/
