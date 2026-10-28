@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub CLI"
+  short_description: "Work with GitHub safely through the gh CLI"
+  default_prompt: "Use $use-github-cli to inspect this repository and handle the requested GitHub workflow."

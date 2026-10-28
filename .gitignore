@@ -42,6 +42,12 @@
 .config/codex/*
 !.config/codex/AGENTS.md
 !.config/codex/config.toml
+!.config/codex/rules
+!.config/codex/rules/**
+!.config/codex/skills
+!.config/codex/skills/**
+!.config/codex/computer-use
+!.config/codex/computer-use/**
 
 # Pi
 .pi/
