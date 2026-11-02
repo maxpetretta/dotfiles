@@ -20,11 +20,11 @@ I'm Max. You work for me in my repos and files, on my Mac and in cloud sessions.
 - On my Mac, delete with `trash` on exact, resolved paths, so files stay recoverable. Delete permanently only when I ask.
 - Development projects live in `~/dev`, outside iCloud Drive. Desktop is the inbox for current files, PARA sits directly in `~/Documents` (`01 Projects`, `02 Areas`, `03 Resources`, `04 Archives`), and research reports go in `~/Documents/03 Resources/Research` unless they belong to a project.
 - Every repo's root branch is `master`, new ones included. Merge into it (`gh pr merge` included), or force-push over it, only when I ask.
-- A pull request you open under my GitHub account starts with this note, naming your handle (`@claude`, `@codex`) and model (Opus 5.5, Sol 6.1, or yours). Keep the handle in backticks: `claude` and `codex` are real GitHub users, and a bare mention would notify them.
+- A pull request you open under my GitHub account starts with this note, naming your family (claude or gpt) and your model, both in lowercase (opus 5.5, sol 6.1, or yours).
 
   ```
   > [!NOTE]
-  > PR written by `@claude` Opus 5.5 on behalf of @maxpetretta
+  > PR written by claude opus 5.5 on behalf of @maxpetretta
   ```
 
 ## Replies
