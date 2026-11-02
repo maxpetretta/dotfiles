@@ -10,7 +10,6 @@ adjust-underline-position = 7
 adjust-cursor-thickness = 200%
 
 # Window settings
-theme = Monokai Pro
 theme = dark:Monokai Pro,light:Gruvbox Light Hard
 window-padding-x = 8
 window-padding-y = 1
