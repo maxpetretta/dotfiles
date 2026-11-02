@@ -36,3 +36,6 @@ PS1="\[\033[34m\]\W\[\033[32m\]\$(__git_ps1)\[\033[00m\] $ "
 
 # Blastoff
 eval "$(starship init bash)"
+
+# Vite+ bin (https://viteplus.dev)
+. "/Users/max/.config/vite-plus/env"
