@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+# Turn on Claude pull request review in every repository you own. For each one it commits
+# github/claude-review.yml from this repo as .github/workflows/claude-review.yml on the default branch
+# (or updates an earlier copy this script made), and sets the CLAUDE_CODE_OAUTH_TOKEN secret the
+# workflow needs. A repository whose claude-review.yml this script didn't write (Orchard's, for one)
+# is left alone. Rerun it after creating a repository, after editing the template, or to refresh the
+# token (`claude setup-token` tokens last a year).
+#
+# Usage: scripts/claude-review-setup [--apply] [owner/repo ...]
+#   Without --apply it only prints what it would do. With no repositories named, it covers every
+#   non-archived, non-fork repository of the signed-in gh account.
+#   The token comes from $CLAUDE_CODE_OAUTH_TOKEN, or a hidden prompt; make one with `claude setup-token`.
+# Needs gh (signed in) and the Claude GitHub App on each repository:
+# https://github.com/apps/claude/installations/select_target
+set -uo pipefail
+cd "$(dirname "$0")/.."
+
+template=github/claude-review.yml
+path=.github/workflows/claude-review.yml
+marker="Managed by maxpetretta/dotfiles"
+apply=false
+repos=()
+for arg in "$@"; do
+  case $arg in
+    --apply) apply=true ;;
+    -h | --help)
+      sed -n '2,14p' "$0" | sed 's/^# \{0,1\}//'
+      exit 0
+      ;;
+    *) repos+=("$arg") ;;
+  esac
+done
+
+if ((${#repos[@]} == 0)); then
+  owner=$(gh api user --jq .login) || exit 1
+  while IFS= read -r repo; do repos+=("$repo"); done < <(
+    gh repo list "$owner" --source --no-archived --limit 1000 --json nameWithOwner --jq '.[].nameWithOwner'
+  )
+fi
+
+if $apply; then
+  token=${CLAUDE_CODE_OAUTH_TOKEN:-}
+  if [[ -z $token ]]; then
+    read -rsp "CLAUDE_CODE_OAUTH_TOKEN (from \`claude setup-token\`): " token
+    echo
+  fi
+  [[ -n $token ]] || {
+    echo "no token given" >&2
+    exit 1
+  }
+fi
+
+content=$(openssl base64 -A <"$template")
+failed=0
+for repo in "${repos[@]}"; do
+  branch=$(gh repo view "$repo" --json defaultBranchRef --jq '.defaultBranchRef.name // empty' 2>/dev/null)
+  if [[ -z $branch ]]; then
+    echo "$repo: empty or unreadable, skipped"
+    continue
+  fi
+
+  # gh exits nonzero (and prints the error body) when the file doesn't exist yet.
+  sha=
+  if ! current=$(gh api "repos/$repo/contents/$path?ref=$branch" -H "Accept: application/vnd.github.raw" 2>/dev/null); then
+    action=add
+  elif [[ $current != *"$marker"* ]]; then
+    echo "$repo: has its own $path, skipped"
+    continue
+  elif [[ $current == "$(cat "$template")" ]]; then
+    action=keep
+  else
+    action=update
+    sha=$(gh api "repos/$repo/contents/$path?ref=$branch" --jq .sha)
+  fi
+
+  if ! $apply; then
+    if [[ $action == keep ]]; then
+      echo "$repo: workflow up to date; would set the secret"
+    else
+      echo "$repo: would $action the workflow on $branch and set the secret"
+    fi
+    continue
+  fi
+
+  case $action in
+    add) message="Add Claude pull request review" done_text="workflow added" ;;
+    update) message="Update Claude pull request review" done_text="workflow updated" ;;
+    keep) done_text="workflow up to date" ;;
+  esac
+  if [[ $action != keep ]]; then
+    args=(-X PUT "repos/$repo/contents/$path" -f branch="$branch" -f content="$content" -f message="$message")
+    [[ -n $sha ]] && args+=(-f sha="$sha")
+    if ! gh api "${args[@]}" >/dev/null; then
+      echo "$repo: couldn't $action $path on $branch (branch protection?)"
+      failed=1
+      continue
+    fi
+  fi
+  # gh reads the value from stdin, so the token never appears in a process list.
+  if printf %s "$token" | gh secret set CLAUDE_CODE_OAUTH_TOKEN --repo "$repo" >/dev/null; then
+    echo "$repo: $done_text, secret set"
+  else
+    echo "$repo: $done_text, couldn't set the secret"
+    failed=1
+  fi
+done
+exit $failed
