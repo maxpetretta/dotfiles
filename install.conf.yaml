@@ -21,7 +21,9 @@
     ~/.config/opencode: .config/opencode
     ~/.config/rex: .config/rex
     ~/.config/zed: .config/zed
+    ~/.agents/skills/health: .config/agents/skills/health # Codex, Pi and OpenCode
     ~/.claude/CLAUDE.md: .config/claude/CLAUDE.md
+    ~/.claude/skills/health: .config/agents/skills/health
     ~/.claude/agents: .config/claude/agents
     ~/.claude/commands: .config/claude/commands
     ~/.claude/settings.json: .config/claude/settings.json
