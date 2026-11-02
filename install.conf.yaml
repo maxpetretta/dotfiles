@@ -45,6 +45,10 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [
+        git config filter.codex-state.clean scripts/strip-codex-state && git config filter.codex-state.smudge cat,
+        Keep Codex trust entries out of commits,
+      ]
+    - [
         rm -f .config/homebrew/Brewfile && brew bundle dump --all --file=.config/homebrew/Brewfile,
         Save snapshot of homebrew packages,
       ]
