@@ -24,7 +24,7 @@
   "workbench.iconTheme": "Monokai Pro Icons",
   
   /* Terminal settings */
-  "terminal.external.osxExec": "Ghostty.app",
+  "terminal.external.osxExec": "Rex Beta.app",
   "workbench.colorCustomizations": {
     "[Monokai Pro]": {
       "terminal.ansiBlack": "#727072",

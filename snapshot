@@ -20,7 +20,7 @@ save() { # save <destination> <command...>: run the command, and replace the des
   rm -f "$tmp"
 }
 
-save .config/homebrew/Brewfile brew bundle dump --all --force --file=-
+save .config/homebrew/Brewfile brew bundle dump --force --file=-  # dump includes every package type by default
 save .config/cursor/.extensions cursor --list-extensions
 save .config/cursor/settings.json cat "$HOME/Library/Application Support/Cursor/User/settings.json"
 save .config/codex/computer-use/ComputerUseAppApprovals.json \
