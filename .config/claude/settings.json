@@ -648,7 +648,7 @@
       "$defaults",
       "**Source control**: github.com/maxpetretta (personal account). Pushing to my own repos and opening PRs on them is routine; force-pushing or rewriting shared history is not",
       "**Projects**: development work lives in ~/dev; ~/Documents holds personal files and research notes",
-      "**Machine**: personal macOS laptop (mba15) with Ghostty + tmux + fish; tooling via mise, Homebrew, and Bun",
+      "**Machine**: personal macOS laptop (mba15) with Ghostty + tmux + fish; tooling via mise and Homebrew; JS/TS uses each repo's toolchain, and new projects use Vite+ (vp) with pnpm",
       "**Secrets management**: none for agents; never print, copy, or send tokens, SSH keys, or ~/.config/gh contents anywhere",
       "**Sensitive remote targets**: any host, namespace, or deployment whose name carries prod or production as a whole word, and Vercel --prod deploys",
       "Reversible file ops only: move files to the Trash with `trash` rather than deleting; never permanently delete without approval",

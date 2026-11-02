@@ -2,7 +2,7 @@
 for file in $(find ~/.config/bash/functions -type f -name "*.sh"); do source $file; done
 
 # Setup mise
-if [[ -o interactive ]]; then
+if [[ $- == *i* ]]; then
   eval "$(mise activate bash)"
 else
   eval "$(mise activate bash --shims)"
