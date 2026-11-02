@@ -1,7 +1,9 @@
 [tools]
 usage = "latest"
 node = "22.23.1"
-bun = "1.3.2"
+# Memo's Claude hooks and Codex MCP server call these installs by path; keep them in step.
+bun = "1.3.14"
+python = "3.13"
 "npm:@rynfar/meridian" = "latest"
 # Pinned: Meridian only qualifies OpenCode V2 2.0.16. Approved past minimumPackageAge after
 # verifying the publisher (thdxr, anomalyco/opencode) on 2026-10-02.

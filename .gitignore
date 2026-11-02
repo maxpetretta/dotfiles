@@ -6,9 +6,6 @@
 .config/fish/themes/*
 .config/fish/fish_variables
 
-# Ghostty
-.config/ghostty/shaders/*
-
 # Zed
 .config/zed/*
 !.config/zed/keymap.json
@@ -32,10 +29,6 @@
 .config/claude/*
 !.config/claude/CLAUDE.md
 !.config/claude/settings.json
-!.config/claude/commands
-!.config/claude/commands/**
-!.config/claude/agents
-!.config/claude/agents/**
 
 # Codex
 .codex/

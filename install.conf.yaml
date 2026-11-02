@@ -14,7 +14,6 @@
     ~/.config/btop: .config/btop
     ~/.config/fastfetch: .config/fastfetch
     ~/.config/fish: .config/fish
-    ~/.config/ghostty: .config/ghostty
     ~/.config/gh: .config/gh
     ~/.config/mise: .config/mise
     ~/.config/nvim: .config/nvim
@@ -24,8 +23,6 @@
     ~/.agents/skills/health: .config/agents/skills/health # Codex, Pi and OpenCode
     ~/.claude/CLAUDE.md: .config/claude/CLAUDE.md
     ~/.claude/skills/health: .config/agents/skills/health
-    ~/.claude/agents: .config/claude/agents
-    ~/.claude/commands: .config/claude/commands
     ~/.claude/settings.json: .config/claude/settings.json
     ~/.codex/AGENTS.md: .config/codex/AGENTS.md
     ~/.codex/config.toml: .config/codex/config.toml
@@ -45,18 +42,10 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [
-        git config filter.codex-state.clean scripts/strip-codex-state && git config filter.codex-state.smudge cat,
-        Keep Codex trust entries out of commits,
+        git config filter.codex-state.clean scripts/strip-codex-state && git config filter.codex-state.smudge cat && git config filter.pi-state.clean scripts/strip-pi-state && git config filter.pi-state.smudge cat,
+        Keep Codex trust entries and app-written state out of commits,
       ]
     - [
-        rm -f .config/homebrew/Brewfile && brew bundle dump --all --file=.config/homebrew/Brewfile,
-        Save snapshot of homebrew packages,
-      ]
-    - [
-        mkdir -p .config/cursor && cursor --list-extensions > .config/cursor/.extensions && cp ~/Library/Application\ Support/Cursor/User/settings.json .config/cursor/settings.json,
-        Save all cursor settings and extensions,
-      ]
-    - [
-        mkdir -p .config/codex/computer-use && cp ~/Library/Group\ Containers/2DC432GLL2.com.openai.sky.CUAService/Library/Application\ Support/Software/ComputerUseAppApprovals.json .config/codex/computer-use/ComputerUseAppApprovals.json,
-        Save Codex computer use app approvals,
+        brew bundle check --file=.config/homebrew/Brewfile >/dev/null || brew bundle install --no-upgrade --file=.config/homebrew/Brewfile,
+        Installing Homebrew packages,
       ]

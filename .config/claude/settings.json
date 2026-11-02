@@ -199,7 +199,11 @@
       "Bash(rm -r ~/.Trash:*)",
       "Bash(rm -rf $HOME/.Trash:*)",
       "Bash(rm -rf /Users/max/.Trash:*)",
-      "Bash(osascript *empty*)"
+      "Bash(osascript *empty*)",
+      "Read(~/.ssh/**)",
+      "Read(~/.config/gh/hosts.yml)",
+      "Read(~/.config/op/**)",
+      "Read(~/.config/fish/secrets.fish)"
     ],
     "ask": [
       "Bash(gh repo delete:*)",
@@ -617,7 +621,7 @@
       "$defaults",
       "Own LaunchAgents: creating, editing, loading, or unloading ~/Library/LaunchAgents/com.max.* plists for the user's own tools (memo, meridian, codex-remote, or one the user named) whose ProgramArguments run binaries or scripts under ~/dev, ~/.local, ~/.codex, /opt/homebrew, or mise installs. What the plist runs is still judged by every other rule",
       "Local session tools: listing, killing, or restarting tmux sessions the user named or the agent created this session, `tmux kill-server` when the user asked to restart tmux, and opening System Settings panes with `open x-apple.systempreferences:`. Does not cover `send-keys` into the agent's own pane",
-      "Dotfiles: editing files in ~/dev/dotfiles and in ~/.config/ghostty, ~/.config/tmux, ~/.config/fish, ~/.config/mise, or ~/.config/nvim when the task is about that config. Judge by the resolved path. Not covered: Claude Code, Codex, or agent-instruction config (~/.claude, ~/.codex, and ~/dev/dotfiles/.config/claude, codex, or agents), ~/.config/gh, or edits that add secrets, base-URL, proxy, or registry variables, or commands that fetch and run remote code",
+      "Dotfiles: editing files in ~/dev/dotfiles and in ~/.config/rex, ~/.config/tmux, ~/.config/fish, ~/.config/mise, or ~/.config/nvim when the task is about that config. Judge by the resolved path. Not covered: Claude Code, Codex, or agent-instruction config (~/.claude, ~/.codex, and ~/dev/dotfiles/.config/claude, codex, or agents), ~/.config/gh, or edits that add secrets, base-URL, proxy, or registry variables, or commands that fetch and run remote code",
       "Homebrew: `brew install` from homebrew/core and homebrew/cask, and from these third-party taps: getsentry/xcodebuildmcp. Other new taps are still judged as code from an external source",
       "Own artifacts: republishing to, or uploading assets to, a claude.ai artifact this session published. Content rules (secrets, personal data, live-shared changes) still apply"
     ],
@@ -630,7 +634,7 @@
       "$defaults",
       "**Source control**: github.com/maxpetretta (personal account). Pushing to my own repos and opening PRs on them is routine; force-pushing or rewriting shared history is not",
       "**Projects**: development work lives in ~/dev; ~/Documents holds personal files and research notes",
-      "**Machine**: personal macOS laptop (mba15) with Ghostty + tmux + fish; tooling via mise and Homebrew; JS/TS uses each repo's toolchain, and new projects use Vite+ (vp) with pnpm",
+      "**Machine**: personal macOS laptop (mba15) with Rex + fish; tooling via mise and Homebrew; JS/TS uses each repo's toolchain, and new projects use Vite+ (vp) with pnpm",
       "**Secrets management**: none for agents; never print, copy, or send tokens, SSH keys, or ~/.config/gh contents anywhere",
       "**Sensitive remote targets**: any host, namespace, or deployment whose name carries prod or production as a whole word, and Vercel --prod deploys",
       "Reversible file ops only: move files to the Trash with `trash` rather than deleting; never permanently delete without approval",

@@ -1,0 +1,5 @@
+#!/bin/sh
+# Git clean filter for .config/pi/agent/settings.json, set up by ./install (see .gitattributes).
+# Pi records the last changelog it showed in lastChangelogVersion; dropping it from commits keeps
+# Pi updates out of the diff. The live file (~/.pi/agent/settings.json links to it) keeps it.
+exec jq --indent 2 'del(.lastChangelogVersion)'

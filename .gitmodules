@@ -2,6 +2,3 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule ".config/ghostty/shaders"]
-	path = .config/ghostty/shaders
-	url = https://github.com/sahaj-b/ghostty-cursor-shaders

@@ -1,1 +1,2 @@
 .config/codex/config.toml filter=codex-state
+.config/pi/agent/settings.json filter=pi-state

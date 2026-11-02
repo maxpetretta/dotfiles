@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Save app-managed state back into this repo: the Homebrew package list, Cursor settings and
+# extensions, and Codex computer-use approvals. Run it after changing the setup, then commit.
+# Each step writes to a temp file first, so a failed step leaves the tracked copy as it was.
+
+set -uo pipefail
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
+failed=0
+save() { # save <destination> <command...>: run the command, and replace the destination with its output
+  local dest=$1 tmp
+  shift
+  tmp=$(mktemp)
+  if "$@" >"$tmp"; then
+    mkdir -p "$(dirname "$dest")" && cat "$tmp" >"$dest" && echo "saved $dest"
+  else
+    echo "failed: $dest" >&2
+    failed=1
+  fi
+  rm -f "$tmp"
+}
+
+save .config/homebrew/Brewfile brew bundle dump --all --force --file=-
+save .config/cursor/.extensions cursor --list-extensions
+save .config/cursor/settings.json cat "$HOME/Library/Application Support/Cursor/User/settings.json"
+save .config/codex/computer-use/ComputerUseAppApprovals.json \
+  cat "$HOME/Library/Group Containers/2DC432GLL2.com.openai.sky.CUAService/Library/Application Support/Software/ComputerUseAppApprovals.json"
+
+exit "$failed"
