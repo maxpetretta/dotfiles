@@ -4,16 +4,13 @@ This repo contains configuration files that match my current Mac setup. Packages
 
 ## Installation
 
-To install all packages, simply run the following command:
+Clone this repo to `~/dev/dotfiles` (Ghostty's startup command expects that path), install the packages, then link everything:
 
 ```
-. setup.sh
+brew bundle --file=.config/homebrew/Brewfile
+./install
 ```
 
-## Updating Packages
+## Updating
 
-To save a snapshot of the current machine, run the following command:
-
-```
-. update.sh
-```
+`./install` runs [dotbot](https://github.com/anishathalye/dotbot). It links each path in `install.conf.yaml` into place, then saves fresh snapshots of the Homebrew packages, Cursor settings and extensions, and Codex computer-use approvals back into this repo. Run it again after changing the setup, and commit the snapshot.
