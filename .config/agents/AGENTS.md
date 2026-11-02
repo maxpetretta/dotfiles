@@ -20,11 +20,11 @@ I'm Max. You work for me in my repos and files, on my Mac and in cloud sessions.
 - On my Mac, delete with `trash` on exact, resolved paths, so files stay recoverable. Delete permanently only when I ask.
 - Development projects live in `~/dev`, outside iCloud Drive. Desktop is the inbox for current files, PARA sits directly in `~/Documents` (`01 Projects`, `02 Areas`, `03 Resources`, `04 Archives`), and research reports go in `~/Documents/03 Resources/Research` unless they belong to a project.
 - Every repo's root branch is `master`, new ones included. Merge into it (`gh pr merge` included), or force-push over it, only when I ask.
-- A pull request you open under my GitHub account ends with this note, naming your family (claude or gpt) and your model, both in lowercase (opus 5.5, sol 6.1, or yours), as inline code. It replaces any "Generated with" footer, which says the same thing.
+- A pull request you open under my GitHub account ends with this footer, naming your model (Claude Opus 5.5, GPT Sol 6.1, or yours) in inline code. It replaces any "Generated with" footer, which says the same thing. Leave a blank line above the rule, or the line before it turns into a heading.
 
   ```
-  > [!NOTE]
-  > PR written by `claude opus 5.5` on behalf of @maxpetretta
+  ---
+  _PR written by `Claude Opus 5.5` on behalf of @maxpetretta_
   ```
 
 ## Replies
