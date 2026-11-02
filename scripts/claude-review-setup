@@ -33,9 +33,9 @@ done
 
 if ((${#repos[@]} == 0)); then
   owner=$(gh api user --jq .login) || exit 1
-  while IFS= read -r repo; do repos+=("$repo"); done < <(
-    gh repo list "$owner" --source --no-archived --limit 1000 --json nameWithOwner --jq '.[].nameWithOwner'
-  )
+  list=$(gh repo list "$owner" --source --no-archived --limit 1000 --json nameWithOwner --jq '.[].nameWithOwner') ||
+    exit 1
+  while IFS= read -r repo; do [[ -z $repo ]] || repos+=("$repo"); done <<<"$list"
 fi
 
 if $apply; then

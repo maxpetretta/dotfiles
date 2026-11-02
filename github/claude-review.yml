@@ -3,9 +3,10 @@
 #
 # Claude reviews each pull request on Max's Claude subscription (repository secret
 # CLAUDE_CODE_OAUTH_TOKEN, from `claude setup-token`) and posts findings as inline comments. It
-# follows the repository's CLAUDE.md and AGENTS.md files. Automatic runs skip drafts and pull requests
-# claude[bot] has already reviewed; a comment containing "@claude review" from the owner or a
-# collaborator asks for a review again.
+# follows the repository's CLAUDE.md and AGENTS.md files. Automatic runs skip drafts, pull requests
+# from forks (GitHub withholds secrets from their runs) and pull requests claude[bot] has already
+# reviewed; a comment containing "@claude review" from the owner or a collaborator asks for a review,
+# forks included.
 #
 # The prompt is adapted from the code-review command in anthropics/claude-plugins-official
 # (Apache-2.0; see github/LICENSE-code-review in maxpetretta/dotfiles).
@@ -17,12 +18,16 @@ on:
   issue_comment:
     types: [created]
 
-# Only pull request events and "@claude review" comments share a group. Every other comment on a
-# pull request also starts this workflow (its job is then skipped), and in the shared group it would
-# cancel a review in progress.
+# Only runs that pass the review job's condition share a group. Every other event also starts this
+# workflow (its job is then skipped), and in the shared group it would cancel a review in progress, so
+# an outsider's "@claude review" on a public repository could stop one. Keep the two conditions equal.
 concurrency:
   group: >-
-    ${{ (github.event_name == 'pull_request' || contains(github.event.comment.body, '@claude review'))
+    ${{ ((github.event_name == 'pull_request' && github.event.pull_request.draft == false &&
+          github.event.pull_request.head.repo.full_name == github.repository) ||
+         (github.event_name == 'issue_comment' && github.event.issue.pull_request &&
+          contains(github.event.comment.body, '@claude review') &&
+          contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)))
     && format('claude-review-{0}', github.event.pull_request.number || github.event.issue.number)
     || format('claude-review-skip-{0}', github.run_id) }}
   cancel-in-progress: true
@@ -30,7 +35,8 @@ concurrency:
 jobs:
   review:
     if: >-
-      (github.event_name == 'pull_request' && github.event.pull_request.draft == false) ||
+      (github.event_name == 'pull_request' && github.event.pull_request.draft == false &&
+       github.event.pull_request.head.repo.full_name == github.repository) ||
       (github.event_name == 'issue_comment' && github.event.issue.pull_request &&
        contains(github.event.comment.body, '@claude review') &&
        contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association))

@@ -20,7 +20,7 @@ To limit a run, name repositories: `scripts/claude-review-setup --apply maxpetre
 
 ## What it does on a pull request
 
-- Claude reviews each pull request that isn't a draft, once.
+- Claude reviews each pull request that isn't a draft or from a fork, once. Forks get no secrets, so a fork's pull request needs the comment below.
 - A comment containing `@claude review` from you or a collaborator asks for another review.
 - Findings are inline comments.
 - With no findings, Claude posts a `## Code review` comment saying no issues were found.
