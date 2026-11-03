@@ -1,30 +1,34 @@
 #!/usr/bin/env bash
-# Turn on Claude pull request review in every repository you own. For each one it commits
-# github/claude-review.yml from this repo as .github/workflows/claude-review.yml on the default branch
-# (or updates an earlier copy this script made), and sets the CLAUDE_CODE_OAUTH_TOKEN secret the
-# workflow needs. A repository whose claude-review.yml this script didn't write (Orchard's, for one)
-# is left alone. Rerun it after creating a repository, after editing the template, or to refresh the
-# token (`claude setup-token` tokens last a year).
+# Turn on Claude in every repository you own: pull request review (github/claude-review.yml) and the
+# @claude assistant (github/claude.yml). For each repository it commits each template from this repo
+# to .github/workflows/ on the default branch (or updates an earlier copy this script made), and sets
+# the CLAUDE_CODE_OAUTH_TOKEN secret the workflows need. A workflow file this script didn't write
+# (Orchard's, for one) is left alone. Rerun it after creating a repository, after editing a template,
+# or to refresh the token (`claude setup-token` tokens last a year).
 #
-# Usage: scripts/claude-review-setup [--apply] [owner/repo ...]
+# Usage: scripts/claude-review-setup [--apply [--keep-secret]] [owner/repo ...]
 #   Without --apply it only prints what it would do. With no repositories named, it covers every
 #   non-archived, non-fork repository of the signed-in gh account.
 #   The token comes from $CLAUDE_CODE_OAUTH_TOKEN, or a hidden prompt; make one with `claude setup-token`.
+#   --keep-secret leaves each repository's secret as it is, for a template edit; no token is needed.
 # Needs gh (signed in) and the Claude GitHub App on each repository:
 # https://github.com/apps/claude/installations/select_target
 set -uo pipefail
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/.." || exit 1
 
-template=github/claude-review.yml
-path=.github/workflows/claude-review.yml
+# Each template in github/ is installed as .github/workflows/<name>; the subject names it in commits.
+names=(claude-review.yml claude.yml)
+subjects=("Claude pull request review" "Claude assistant")
 marker="Managed by maxpetretta/dotfiles"
 apply=false
+keep_secret=false
 repos=()
 for arg in "$@"; do
   case $arg in
     --apply) apply=true ;;
+    --keep-secret) keep_secret=true ;;
     -h | --help)
-      sed -n '2,14p' "$0" | sed 's/^# \{0,1\}//'
+      sed -n '2,15p' "$0" | sed 's/^# \{0,1\}//'
       exit 0
       ;;
     *) repos+=("$arg") ;;
@@ -38,7 +42,7 @@ if ((${#repos[@]} == 0)); then
   while IFS= read -r repo; do [[ -z $repo ]] || repos+=("$repo"); done <<<"$list"
 fi
 
-if $apply; then
+if $apply && ! $keep_secret; then
   token=${CLAUDE_CODE_OAUTH_TOKEN:-}
   if [[ -z $token ]]; then
     read -rsp "CLAUDE_CODE_OAUTH_TOKEN (from \`claude setup-token\`): " token
@@ -50,7 +54,6 @@ if $apply; then
   }
 fi
 
-content=$(openssl base64 -A <"$template")
 failed=0
 for repo in "${repos[@]}"; do
   branch=$(gh repo view "$repo" --json defaultBranchRef --jq '.defaultBranchRef.name // empty' 2>/dev/null)
@@ -59,48 +62,67 @@ for repo in "${repos[@]}"; do
     continue
   fi
 
-  # gh exits nonzero (and prints the error body) when the file doesn't exist yet.
-  sha=
-  if ! current=$(gh api "repos/$repo/contents/$path?ref=$branch" -H "Accept: application/vnd.github.raw" 2>/dev/null); then
-    action=add
-  elif [[ $current != *"$marker"* ]]; then
-    echo "$repo: has its own $path, skipped"
-    continue
-  elif [[ $current == "$(cat "$template")" ]]; then
-    action=keep
-  else
-    action=update
-    sha=$(gh api "repos/$repo/contents/$path?ref=$branch" --jq .sha)
-  fi
+  managed=0
+  for i in "${!names[@]}"; do
+    name=${names[i]} template=github/${names[i]} path=.github/workflows/${names[i]}
 
-  if ! $apply; then
-    if [[ $action == keep ]]; then
-      echo "$repo: workflow up to date; would set the secret"
+    # gh exits nonzero (and prints the error body) when the file doesn't exist yet.
+    sha=
+    if ! current=$(gh api "repos/$repo/contents/$path?ref=$branch" -H "Accept: application/vnd.github.raw" 2>/dev/null); then
+      action=add
+    elif [[ $current != *"$marker"* ]]; then
+      echo "$repo: has its own $path, skipped"
+      continue
+    elif [[ $current == "$(cat "$template")" ]]; then
+      action=keep
     else
-      echo "$repo: would $action the workflow on $branch and set the secret"
+      action=update
+      sha=$(gh api "repos/$repo/contents/$path?ref=$branch" --jq .sha)
     fi
-    continue
-  fi
+    managed=$((managed + 1))
 
-  case $action in
-    add) message="Add Claude pull request review" done_text="workflow added" ;;
-    update) message="Update Claude pull request review" done_text="workflow updated" ;;
-    keep) done_text="workflow up to date" ;;
-  esac
-  if [[ $action != keep ]]; then
-    args=(-X PUT "repos/$repo/contents/$path" -f branch="$branch" -f content="$content" -f message="$message")
-    [[ -n $sha ]] && args+=(-f sha="$sha")
-    if ! gh api "${args[@]}" >/dev/null; then
-      echo "$repo: couldn't $action $path on $branch (branch protection?)"
-      failed=1
+    if ! $apply; then
+      if [[ $action == keep ]]; then
+        echo "$repo: $name up to date"
+      else
+        echo "$repo: would $action $name on $branch"
+      fi
       continue
     fi
-  fi
+
+    case $action in
+      add) message="Add ${subjects[i]}" done_text=added ;;
+      update) message="Update ${subjects[i]}" done_text=updated ;;
+      keep)
+        echo "$repo: $name up to date"
+        continue
+        ;;
+    esac
+    args=(-X PUT "repos/$repo/contents/$path" -f branch="$branch" -f message="$message"
+      -f content="$(openssl base64 -A <"$template")")
+    [[ -n $sha ]] && args+=(-f sha="$sha")
+    if gh api "${args[@]}" >/dev/null; then
+      echo "$repo: $name $done_text"
+    else
+      echo "$repo: couldn't $action $path on $branch (branch protection?)"
+      failed=1
+    fi
+  done
+
+  # A repository that keeps its own workflows keeps its own secret too.
   # gh reads the value from stdin, so the token never appears in a process list.
-  if printf %s "$token" | gh secret set CLAUDE_CODE_OAUTH_TOKEN --repo "$repo" >/dev/null; then
-    echo "$repo: $done_text, secret set"
+  ((managed > 0)) || continue
+  if $keep_secret; then
+    if ! gh secret list --repo "$repo" --json name --jq '.[].name' | grep -qx CLAUDE_CODE_OAUTH_TOKEN; then
+      echo "$repo: has no CLAUDE_CODE_OAUTH_TOKEN secret; run without --keep-secret"
+      failed=1
+    fi
+  elif ! $apply; then
+    echo "$repo: would set the secret"
+  elif printf %s "$token" | gh secret set CLAUDE_CODE_OAUTH_TOKEN --repo "$repo" >/dev/null; then
+    echo "$repo: secret set"
   else
-    echo "$repo: $done_text, couldn't set the secret"
+    echo "$repo: couldn't set the secret"
     failed=1
   fi
 done
