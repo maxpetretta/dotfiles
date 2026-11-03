@@ -9,7 +9,6 @@
   "extensions": [
     "!**"
   ],
-  "lastChangelogVersion": "1.0.0",
   "defaultThinkingLevel": "high",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6.1-sol",
