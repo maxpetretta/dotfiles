@@ -1,0 +1,20 @@
+#!/bin/sh
+# Install the LaunchAgents in .config/launchd, run by ./install. launchd wants real files in
+# ~/Library/LaunchAgents rather than links, so each one is copied there and loaded, but only when it's
+# missing. An installed copy that differs from the repo is left alone and reported; to apply a change,
+# run: launchctl bootout gui/$(id -u)/<label>, copy the file over, then launchctl bootstrap gui/$(id -u) <file>.
+set -eu
+src_dir=$(cd "$(dirname "$0")/../.config/launchd" && pwd)
+dest_dir="$HOME/Library/LaunchAgents"
+domain="gui/$(id -u)"
+mkdir -p "$dest_dir"
+for src in "$src_dir"/*.plist; do
+  name=$(basename "$src")
+  dest="$dest_dir/$name"
+  if [ ! -e "$dest" ]; then
+    cp "$src" "$dest"
+    launchctl bootstrap "$domain" "$dest" && echo "installed ${name%.plist}"
+  elif ! plutil -convert xml1 -o - "$dest" | cmp -s - "$src"; then
+    echo "${name%.plist}: the installed copy differs from .config/launchd/$name; left as is"
+  fi
+done

@@ -32,10 +32,6 @@
 .config/claude/*
 !.config/claude/CLAUDE.md
 !.config/claude/settings.json
-!.config/claude/commands
-!.config/claude/commands/**
-!.config/claude/agents
-!.config/claude/agents/**
 
 # Codex
 .codex/

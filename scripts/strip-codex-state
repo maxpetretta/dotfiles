@@ -2,9 +2,11 @@
 # Git clean filter for .config/codex/config.toml, set up by ./install (see .gitattributes).
 # Codex writes a [projects."<path>"] trust table for every folder it runs in, and Codex desktop names
 # each chat's folder after its first message, so committing those tables publishes chat topics. This
-# drops them, and the app's model-availability counters, from what gets committed. The live file
+# drops them, the app's model-availability counters, and the two node_repl lines that carry the app's
+# version (the app rewrites them on launch), from what gets committed. The live file
 # (~/.codex/config.toml links to it) keeps them.
 exec awk '
   /^\[/ { skip = ($0 ~ /^\[projects\./ || $0 ~ /^\[tui\.model_availability_nux\]/) }
+  /^(BROWSER_USE_CODEX_APP_VERSION|NODE_REPL_TRUSTED_SERVICES) = / { next }
   !skip
 '
