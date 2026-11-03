@@ -20,7 +20,7 @@ extra_policy = '''
 ## Environment
 - Personal macOS laptop (mba15) with one user. Source control is github.com/maxpetretta; pushing to those repos and opening PRs on them is routine.
 - Development lives in ~/dev. ~/Documents holds personal files and research notes; copying them into repos or off the machine needs the user to name the source and destination.
-- memo (~/.local/share/memo, ~/.memo), meridian, and their com.max.* LaunchAgents are the user's own local tools, not production. Sending memo data off the machine is exfiltration.
+- memo (~/.local/share/memo, ~/.memo) and its com.max.* LaunchAgents are the user's own local tools, not production. Sending memo data off the machine is exfiltration.
 - Agents get no secrets: never print, copy, or send tokens, SSH keys, or ~/.config/gh contents.
 - Local git commits on any branch are routine.
 

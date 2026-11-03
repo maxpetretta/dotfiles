@@ -619,7 +619,7 @@
   "autoMode": {
     "allow": [
       "$defaults",
-      "Own LaunchAgents: creating, editing, loading, or unloading ~/Library/LaunchAgents/com.max.* plists for the user's own tools (memo, meridian, codex-remote, or one the user named) whose ProgramArguments run binaries or scripts under ~/dev, ~/.local, ~/.codex, /opt/homebrew, or mise installs. What the plist runs is still judged by every other rule",
+      "Own LaunchAgents: creating, editing, loading, or unloading ~/Library/LaunchAgents/com.max.* plists for the user's own tools (memo, codex-remote, or one the user named) whose ProgramArguments run binaries or scripts under ~/dev, ~/.local, ~/.codex, /opt/homebrew, or mise installs. What the plist runs is still judged by every other rule",
       "Local session tools: listing, killing, or restarting tmux sessions the user named or the agent created this session, `tmux kill-server` when the user asked to restart tmux, and opening System Settings panes with `open x-apple.systempreferences:`. Does not cover `send-keys` into the agent's own pane",
       "Dotfiles: editing files in ~/dev/dotfiles and in ~/.config/rex, ~/.config/tmux, ~/.config/fish, ~/.config/mise, or ~/.config/nvim when the task is about that config. Judge by the resolved path. Not covered: Claude Code, Codex, or agent-instruction config (~/.claude, ~/.codex, and ~/dev/dotfiles/.config/claude, codex, or agents), ~/.config/gh, or edits that add secrets, base-URL, proxy, or registry variables, or commands that fetch and run remote code",
       "Homebrew: `brew install` from homebrew/core and homebrew/cask, and from these third-party taps: getsentry/xcodebuildmcp. Other new taps are still judged as code from an external source",
@@ -638,7 +638,7 @@
       "**Secrets management**: none for agents; never print, copy, or send tokens, SSH keys, or ~/.config/gh contents anywhere",
       "**Sensitive remote targets**: any host, namespace, or deployment whose name carries prod or production as a whole word, and Vercel --prod deploys",
       "Reversible file ops only: move files to the Trash with `trash` rather than deleting; never permanently delete without approval",
-      "**Personal local services**: memo (~/.local/share/memo, ~/.memo), meridian, and their com.max.* LaunchAgents are the user's own tools on this laptop, not production. Copying, rebuilding, re-running, and reloading them is routine; words like nightly, replay, or prod inside these paths don't make them production. Copying stays on this laptop: sending memo data off the machine is still exfiltration"
+      "**Personal local services**: memo (~/.local/share/memo, ~/.memo) and its com.max.* LaunchAgents are the user's own tools on this laptop, not production. Copying, rebuilding, re-running, and reloading them is routine; words like nightly, replay, or prod inside these paths don't make them production. Copying stays on this laptop: sending memo data off the machine is still exfiltration"
     ]
   },
   "voiceEnabled": false,
