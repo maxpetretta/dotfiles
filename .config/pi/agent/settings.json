@@ -4,7 +4,7 @@
       "source": "../../dev/pi-enhanced",
       "extensions": []
     },
-    "npm:pi-claude-bridge"
+    "git:github.com/earendil-works/pi-claude-code"
   ],
   "extensions": [
     "!**"
