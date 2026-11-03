@@ -47,7 +47,7 @@
         Keep Codex trust entries and app-written state out of commits,
       ]
     - [
-        brew bundle check --file=.config/homebrew/Brewfile >/dev/null || brew bundle install --no-upgrade --file=.config/homebrew/Brewfile,
+        brew bundle check --no-upgrade --file=.config/homebrew/Brewfile >/dev/null || brew bundle install --no-upgrade --file=.config/homebrew/Brewfile,
         Installing Homebrew packages,
       ]
     - [scripts/install-launch-agents, Installing LaunchAgents]
