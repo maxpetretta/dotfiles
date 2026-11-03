@@ -1,13 +1,19 @@
+tap "anomalyco/tap", "https://github.com/anomalyco/homebrew-tap.git"
 tap "antoniorodr/memo"
+tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git"
 tap "beeftornado/rmtree"
 tap "bramstein/webfonttools"
 tap "dotenvx/brew"
-tap "felixkratz/formulae"
+tap "felixkratz/formulae", "https://github.com/FelixKratz/homebrew-formulae"
+tap "gastownhall/beads", "https://github.com/gastownhall/homebrew-beads.git"
+tap "getsentry/xcodebuildmcp"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "jnsahaj/lumen"
-tap "koekeishiya/formulae"
+tap "koekeishiya/formulae", "https://github.com/asmvik/homebrew-formulae.git"
+tap "local/pinned", trusted: { casks: ["codex"] }
 tap "majd/repo"
+tap "meta/fb", "https://github.com/meta/homebrew-fb.git"
 tap "nikitabobko/tap"
 tap "opencode-ai/tap"
 tap "osx-cross/arm"
@@ -15,104 +21,199 @@ tap "osx-cross/avr"
 tap "oven-sh/bun"
 tap "px4/px4"
 tap "qmk/qmk"
-tap "sst/tap"
-tap "steipete/tap"
-tap "steveyegge/beads"
+tap "sst/tap", "https://github.com/anomalyco/homebrew-tap.git"
+tap "steipete/tap", trusted: true
+tap "steveyegge/beads", "https://github.com/gastownhall/homebrew-beads.git"
+tap "tornikegomareli/talkify", "https://github.com/tornikegomareli/Talkify", trusted: true
 tap "vladdoster/formulae"
 tap "xdevplatform/tap"
 tap "yakitrak/yakitrak"
-brew "xz"
-brew "libtiff"
-brew "webp"
+# Fast, lightweight CLI for App Store Connect
+brew "asc"
+# Code searching, linting, rewriting
 brew "ast-grep"
-brew "openssl@3"
+# General-purpose data compression with high compression ratio
+brew "xz"
+# Official Amazon AWS command-line interface
 brew "awscli"
+# GNU internationalization (i18n) and localization (l10n) library
 brew "gettext"
+# Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
+# C library of Git core methods that is re-entrant and linkable
 brew "libgit2"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
-brew "cloudflared"
-brew "cmatrix"
-brew "cocoapods"
-brew "coreutils"
-brew "cryptography"
-brew "curl"
-brew "deno"
-brew "difftastic"
-brew "exiftool"
-brew "eza"
-brew "fastfetch"
-brew "fd"
-brew "ffmpeg"
-brew "fish"
-brew "foundry"
-brew "fzf"
-brew "gcc"
-brew "gh"
-brew "git"
-brew "git-delta"
-brew "git-filter-repo"
-brew "gitleaks"
+# Core application library for C
 brew "glib"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
+brew "cloudflared"
+# Console Matrix
+brew "cmatrix"
+# Dependency manager for Cocoa projects
+brew "cocoapods"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Cryptographic recipes and primitives for Python
+brew "cryptography"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# TIFF library and utilities
+brew "libtiff"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
+# Secure runtime for JavaScript and TypeScript
+brew "deno"
+# Diff that understands syntax
+brew "difftastic"
+# Load/unload environment variables based on $PWD
+brew "direnv"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
+# Modern, maintained replacement for ls
+brew "eza"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
+# Blazing fast, portable and modular toolkit for Ethereum application development
+brew "foundry"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU compiler collection
+brew "gcc"
+# GitHub command-line tool
+brew "gh"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# Audit git repos for secrets
+brew "gitleaks"
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Agent multiplexer that lives in your terminal
+brew "herdr"
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
+# Handy way to save and run project-specific commands
+brew "just"
+# Simple terminal UI for git commands
 brew "lazygit"
+# Graphical front-end for GCC's coverage testing tool (gcov)
 brew "lcov"
+# Next-gen compiler infrastructure
 brew "llvm"
+# Package manager for the Lua programming language
 brew "luarocks"
+# Mac App Store command-line interface
 brew "mas"
+# Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Remote terminal application
 brew "mosh"
+# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Open-source, cross-platform JavaScript runtime environment
 brew "node"
+# File management automation tool
 brew "organize-tool"
+# PAM module for reattaching to the user's GUI (Aqua) session
+brew "pam-reattach"
+# AI agent toolkit
+brew "pi-coding-agent"
+# Animated pipes terminal screensaver
 brew "pipes-sh"
+# Object-relational database system
+brew "postgresql@16", link: true
+# Develop and deploy code with zero configuration
 brew "railway"
+# Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Utility that provides fast incremental file transfer
 brew "rsync"
+# Safe, concurrent, practical language
 brew "rust"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Simple keystroke visualizer
 brew "showkey"
+# Cross-shell prompt for astronauts
 brew "starship"
+# Multi-modal AI tool to extract and summarize content
+brew "summarize"
+# Tool to enforce Swift style and conventions
+brew "swiftlint"
+# Easiest, most secure way to use WireGuard and 2FA
 brew "tailscale", restart_service: :changed
+# Send macOS User Notifications from the command-line
+brew "terminal-notifier"
+# Terminal multiplexer
 brew "tmux"
+# Official command-line interface for Todoist
+brew "todoist-cli"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Unified toolchain and entry point for web development
+brew "vite-plus"
+# Execute commands when watched files change
+brew "watchexec"
+# Internet file retriever
 brew "wget"
-brew "whisper-cpp"
+# Port of OpenAI's Whisper model in C/C++
+brew "whisper.cpp"
+# Generate your Xcode project from a spec file and your folder structure
+brew "xcodegen"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
+# Shell extension to navigate your filesystem faster
 brew "zoxide"
-brew "dotenvx/brew/dotenvx"
-brew "felixkratz/formulae/borders"
-brew "jnsahaj/lumen/lumen"
-brew "sst/tap/opencode"
-brew "sst/tap/sst"
-brew "steipete/tap/gifgrep"
-brew "steipete/tap/gogcli"
-brew "steipete/tap/goplaces"
-brew "steipete/tap/sag"
-brew "steipete/tap/summarize"
+# Model Context Protocol server for Xcode project workflows
+brew "getsentry/xcodebuildmcp/xcodebuildmcp", trusted: true
+# Password manager that keeps all passwords secure behind one password
 cask "1password"
+# Command-line interface for 1Password
 cask "1password-cli"
-cask "nikitabobko/tap/aerospace"
+cask "aerospace"
+# Coding agent and development environment
+cask "amp-app"
+# Data backup and storage service
 cask "backblaze"
+# Menu bar icon organiser
 cask "bartender"
-cask "chatgpt-atlas"
+# OpenAI's official ChatGPT desktop app
+cask "chatgpt"
+# Anthropic's official Claude AI desktop app
 cask "claude"
-cask "claude-code"
+# Screen capturing tool
 cask "cleanshot"
-cask "cmux"
+# OpenAI's coding agent that runs in your terminal
 cask "codex"
-cask "codex-app"
-cask "codexbar"
-cask "codexmonitor"
-cask "commander"
-cask "conductor"
+# Track and budget money
 cask "copilot-money"
+# Write, edit, and chat about your code with AI
 cask "cursor"
+# Voice and text chat software
 cask "discord"
+# Opens RAW files and renders them on-the-fly
 cask "fastrawviewer"
+# Screen colour temperature controller
 cask "flux-app"
 cask "font-cascadia-code"
 cask "font-cascadia-code-nf"
@@ -126,39 +227,78 @@ cask "font-inter"
 cask "font-monaspace"
 cask "font-monaspice-nerd-font"
 cask "font-public-sans"
-cask "gather"
-cask "gemini"
+# Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Web browser
 cask "google-chrome"
-cask "handy"
+# Client for the Google Drive storage service
+cask "google-drive"
+cask "goplaces"
+# Chromium-based web browser
+cask "helium-browser"
+# Local voice dictation
+cask "anomalyco/tap/hex", trusted: true
+# Tool to optimise images to a smaller size
 cask "imageoptim"
+# App to manage software development and track bugs
+cask "linear"
+# Deep clean, analyze, and optimize app
+cask "mole-app"
+# Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# AI coding agent desktop client
 cask "opencode-desktop"
+# Replacement for Docker Desktop
 cask "orbstack"
+# Tool to eliminate similar or duplicate photos
 cask "photosweeper-x"
-cask "postico"
+# Toolbox companion for QMK Firmware
 cask "qmk-toolbox"
+# Control your tools with a few keystrokes
 cask "raycast"
+# Screen recorder and editor
 cask "screen-studio"
+# Team communication and collaboration software
 cask "slack"
-cask "superset"
+# Dictation and transcription app with AI-powered editing
+cask "spokenly"
+# Minimal GUI for AI code agents
+cask "t3-code"
+# Native GUI tool for relational databases
 cask "tableplus"
+# Messaging app with a focus on speed and security
 cask "telegram"
+# Menu bar manager
+cask "thaw"
+# Unpacks archive files
 cask "the-unarchiver"
-cask "vladdoster/formulae/vimari"
+# To-do list
+cask "todoist-app"
+cask "vimari"
+# Multimedia player
 cask "vlc"
-cask "xdevplatform/tap/xurl"
+cask "xurl"
+# Multiplayer code editor
 cask "zed"
+# Video communication and virtual meeting platform
 cask "zoom"
+mas "1Password for Safari", id: 1569813296
 mas "Dark Reader for Safari", id: 1438243180
-mas "Ghostery Privacy Ad Blocker", id: 6504861501
+mas "Ghostery AdBlocker for Privacy", id: 6504861501
+mas "Keynote", id: 361285480
 mas "Matter", id: 1548677272
+mas "Numbers", id: 361304891
+mas "Pages", id: 361309726
 mas "Pause", id: 1599313358
 mas "Photomator", id: 1444636541
 mas "Pixelmator Pro", id: 1289583905
 mas "TestFlight", id: 899247664
+mas "Things", id: 904280696
 mas "Xcode", id: 497799835
+vscode "anysphere.remote-containers"
+vscode "anysphere.remote-ssh"
 vscode "asvetliakov.vscode-neovim"
 vscode "biomejs.biome"
 vscode "bradlc.vscode-tailwindcss"
@@ -179,3 +319,9 @@ vscode "tamasfe.even-better-toml"
 vscode "tyriar.sort-lines"
 vscode "waderyan.gitblame"
 vscode "yoavbls.pretty-ts-errors"
+cargo "ck-search"
+uv "hindsight-embed", with: ["hindsight-api==0.8.6"]
+npm "@tobilu/qmd"
+npm "corepack"
+npm "hunkdiff"
+npm "trash-cli"
