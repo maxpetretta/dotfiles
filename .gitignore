@@ -6,6 +6,9 @@
 .config/fish/themes/*
 .config/fish/fish_variables
 
+# Ghostty
+.config/ghostty/shaders/*
+
 # Zed
 .config/zed/*
 !.config/zed/keymap.json

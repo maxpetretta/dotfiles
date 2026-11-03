@@ -14,6 +14,7 @@
     ~/.config/btop: .config/btop
     ~/.config/fastfetch: .config/fastfetch
     ~/.config/fish: .config/fish
+    ~/.config/ghostty: .config/ghostty
     ~/.config/gh: .config/gh
     ~/.config/mise: .config/mise
     ~/.config/nvim: .config/nvim
