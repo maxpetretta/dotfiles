@@ -22,6 +22,7 @@
 	<array>
 		<string>/opt/homebrew/bin/cursor-agent</string>
 		<string>worker</string>
+		<string>--computer-use</string>
 		<string>start</string>
 		<string>--name</string>
 		<string>mba15</string>
