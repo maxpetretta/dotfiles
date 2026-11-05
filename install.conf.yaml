@@ -9,6 +9,7 @@
 - link:
     # Directories
     ~/.config/aerospace: .config/aerospace
+    ~/.config/ardia: .config/ardia
     ~/.config/bash: .config/bash
     ~/.config/borders: .config/borders
     ~/.config/btop: .config/btop
