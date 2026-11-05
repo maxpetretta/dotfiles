@@ -57,6 +57,9 @@
 # Rex
 .config/rex/terminfo-hosts
 
+# Ardia
+.config/ardia/*.schema.json
+
 # Runtime Artifacts
 .cache/
 .local/

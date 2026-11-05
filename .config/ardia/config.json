@@ -1,0 +1,25 @@
+{
+  "settings": {
+    "tabLayout": "sidebar",
+    "addressBar": "sidebar",
+    "commandBarPlacement": "centred",
+    "newTabOpens": "commandBar",
+    "newTabPosition": "top",
+    "newTabButtonPosition": "top",
+    "cleanUpInactiveTabsAfterMinutes": 10080,
+    "restoreSession": true,
+    "shareTabsAcrossWindows": true,
+    "balancedTopApps": true,
+    "peekModifier": "shift",
+    "undoReopensClosedTab": true,
+    "cmdClickCreatesTabGroup": false,
+    "appearance": "auto",
+    "extendWebsiteColor": false,
+    "hideToolbarWhileScrolling": true,
+    "bookmarksBar": "never",
+    "searchEngine": "google",
+    "commandBarPreference": "website",
+    "openLinksInLittleArdia": false,
+    "showAdvancedSettings": false
+  }
+}
