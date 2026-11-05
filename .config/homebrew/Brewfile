@@ -209,6 +209,8 @@ cask "codex"
 cask "copilot-money"
 # Write, edit, and chat about your code with AI
 cask "cursor"
+# Command-line agent for Cursor
+cask "cursor-cli"
 # Voice and text chat software
 cask "discord"
 # Opens RAW files and renders them on-the-fly

@@ -10,7 +10,7 @@ Clone this repo to `~/dev/dotfiles` (Rex's home LaunchAgent expects that path), 
 ./install
 ```
 
-`./install` runs [dotbot](https://github.com/anishathalye/dotbot). It links each path in `install.conf.yaml` into place, sets up the git filters that keep app-written state out of commits, installs any missing Homebrew packages from `.config/homebrew/Brewfile`, and installs the LaunchAgents in `.config/launchd` that aren't there yet. It's safe to run again. Memo's own installer manages its LaunchAgents.
+`./install` runs [dotbot](https://github.com/anishathalye/dotbot). It links each path in `install.conf.yaml` into place, sets up the git filters that keep app-written state out of commits, installs any missing Homebrew packages from `.config/homebrew/Brewfile`, and installs the LaunchAgents in `.config/launchd` that aren't there yet. It's safe to run again. Memo's own installer manages its LaunchAgents. The Cursor worker agent needs `cursor-agent login` once before it stays up.
 
 ## Updating
 
