@@ -10,7 +10,7 @@ suppress_unstable_features_warning = true
 
 notify = ["/Users/max/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
 personality = "pragmatic"
-sandbox_mode = "danger-full-access"
+sandbox_mode = "workspace-write"
 plan_mode_reasoning_effort = "medium"
 review_model = "gpt-6.1-sol"
 
@@ -333,3 +333,4 @@ enabled = false
 [[skills.config]]
 path = "/Users/max/.codex/plugins/cache/openai-curated-remote/work-pets/0.1.6/skills/update-pet/SKILL.md"
 enabled = false
+

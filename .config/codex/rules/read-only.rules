@@ -9,12 +9,6 @@ prefix_rule(
     not_match = ["xcrun xcresulttool export --path run.xcresult"],
 )
 prefix_rule(
-    pattern = ["xcrun", "simctl", "list"],
-    decision = "allow",
-    match = ["xcrun simctl list devices"],
-    not_match = ["xcrun simctl boot booted"],
-)
-prefix_rule(
     pattern = ["xcrun", "swift-format", "lint"],
     decision = "allow",
     not_match = ["xcrun swift-format format -i File.swift"],
