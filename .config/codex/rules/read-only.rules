@@ -1,0 +1,85 @@
+# Read-only commands; Claude Code handles xcrun and asc through autoMode.allow.
+# Rules in destructive.rules still win: forbidden > prompt > allow.
+
+prefix_rule(
+    pattern = ["xcrun", "xcresulttool", "get", "test-results"],
+    decision = "allow",
+    match = ["xcrun xcresulttool get test-results summary --path run.xcresult"],
+    not_match = ["xcrun xcresulttool export --path run.xcresult"],
+)
+prefix_rule(
+    pattern = ["xcrun", "simctl", "list"],
+    decision = "allow",
+    match = ["xcrun simctl list devices"],
+    not_match = ["xcrun simctl boot booted"],
+)
+prefix_rule(
+    pattern = ["xcrun", "devicectl", "device", "info"],
+    decision = "allow",
+    not_match = ["xcrun devicectl device install app"],
+)
+prefix_rule(
+    pattern = ["xcrun", "devicectl", "list"],
+    decision = "allow",
+)
+prefix_rule(
+    pattern = ["xcrun", "swift-format", "lint"],
+    decision = "allow",
+    not_match = ["xcrun swift-format format -i File.swift"],
+)
+prefix_rule(
+    pattern = ["lsappinfo", "info"],
+    decision = "allow",
+)
+prefix_rule(
+    pattern = ["defaults", "read"],
+    decision = "allow",
+    not_match = ["defaults write com.example key value"],
+)
+prefix_rule(
+    pattern = ["plutil", "-p"],
+    decision = "allow",
+    not_match = ["plutil -convert xml1 Info.plist"],
+)
+prefix_rule(
+    pattern = ["codesign", "-d", "--entitlements", "-"],
+    decision = "allow",
+    not_match = ["codesign -d --entitlements out.plist App.app"],
+)
+prefix_rule(
+    pattern = ["codesign", ["-dv", "-dvv", "-dvvv"]],
+    decision = "allow",
+    not_match = ["codesign -s - App.app"],
+)
+prefix_rule(
+    pattern = ["codesign", "--verify"],
+    decision = "allow",
+)
+prefix_rule(
+    pattern = ["idb", "ui", "describe-all"],
+    decision = "allow",
+    not_match = ["idb ui tap 10 10"],
+)
+prefix_rule(
+    pattern = ["log", "show"],
+    decision = "allow",
+    not_match = ["log erase --all"],
+)
+prefix_rule(
+    pattern = ["asc", "builds", ["list", "info", "next-build-number"]],
+    decision = "allow",
+    not_match = ["asc builds upload"],
+)
+prefix_rule(
+    pattern = ["asc", "builds", "build-beta-detail", "view"],
+    decision = "allow",
+)
+prefix_rule(
+    pattern = ["pmset", "-g"],
+    decision = "allow",
+    not_match = ["pmset sleepnow"],
+)
+prefix_rule(
+    pattern = ["git", "ls-tree"],
+    decision = "allow",
+)

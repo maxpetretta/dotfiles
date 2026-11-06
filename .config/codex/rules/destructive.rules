@@ -1,4 +1,4 @@
-# Mirrors the Claude Code deny/ask lists in ~/.claude/settings.json.
+# Follows the Claude Code deny/ask lists in ~/.claude/settings.json.
 # Strictest matching rule wins: forbidden > prompt > allow.
 
 # --- forbidden (Claude "deny") ---
@@ -126,4 +126,11 @@ prefix_rule(
     pattern = ["gh", "repo", "delete"],
     decision = "prompt",
     justification = "Deletes a GitHub repository.",
+)
+prefix_rule(
+    pattern = ["cast", ["send", "s", "batch-send", "bs", "publish", "p", "mktx", "m", "batch-mktx", "bm", "wallet", "w", "erc20-token", "erc20", "safe", "tempo", "rpc", "rp"]],
+    decision = "prompt",
+    justification = "Signs or broadcasts a transaction, or touches wallet keys.",
+    match = ["cast send 0xabc", "cast wallet sign hello", "cast erc20 transfer 0xabc"],
+    not_match = ["cast call 0xabc", "cast sig transfer(address)"],
 )

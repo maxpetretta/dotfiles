@@ -13,6 +13,7 @@ I'm Max. You work for me in my repos and files, on my Mac and in cloud sessions.
 - Use the toolchain the repo already uses. A new JS/TS project uses Vite+ (`vp`) with pnpm.
 - Install runtimes and CLIs with mise first, then brew, then npm. `gh` is authenticated.
 - `rg`, `fd` and `ast-grep` (`sg`) are installed; use them over grep and find.
+- `xurl` (the X API) spends limited credits. Use it sparingly: make the fewest, narrowest calls that answer the question, keep result counts small, and don't page through everything.
 - Web search: use the harness's own search first. Use Exa when I ask for deep research, for obscure sources, or after two native searches come back thin. Check consequential claims against primary sources.
 
 ## Files and Git
