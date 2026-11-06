@@ -23,12 +23,15 @@
     ~/.config/rex: .config/rex
     ~/.config/zed: .config/zed
     ~/.agents/skills/health: .config/agents/skills/health # Codex, Pi and OpenCode
+    ~/.agents/skills/skill-audit: .config/agents/skills/skill-audit
     ~/.claude/CLAUDE.md: .config/claude/CLAUDE.md
     ~/.claude/skills/health: .config/agents/skills/health
+    ~/.claude/skills/skill-audit: .config/agents/skills/skill-audit
     ~/.claude/settings.json: .config/claude/settings.json
     ~/.codex/AGENTS.md: .config/codex/AGENTS.md
     ~/.codex/config.toml: .config/codex/config.toml
     ~/.codex/rules/destructive.rules: .config/codex/rules/destructive.rules
+    ~/.codex/rules/read-only.rules: .config/codex/rules/read-only.rules
     ~/.codex/skills/use-github-cli: .config/codex/skills/use-github-cli
     ~/.pi/agent/AGENTS.md: .config/pi/agent/AGENTS.md
     ~/.pi/agent/keybindings.json: .config/pi/agent/keybindings.json

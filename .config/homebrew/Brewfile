@@ -1,4 +1,4 @@
-tap "anomalyco/tap", "https://github.com/anomalyco/homebrew-tap.git"
+tap "anomalyco/tap", "https://github.com/anomalyco/homebrew-tap.git", trusted: { casks: ["hex"] }
 tap "antoniorodr/memo"
 tap "asmvik/formulae", "https://github.com/asmvik/homebrew-formulae.git"
 tap "beeftornado/rmtree"
@@ -180,6 +180,8 @@ brew "wget"
 brew "whisper.cpp"
 # Generate your Xcode project from a spec file and your folder structure
 brew "xcodegen"
+# Tool for managing your YubiKey configuration
+brew "ykman"
 # Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
 # Shell extension to navigate your filesystem faster
@@ -233,19 +235,9 @@ cask "font-public-sans"
 cask "ghostty"
 # Web browser
 cask "google-chrome"
-# Client for the Google Drive storage service
-cask "google-drive"
 cask "goplaces"
-# Chromium-based web browser
-cask "helium-browser"
-# Local voice dictation
-cask "anomalyco/tap/hex", trusted: true
 # Tool to optimise images to a smaller size
 cask "imageoptim"
-# App to manage software development and track bugs
-cask "linear"
-# Deep clean, analyze, and optimize app
-cask "mole-app"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 # Knowledge base that works on top of a local folder of plain text Markdown files
