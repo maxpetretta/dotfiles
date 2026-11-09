@@ -15,7 +15,7 @@ The reader is Max skimming a list of PRs. Only the summary and any risk flag are
     > **High risk: <authentication | security | data schema>.** <what exactly changes, and what breaks if it's wrong>
 
     <details>
-    <summary>PR written by <model> (<effort>) on behalf of @maxpetretta</summary>
+    <summary><i>PR written by <model> (<effort>) on behalf of @maxpetretta</i></summary>
 
     ### Evidence
     ### Change
@@ -24,7 +24,7 @@ The reader is Max skimming a list of PRs. Only the summary and any risk flag are
 
     </details>
 
-- Leave a blank line after the `<summary>` line and before `</details>`, or the Markdown inside won't render. The summary line is plain text, because Markdown doesn't render inside `<summary>`.
+- Leave a blank line after the `<summary>` line and before `</details>`, or the Markdown inside won't render. Markdown doesn't render inside `<summary>`, so the toggle line uses `<i>` for italics.
 - Include the effort only if you know it. Nothing goes after `</details>`.
 - Leave out empty sections, and leave out the warning when no flag applies.
 
