@@ -35,6 +35,7 @@ gh api repos/owner/repo/pulls/<number> --jq '{title,state,author:.user.login}'
 - Read the current issue, PR, review state, or workflow run immediately before changing it.
 - Use `--body-file` for user-visible text containing Markdown, backticks, shell snippets, or untrusted text. Do not interpolate such content directly into a shell command.
 - Show or summarize the final public text before sending when wording has not already been approved.
+- Exception: when AGENTS.md calls for the cross-review skill, its commit, push, draft PR and `gh pr ready` need no further approval, and neither does a PR description written with the pr-description skill.
 - Report the resulting URL or object number after a successful mutation.
 
 ```bash
