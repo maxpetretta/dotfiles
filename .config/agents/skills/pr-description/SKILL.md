@@ -34,15 +34,7 @@ The most important section. It is proof, observed by you in this session, that t
 
 - UI: one MP4 recording trimmed to the changed interaction (15 s or less), plus before and after screenshots of each changed state, one per distinct flow. Put before and after side by side in a two-column table.
 - Behavior and logic: the exact test or command, failing before and passing after, as trimmed output in a `console` block. Add logs when that's where the effect shows.
-- Architecture, dependencies, packages: a Mermaid diagram of only the affected part, with the change highlighted:
-
-      ```mermaid
-      flowchart LR
-        App --> SyncClient --> Relay
-        SyncClient --> Cache:::added
-        classDef added stroke:#2da44e,stroke-width:3px
-        classDef removed stroke:#cf222e,stroke-dasharray:4
-      ```
+- Architecture, dependencies, packages: a Mermaid diagram of only the affected part (see Diagrams).
 
 - No evidence possible: start the section with `No direct evidence: <reason>` and repeat it in the visible warning. Never present mocked tests as proof of UI behavior.
 
@@ -61,6 +53,28 @@ gh uploads each file and rewrites the reference in place. A video reference must
 - Trim recordings to the changed interaction, 15 s or less:
   `ffmpeg -ss <start> -to <end> -i in.mov -an -vf scale=1280:-2 -c:v libx264 -crf 28 -preset veryfast -movflags +faststart out.mp4`
 - When updating a body, references already rewritten to uploaded URLs stay as they are. Attach only new files.
+
+### Diagrams
+
+Clean beats complete. GitHub themes Mermaid to the reader's light or dark mode, so set no theme, colors, or `classDef`.
+
+- Who calls whom (most behavior and architecture changes): `sequenceDiagram`. Shade the new or changed messages with one translucent `rect`, which reads in both modes:
+
+      ```mermaid
+      sequenceDiagram
+        participant App
+        participant Sync as SyncClient
+        participant Cache
+        App->>Sync: save(note)
+        rect rgba(46, 164, 78, 0.15)
+          Sync->>Cache: write(note)
+          Cache-->>Sync: ok
+        end
+        Sync-->>App: saved
+      ```
+
+- Structure or dependencies: `flowchart TD`, never a wide `LR` chain, which runs under GitHub's pan and zoom buttons. Mark what's new in its label, such as `Cache["Cache (new)"]`.
+- At most five participants or nodes and about five messages. Plain verb-phrase labels, no decision diamonds. Leave removed parts out of the diagram and name them in the text.
 
 ## Risk flags
 
