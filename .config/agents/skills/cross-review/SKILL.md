@@ -22,29 +22,30 @@ Run each call in the background and wait for it to finish; rounds at high take m
 
 Codex (reviewer = Sol):
 
-    codex exec -m gpt-6.1-sol -c model_reasoning_effort=high -s read-only -C "$REPO" \
-      --json -o "$R/round1.md" - < "$R/brief.md" > "$R/round1.jsonl"
+    codex exec -m gpt-6.1-sol -c model_reasoning_effort=high -s read-only --ignore-user-config \
+      -C "$REPO" --json -o "$R/round1.md" - < "$R/brief.md" > "$R/round1.jsonl"
     # follow-up in the same session (resume takes no -s; pass the sandbox as config):
     codex exec resume "$THREAD_ID" -c sandbox_mode='"read-only"' -c model_reasoning_effort=high \
-      -o "$R/round2.md" - < "$R/followup.md"
+      --ignore-user-config -o "$R/round2.md" - < "$R/followup.md"
 
 Take `$THREAD_ID` from the session-start event in round1.jsonl.
 
 Claude (reviewer = Opus):
 
-    claude -p --model claude-opus-5-5 --effort high --tools "Read,Grep,Glob" \
+    claude -p --model claude-opus-5-5 --effort high --tools "Read,Grep,Glob" --strict-mcp-config \
       --output-format json < "$R/brief.md" > "$R/round1.json"
     # follow-up: same flags plus --resume "$SESSION_ID" (from .session_id in round1.json)
 
-`--tools` is the read-only guard: the global allow list permits edits under ~/dev, so do not give this reviewer Bash, Edit, or Write.
+These flags are the read-only guard. The global allow lists permit edits under ~/dev and some MCP tools that write, so give the reviewer no Bash, Edit, Write, or MCP servers: `--tools` and `--strict-mcp-config` for Claude, `--ignore-user-config` for Codex (it drops the MCP servers in config.toml; sign-in still works).
 
 ## 1. Prepare
 
 - On a feature branch, never master. Commit the work. Leave unrelated changes alone; if they don't separate cleanly from this change, stop and ask.
 - `git fetch origin`; `BASE=$(git merge-base HEAD origin/<default-branch>)`.
+- If uncommitted changes remain, `git worktree add --detach "$R/head" HEAD`, run the checks there, and give the reviewer that path as the repo, so neither sees code the PR doesn't contain. Remove the worktree when the review ends.
 - Run the project's checks (tests, lint, typecheck). Fix failures this change caused. Note checks that are missing or were already failing.
 - Write `git diff $BASE...HEAD` to `$R/diff.patch`.
-- Push and open a draft PR (`gh pr create --draft`), or reuse the existing one. Write the description with the pr-description skill.
+- Push and open a draft PR (`gh pr create --draft`), or reuse the existing one and turn it back into a draft with `gh pr ready <n> --undo` if it is ready. Write the description with the pr-description skill.
 
 ## 2. Round 1: full review
 

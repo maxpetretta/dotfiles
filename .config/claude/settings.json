@@ -79,7 +79,7 @@
       "Bash(env PATH=\"/usr/bin:/bin:/usr/sbin:/sbin\" xcodebuild *)",
       "Bash(xcrun simctl *)",
       "Bash(xcrun devicectl *)",
-      "Bash(xcrun --sdk *)",
+      "Bash(xcrun --sdk * --show-sdk-*)",
       "Bash(idb ui *)",
       "Bash(scripts/testflight.sh)",
       "Bash(scripts/run-device.sh)",
