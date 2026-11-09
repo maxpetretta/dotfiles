@@ -74,7 +74,7 @@ Keep a ledger: id, severity, outcome (fixed / disagree / declined), evidence. Re
 
 ## 4. Round 2: final review, same session
 
-Skip it if round 1 approved and nothing changed behavior. Otherwise resume the reviewer with the ledger (`fixed:` / `disagree:` / `declined:` + evidence) and `git diff <round1 head>..HEAD`. Ask it to mark each blocker and should `resolved` or `still open: <reason>`, and to flag new issues only in the changed code. Same reply format, same effort.
+Skip it if round 1 approved and nothing changed behavior. If you made a review worktree, move it to the new head first (`git -C "$R/head" checkout --detach <new head>`) and re-run the checks there. Then resume the reviewer with the ledger (`fixed:` / `disagree:` / `declined:` + evidence) and `git diff <round1 head>..HEAD`. Ask it to mark each blocker and should `resolved` or `still open: <reason>`, and to flag new issues only in the changed code. Same reply format, same effort.
 
 ## 5. Escalate to Max
 
