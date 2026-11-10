@@ -14,8 +14,13 @@ applied= # last brightness that was set successfully; empty until the first one 
 
 log() { echo "$(date '+%Y-%m-%d %H:%M:%S') $*"; }
 
+# Seconds since the last real keyboard, mouse or trackpad input. The combined session state (0) with any
+# input type (0xFFFFFFFF) ignores events that computer use synthesizes, so an agent typing or clicking
+# doesn't light the screen. IOHIDSystem's HIDIdleTime and the HID system state (1) reset on those
+# events. JXA doesn't define the constants, hence the raw values. A failure reads as active.
 idle_seconds() {
-  /usr/sbin/ioreg -c IOHIDSystem | /usr/bin/awk '/HIDIdleTime/ { print int($NF / 1000000000); exit }'
+  /usr/bin/osascript -l JavaScript -e \
+    'ObjC.import("CoreGraphics"); Math.floor($.CGEventSourceSecondsSinceLastEventType(0, 0xFFFFFFFF))' 2>/dev/null
 }
 
 set_brightness() {
