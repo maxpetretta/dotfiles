@@ -15,7 +15,7 @@ Only on Max's Mac, where Codex is signed in to his ChatGPT account and Claude Co
 
 - You are Claude: reviewer is GPT Sol through Codex.
 - You are GPT: reviewer is Opus through Claude Code.
-- Never substitute another model or vendor. If the CLI is missing or fails, stop and report; failure, timeout, or empty output is not approval.
+- Never substitute another model or vendor. If the CLI is missing or signed out, stop and report. A round that fails, times out or returns nothing is not approval: retry it once, then escalate (step 5).
 - One reviewer per round, at effort high. The reviewer must not start subagents.
 
 Run each call in the background and wait for it to finish; rounds at high take minutes. Keep every brief and reply in a scratch dir `$R` outside the repo.
