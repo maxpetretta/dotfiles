@@ -274,10 +274,6 @@
       "effortLevel": "high",
       "autoCompactWindow": 400000
     },
-    "claude-fable-5-1": {
-      "effortLevel": "high",
-      "autoCompactWindow": 400000
-    },
     "claude-fable-5-2": {
       "effortLevel": "medium",
       "autoCompactWindow": 400000
