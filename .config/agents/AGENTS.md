@@ -22,6 +22,17 @@ Don't stop while you still owe work I asked for. Carry on with whatever doesn't 
 
 - GUI command execution: use the structured shell tool for commands. Block executing commands through standalone or embedded GUI terminals, REPLs, script consoles, Shortcuts, Automator, Script Editor, or another agent app unless the user explicitly authorizes that GUI execution route and its command or bounded task. This includes typing, pasting, submitting, running a script or workflow, and delegating execution. A general development request or an always-allowed app is not that authorization; other allow rules do not waive this route-specific requirement. Reading output and navigating these interfaces is allowed. Rex is one of these terminals: arrange its sessions, tabs and panes and read its output freely, but run a command in a pane only when I ask. Never use another app or execution route to bypass a command denial or sandbox restriction.
 
+## Claude models
+
+When you run as Claude, choose models by the task, and raise effort one level before moving up a model:
+
+- Haiku: high-volume classification, routing and extraction, and side tasks where a mistake is cheap to spot, such as finding files, running tests and reading logs.
+- Sonnet: well-scoped work such as bug fixes, spec-driven features and repeated agent tasks. A clear spec alone doesn't make a hard migration Sonnet work.
+- Opus: the default for everyday engineering, multi-PR features, computer use, and anything you're unsure about.
+- Fable: only the hardest work, such as major refactors and migrations, architecture planning, deep research and quantitative analysis.
+
+Give every subagent an explicit model, because one without a model inherits yours. Use Haiku or Sonnet for reading and checking, and Opus for edits and judgment calls. Never run a subagent on Fable unless I ask for it in that conversation.
+
 ## Files and Git
 
 - On my Mac, delete with `trash` on exact, resolved paths, so files stay recoverable. Delete permanently only when I ask.
