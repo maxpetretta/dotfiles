@@ -1,0 +1,14 @@
+#!/bin/sh
+# Compile .config/launchd/ac-nosleep-helper.swift, the program com.max.ac-nosleep runs, to
+# ~/.local/bin/ac-nosleep-helper (or the path given as $1). ./install runs it only when the binary is
+# missing. The new binary replaces the old one in a single rename, so the running helper keeps its
+# copy; to switch to the new build, run: launchctl kickstart -k gui/$(id -u)/com.max.ac-nosleep.
+set -eu
+src="$(cd "$(dirname "$0")/../.config/launchd" && pwd)/ac-nosleep-helper.swift"
+out="${1:-$HOME/.local/bin/ac-nosleep-helper}"
+mkdir -p "$(dirname "$out")"
+tmp="$out.build.$$"
+trap 'rm -f "$tmp"' EXIT
+swiftc -O "$src" -o "$tmp"
+mv -f "$tmp" "$out"
+echo "built $out"

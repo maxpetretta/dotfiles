@@ -58,4 +58,5 @@
         brew bundle check --no-upgrade --file=.config/homebrew/Brewfile >/dev/null || brew bundle install --no-upgrade --file=.config/homebrew/Brewfile,
         Installing Homebrew packages,
       ]
+    - [test -x ~/.local/bin/ac-nosleep-helper || scripts/build-ac-nosleep-helper, Building the ac-nosleep helper]
     - [scripts/install-launch-agents, Installing LaunchAgents]
