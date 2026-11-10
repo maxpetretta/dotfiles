@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Turn on Claude in every repository you own: pull request review (github/claude-review.yml) and the
-# @claude assistant (github/claude.yml). For each repository it commits each template from this repo
+# Turn on Claude in every repository you own: the @claude assistant (github/claude.yml). Pull request
+# review (github/claude-review.yml) is paused: its template stays in github/, and this script no longer
+# installs it. For each repository it commits each template named below from this repo
 # to .github/workflows/ on the default branch (or updates an earlier copy this script made), and sets
 # the CLAUDE_CODE_OAUTH_TOKEN secret the workflows need. A workflow file this script didn't write
 # (Orchard's, for one) is left alone. Rerun it after creating a repository, after editing a template,
@@ -17,8 +18,8 @@ set -uo pipefail
 cd "$(dirname "$0")/.." || exit 1
 
 # Each template in github/ is installed as .github/workflows/<name>; the subject names it in commits.
-names=(claude-review.yml claude.yml)
-subjects=("Claude pull request review" "Claude assistant")
+names=(claude.yml)
+subjects=("Claude assistant")
 marker="Managed by maxpetretta/dotfiles"
 apply=false
 keep_secret=false
