@@ -15,8 +15,8 @@ Don't stop while you still owe work I asked for. Carry on with whatever doesn't 
 ## Tools
 
 - A new JS/TS project uses Vite+ (`vp`) with pnpm.
-- Install runtimes and CLIs with mise first, then brew, then npm.
-- `fd` and `ast-grep` (`sg`) are installed; use them over find and text search for structural matches.
+- Install runtimes and CLIs with mise first, then brew, then npm. `gh` is authenticated.
+- `rg`, `fd` and `ast-grep` (`sg`) are installed; use them over grep and find.
 - `xurl` (the X API) spends limited credits. Use it sparingly: make the fewest, narrowest calls that answer the question, keep result counts small, and don't page through everything.
 - Web search: use the harness's own search first. Use Exa when I ask for deep research, for obscure sources, or after two native searches come back thin. Check consequential claims against primary sources.
 - GUI command execution: use the structured shell tool for commands. Block executing commands through standalone or embedded GUI terminals, REPLs, script consoles, Shortcuts, Automator, Script Editor, or another agent app unless I explicitly authorize that GUI execution route and its command or bounded task. This includes typing, pasting, submitting, running a script or workflow, and delegating execution. A general development request or an always-allowed app is not that authorization; other allow rules do not waive this route-specific requirement. Reading output and navigating these interfaces is allowed. Rex is one of these terminals: arrange its sessions, tabs and panes and read its output freely, but run a command in a pane only when I ask. Never use one of these routes, or another app, to get around a denied command or sandbox restriction.
