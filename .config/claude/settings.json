@@ -181,7 +181,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "claude-opus-5-5",
+  "model": "claude-fable-5-2",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -276,6 +276,12 @@
     },
     "claude-fable-5-1": {
       "effortLevel": "high"
+    },
+    "claude-fable-5-2": {
+      "effortLevel": "medium"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "high"
     }
   },
   "promptSuggestionEnabled": false,
@@ -314,10 +320,14 @@
       "Local test state: resetting `defaults` for com.maxpetretta.* apps",
       "Named installs: installing a plugin, extension, or package from a URL, repo, or package name the user named in their own message, using that tool's own installer such as `pi install` or `claude plugin`. Homebrew follows its own rules, and what the install runs afterward is still judged by every other rule",
       "Apple dev tools: `xcrun simctl` list, boot, bootstatus, shutdown, terminate, ui, status_bar, and io on local simulators; `xcrun simctl` install and launch of apps built from the current project; `xcrun devicectl list` and `device info`; `xcrun swift-format` lint and format on files in the current project; `xcrun xcresulttool get`; and read-only asc queries such as list, info, view, and next-build-number. Any output file, including `--json-output`, `--log-output`, `--stdout`, `--stderr`, and `simctl io` paths, must be inside the current project or a session scratch directory. Does not cover other simctl or xcresulttool subcommands, other xcrun tools such as swift or clang, or asc commands that upload, submit, or change App Store Connect data",
-      "Transcript reads: read-only searches of the user's own session transcripts under ~/.claude/projects and ~/.codex. Writing to them stays blocked"
+      "Transcript reads: read-only searches of the user's own session transcripts under ~/.claude/projects and ~/.codex. Writing to them stays blocked",
+      "Orchard processes: starting, stopping, killing, or restarting any process that belongs to Orchard on this laptop, which the user asked in their own words not to be asked about each time. Applies with no fresh message from the user and on a coordinator's or teammate's instruction. Covers the Orchard for Mac app in any build, `orchard host` and every other orchard helper, scratch homes, the `dns-sd` and `claude` processes a home spawned, and anything run from the user's orchard checkouts and worktrees, through `osascript`, `open`, `kill` with any signal, `pkill`, `killall`, and `launchctl` start, stop, and kickstart of an existing Orchard job. Covers installing a build: mounting the disk image packages/mac/scripts/release.sh built with `hdiutil`, `trash /Applications/Orchard.app` followed by `ditto` from that image, and `codesign --verify`. A `pkill` or `killall` pattern must match only Orchard's own processes. Does not cover processes outside Orchard, Claude Code sessions a home did not spawn, `orchard host install`, or the Settings reset and anything else that deletes or changes ~/.config/orchard, the Keychain, or the home's history",
+      "Orchard TestFlight: running packages/app/scripts/testflight.sh from the user's orchard checkouts and worktrees with BUNDLE_ID=com.maxpetretta.orchard.lab, the Orchard Lab beta record, with or without INSTALL_DEVICE, including the `asc` upload and `xcrun devicectl` install and launch it performs. The user asked for every app update to ship there, so it needs no fresh message and is not a production deploy. Does not cover the com.maxpetretta.orchard record, App Store submission, or any other `asc` write",
+      "Orchard Development releases: running packages/mac/scripts/release.sh from the user's orchard checkouts and worktrees, including the Development channel of the update feed in the dev stage's Updates bucket and the `gh release` it creates on the user's private maxpetretta/orchard repo. The user asked to release to Development freely, so it needs no fresh message. Does not cover packages/mac/scripts/promote.sh, the Production channel, or `vp run deploy:production`"
     ],
     "soft_deny": [
       "$defaults",
+      "GUI command execution: use the structured shell tool for commands. Block executing commands through standalone or embedded GUI terminals, REPLs, script consoles, Shortcuts, Automator, Script Editor, or another agent app unless the user explicitly authorizes that GUI execution route and its command or bounded task. This includes typing, pasting, submitting, running a script or workflow, and delegating execution. A general development request or an always-allowed app is not that authorization; other allow rules do not waive this route-specific requirement. Reading output and navigating these interfaces is allowed. Never use another app or execution route to bypass a command denial or sandbox restriction.",
       "Merge Into Main: merging into main or master by any route, including `gh pr merge`, the GitHub API or web UI, or a local merge or rebase onto main or master followed by a push",
       "Force-Push Over Main: any force push or history rewrite whose target is main or master, including `--force`, `-f`, `--force-with-lease`, a `+main` or `+master` refspec, or deleting and recreating the branch, even on the user's own repos",
       "Homebrew Outside Trusted Taps: tapping, or installing or upgrading a formula or cask from, any tap not listed in the Homebrew allow rule, including `brew install <user>/<repo>/<name>`, installs from a URL or local file, and `brew tap --custom-remote` or any other change to a tap's remote. Needs the user to name the tap or package in their own message"
@@ -331,7 +341,7 @@
       "**Sensitive remote targets**: any host, namespace, or deployment whose name carries prod or production as a whole word, and Vercel --prod deploys",
       "Reversible file ops only: move files to the Trash with `trash` rather than deleting; never permanently delete without approval",
       "**Personal local services**: memo (~/.local/share/memo, ~/.memo) and its com.max.* LaunchAgents are the user's own tools on this laptop, not production. Copying, rebuilding, re-running, and reloading them is routine; words like nightly, replay, or prod inside these paths don't make them production. Copying stays on this laptop: sending memo data off the machine is still exfiltration",
-      "**Orchard dev stage**: `alchemy deploy --stage dev` from the user's orchard checkouts and the dev server on *.workers.dev are the user's own non-production target, so deploying there is routine. Any other stage stays a production deploy"
+      "**Orchard dev stage**: `alchemy deploy --stage dev` from the user's orchard checkouts and the dev server on *.workers.dev are the user's own non-production target, so deploying there is routine. `vp run dev` (`alchemy dev` with no `--stage` override) from those checkouts and the stage it deploys to are the same kind of target, and the user asked to drop approval for it. Any other stage stays a production deploy"
     ]
   },
   "outputStyle": "Concise"
