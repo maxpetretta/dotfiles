@@ -10,7 +10,7 @@ display="Studio Display"
 idle_after=${BLACKOUT_IDLE_SECONDS:-600}
 interval=5
 cli=/opt/homebrew/bin/betterdisplaycli
-blacked_out=0
+applied= # last brightness that was set successfully; empty until the first one works
 
 log() { echo "$(date '+%Y-%m-%d %H:%M:%S') $*"; }
 
@@ -22,30 +22,19 @@ set_brightness() {
   "$cli" set --name="$display" --softwareBrightness="$1" >/dev/null 2>&1
 }
 
-# Leave the display lit when launchd stops the agent.
-restore() {
-  [ "$blacked_out" = 1 ] && set_brightness 1
-  exit 0
-}
-trap restore INT TERM
+# Leave the display lit when launchd stops the agent. If it can't be reached, the next start restores it.
+trap 'set_brightness 1; exit 0' INT TERM
 
 log "watching $display, blackout after ${idle_after}s idle"
-# Undo a blackout a killed run left behind. If the display can't be reached yet, retry on activity.
-set_brightness 1 || blacked_out=1
 while :; do
   idle=$(idle_seconds)
-  if [ "$blacked_out" = 0 ] && [ "${idle:-0}" -ge "$idle_after" ]; then
-    # Fails when the display isn't connected or BetterDisplay isn't running, so undocked does nothing.
-    if set_brightness 0; then
-      blacked_out=1
-      log "blacked out after ${idle}s idle"
-    fi
-  elif [ "$blacked_out" = 1 ] && [ "${idle:-0}" -lt "$idle_after" ]; then
-    # Keeps trying while undocked, because BetterDisplay remembers the dimming for the next dock.
-    if set_brightness 1; then
-      blacked_out=0
-      log "restored"
-    fi
+  if [ "${idle:-0}" -ge "$idle_after" ]; then target=0; else target=1; fi
+  # A failed set (display undocked, BetterDisplay not running) is retried every pass until it works.
+  # The empty start value also undoes a blackout a killed run left behind, since BetterDisplay
+  # remembers the dimming.
+  if [ "$target" != "$applied" ] && set_brightness "$target"; then
+    applied=$target
+    if [ "$target" = 0 ]; then log "blacked out after ${idle}s idle"; else log "lit"; fi
   fi
   sleep "$interval"
 done
