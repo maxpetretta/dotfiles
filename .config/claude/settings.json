@@ -181,7 +181,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5-2",
+  "model": "claude-opus-5-5",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -265,20 +265,15 @@
   },
   "feedbackDrafts": "notify",
   "syntaxHighlightingDisabled": false,
-  "effortLevel": "medium",
+  "effortLevel": "high",
   "modelSettings": {
-    "claude-opus-5": {
-      "effortLevel": "low"
-    },
     "claude-opus-5-5": {
       "effortLevel": "high",
       "autoCompactWindow": 400000
     },
-    "claude-fable-5-1": {
-      "effortLevel": "high"
-    },
     "claude-fable-5-2": {
-      "effortLevel": "medium"
+      "effortLevel": "medium",
+      "autoCompactWindow": 400000
     },
     "claude-sonnet-5-5": {
       "effortLevel": "high"
