@@ -199,6 +199,8 @@ cask "amp-app"
 cask "backblaze"
 # Menu bar icon organiser
 cask "bartender"
+# Display brightness, scaling and virtual screen manager; dims the Studio Display for display-blackout
+cask "betterdisplay"
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
 # Anthropic's official Claude AI desktop app
