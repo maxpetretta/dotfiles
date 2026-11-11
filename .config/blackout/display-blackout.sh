@@ -34,12 +34,16 @@ is_off() { is_number "$1" && awk -v v="$1" 'BEGIN { exit !(v < 0.01) }'; }
 
 # Any change to the backlight resets BetterDisplay's software brightness to full, so the backlight is
 # always set first and the pixels second, both when going dark and when coming back.
+# The backlight is only turned down once its level is safely on disk, so there's always one to restore.
+# A level saved earlier is kept, since the backlight may already be down from a killed run.
 go_dark() {
-  if [ ! -e "$saved_backlight" ]; then
+  level=$(cat "$saved_backlight" 2>/dev/null)
+  if ! is_number "$level"; then
     level=$(get hardwareBrightness)
-    if is_number "$level"; then
-      mkdir -p "$(dirname "$saved_backlight")" && echo "$level" > "$saved_backlight"
-    fi
+    is_number "$level" || return 1
+    mkdir -p "$(dirname "$saved_backlight")" &&
+      echo "$level" > "$saved_backlight.tmp" &&
+      mv "$saved_backlight.tmp" "$saved_backlight" || return 1
   fi
   set_value hardwareBrightness 0
   set_value softwareBrightness 0
