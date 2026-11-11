@@ -13,6 +13,7 @@ interval=5
 cli=/opt/homebrew/bin/betterdisplaycli
 # The backlight level to restore on wake, kept on disk so a killed run's blackout can be undone.
 saved_backlight="${XDG_STATE_HOME:-$HOME/.local/state}/display-blackout/backlight"
+noted=0 beat=0 lid= # when the input and heartbeat lines were last logged, and the lid state then
 applied= # last state that was set successfully (0 dark, 1 lit); empty until the first one works
 
 log() { echo "$(date '+%Y-%m-%d %H:%M:%S') $*"; }
@@ -25,6 +26,14 @@ idle_seconds() {
   /usr/bin/osascript -l JavaScript -e \
     'ObjC.import("CoreGraphics"); Math.floor($.CGEventSourceSecondsSinceLastEventType(0, 0xFFFFFFFF))' 2>/dev/null
 }
+
+# Seconds since any input the HID system saw, synthetic included. Only logged, never used to decide: if
+# the screen stays dark after real input, the log shows whether the HID system saw that input at all.
+hid_idle_seconds() {
+  /usr/sbin/ioreg -c IOHIDSystem -d 4 | awk '/HIDIdleTime/ { if ($NF ~ /^[0-9]+$/) print int($NF / 1000000000); exit }'
+}
+
+lid_state() { /usr/sbin/ioreg -r -k AppleClamshellState -d 1 | awk '/AppleClamshellState/ { if ($NF == "Yes" || $NF == "No") print $NF; exit }'; }
 
 get() { "$cli" get --name="$display" --"$1" 2>/dev/null; }
 set_value() { "$cli" set --name="$display" --"$1"="$2" >/dev/null 2>&1; }
@@ -80,12 +89,12 @@ while :; do
     applied=
     if [ "$target" = 0 ]; then
       if go_dark; then
-        applied=0
+        applied=0 beat=$(date +%s) lid=$(lid_state)
         log "blacked out after ${idle}s idle (backlight was $(cat "$saved_backlight" 2>/dev/null || echo unknown))"
       fi
     elif go_lit; then
       applied=1
-      log "lit"
+      log "lit (session idle ${idle}s, HID idle $(hid_idle_seconds)s)"
     fi
   else
     # While dark, read the real values and undo anything that lit the screen, such as automatic
@@ -98,6 +107,27 @@ while :; do
           log "blacked out again (backlight was $backlight)"
       elif is_number "$pixels" && ! is_off "$pixels"; then
         set_value softwareBrightness 0 && log "blacked out again (software brightness was $pixels)"
+      fi
+      # Diagnostics for a screen that stays dark after real input. Input the HID system saw but the
+      # session signal didn't is either computer use or real input going missing; logged once a minute
+      # at most. A heartbeat every 10 minutes shows the loop is alive, and lid changes are logged since
+      # opening the lid resets the dimming.
+      hid=$(hid_idle_seconds) now=$(date +%s)
+      if [ -n "$hid" ] && [ "$hid" -le "$interval" ] && [ $((now - noted)) -ge 60 ]; then
+        log "HID input the session idle signal didn't count (HID idle ${hid}s, session idle ${idle}s)"
+        noted=$now
+      fi
+      if [ $((now - beat)) -ge 600 ]; then
+        log "still dark (session idle ${idle}s, HID idle ${hid:-unreadable}s)"
+        beat=$now
+      fi
+      state=$(lid_state)
+      # The first reading that works is the baseline; only a change from it is logged.
+      if [ -n "$state" ] && [ "$state" != "$lid" ]; then
+        if [ -n "$lid" ]; then
+          if [ "$state" = Yes ]; then log "lid closed"; else log "lid opened"; fi
+        fi
+        lid=$state
       fi
     fi
   fi
