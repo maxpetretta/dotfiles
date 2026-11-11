@@ -1,16 +1,19 @@
 #!/bin/sh
 # Black out the Studio Display after the Mac has sat idle, and bring it back on the next key press or
-# mouse move. It dims with BetterDisplay's software brightness instead of turning the display off,
-# because display sleep locks the Mac (iPhone Mirroring's auto-authentication forces an immediate
-# password) and a locked Mac stops computer use. Screenshots don't capture the dimming, so agents still
-# see the normal screen. Run by the com.max.display-blackout LaunchAgent.
+# mouse move. It turns the backlight down to its minimum and dims the pixels to black with BetterDisplay
+# instead of turning the display off, because display sleep locks the Mac (iPhone Mirroring's
+# auto-authentication forces an immediate password) and a locked Mac stops computer use. Screenshots
+# don't capture either change, so agents still see the normal screen. Run by the
+# com.max.display-blackout LaunchAgent.
 set -u
 
 display="Studio Display"
 idle_after=${BLACKOUT_IDLE_SECONDS:-600}
 interval=5
 cli=/opt/homebrew/bin/betterdisplaycli
-applied= # last brightness that was set successfully; empty until the first one works
+# The backlight level to restore on wake, kept on disk so a killed run's blackout can be undone.
+saved_backlight="${XDG_STATE_HOME:-$HOME/.local/state}/display-blackout/backlight"
+applied= # last state that was set successfully (0 dark, 1 lit); empty until the first one works
 
 log() { echo "$(date '+%Y-%m-%d %H:%M:%S') $*"; }
 
@@ -23,12 +26,43 @@ idle_seconds() {
     'ObjC.import("CoreGraphics"); Math.floor($.CGEventSourceSecondsSinceLastEventType(0, 0xFFFFFFFF))' 2>/dev/null
 }
 
-set_brightness() {
-  "$cli" set --name="$display" --softwareBrightness="$1" >/dev/null 2>&1
+get() { "$cli" get --name="$display" --"$1" 2>/dev/null; }
+set_value() { "$cli" set --name="$display" --"$1"="$2" >/dev/null 2>&1; }
+is_number() { case $1 in '' | *[!0-9.]* | *.*.*) return 1 ;; esac; }
+# Below 0.01 counts as off: after being set to 0, the backlight sometimes reads back as 0.001.
+is_off() { is_number "$1" && awk -v v="$1" 'BEGIN { exit !(v < 0.01) }'; }
+
+# Any change to the backlight resets BetterDisplay's software brightness to full, so the backlight is
+# always set first and the pixels second, both when going dark and when coming back.
+go_dark() {
+  if [ ! -e "$saved_backlight" ]; then
+    level=$(get hardwareBrightness)
+    if is_number "$level"; then
+      mkdir -p "$(dirname "$saved_backlight")" && echo "$level" > "$saved_backlight"
+    fi
+  fi
+  set_value hardwareBrightness 0
+  set_value softwareBrightness 0
+}
+
+# Fails if either value couldn't be set, so the loop tries again instead of leaving the backlight low.
+go_lit() {
+  restored=0
+  if [ -e "$saved_backlight" ]; then
+    level=$(cat "$saved_backlight")
+    if ! is_number "$level"; then
+      rm -f "$saved_backlight"
+    elif set_value hardwareBrightness "$level"; then
+      rm -f "$saved_backlight"
+    else
+      restored=1
+    fi
+  fi
+  set_value softwareBrightness 1 && return "$restored"
 }
 
 # Leave the display lit when launchd stops the agent. If it can't be reached, the next start restores it.
-trap 'set_brightness 1; exit 0' INT TERM
+trap 'go_lit; exit 0' INT TERM
 
 log "watching $display, blackout after ${idle_after}s idle"
 while :; do
@@ -36,21 +70,30 @@ while :; do
   if [ "${idle:-0}" -ge "$idle_after" ]; then target=0; else target=1; fi
   # A failed set (display undocked, BetterDisplay not running) is retried every pass until it works.
   # The empty start value also undoes a blackout a killed run left behind, since BetterDisplay
-  # remembers the dimming.
+  # remembers the dimming and the saved backlight level stays on disk until it's restored.
   if [ "$target" != "$applied" ]; then
-    if set_brightness "$target"; then
-      applied=$target
-      if [ "$target" = 0 ]; then log "blacked out after ${idle}s idle"; else log "lit"; fi
+    if [ "$target" = 0 ]; then
+      if go_dark; then
+        applied=0
+        log "blacked out after ${idle}s idle (backlight was $(cat "$saved_backlight" 2>/dev/null || echo unknown))"
+      fi
+    elif go_lit; then
+      applied=1
+      log "lit"
     fi
-  elif [ "$target" = 0 ]; then
-    # Any change to the display's backlight, such as automatic brightness reacting to the room getting
-    # darker, resets BetterDisplay's software brightness to full. So while dark, read the real value
-    # and black out again if something lit it.
-    current=$("$cli" get --name="$display" --softwareBrightness 2>/dev/null)
-    case $current in
-      0 | 0.0) ;;
-      *) set_brightness 0 && log "blacked out again (software brightness was ${current:-unreadable})" ;;
-    esac
+  else
+    # While dark, read the real values and undo anything that lit the screen, such as automatic
+    # brightness raising the backlight as the room changes.
+    if [ "$target" = 0 ]; then
+      backlight=$(get hardwareBrightness)
+      pixels=$(get softwareBrightness)
+      if is_number "$backlight" && ! is_off "$backlight"; then
+        set_value hardwareBrightness 0 && set_value softwareBrightness 0 &&
+          log "blacked out again (backlight was $backlight)"
+      elif is_number "$pixels" && ! is_off "$pixels"; then
+        set_value softwareBrightness 0 && log "blacked out again (software brightness was $pixels)"
+      fi
+    fi
   fi
   sleep "$interval"
 done
