@@ -37,9 +37,20 @@ while :; do
   # A failed set (display undocked, BetterDisplay not running) is retried every pass until it works.
   # The empty start value also undoes a blackout a killed run left behind, since BetterDisplay
   # remembers the dimming.
-  if [ "$target" != "$applied" ] && set_brightness "$target"; then
-    applied=$target
-    if [ "$target" = 0 ]; then log "blacked out after ${idle}s idle"; else log "lit"; fi
+  if [ "$target" != "$applied" ]; then
+    if set_brightness "$target"; then
+      applied=$target
+      if [ "$target" = 0 ]; then log "blacked out after ${idle}s idle"; else log "lit"; fi
+    fi
+  elif [ "$target" = 0 ]; then
+    # Any change to the display's backlight, such as automatic brightness reacting to the room getting
+    # darker, resets BetterDisplay's software brightness to full. So while dark, read the real value
+    # and black out again if something lit it.
+    current=$("$cli" get --name="$display" --softwareBrightness 2>/dev/null)
+    case $current in
+      0 | 0.0) ;;
+      *) set_brightness 0 && log "blacked out again (software brightness was ${current:-unreadable})" ;;
+    esac
   fi
   sleep "$interval"
 done
