@@ -74,8 +74,10 @@ while :; do
   if [ "${idle:-0}" -ge "$idle_after" ]; then target=0; else target=1; fi
   # A failed set (display undocked, BetterDisplay not running) is retried every pass until it works.
   # The empty start value also undoes a blackout a killed run left behind, since BetterDisplay
-  # remembers the dimming and the saved backlight level stays on disk until it's restored.
+  # remembers the dimming and the saved backlight level stays on disk until it's restored. A transition
+  # that only half works leaves the state unknown, so either target is tried again next pass.
   if [ "$target" != "$applied" ]; then
+    applied=
     if [ "$target" = 0 ]; then
       if go_dark; then
         applied=0
