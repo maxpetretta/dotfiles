@@ -30,10 +30,10 @@ idle_seconds() {
 # Seconds since any input the HID system saw, synthetic included. Only logged, never used to decide: if
 # the screen stays dark after real input, the log shows whether the HID system saw that input at all.
 hid_idle_seconds() {
-  /usr/sbin/ioreg -c IOHIDSystem -d 4 | awk '/HIDIdleTime/ { print int($NF / 1000000000); exit }'
+  /usr/sbin/ioreg -c IOHIDSystem -d 4 | awk '/HIDIdleTime/ { if ($NF ~ /^[0-9]+$/) print int($NF / 1000000000); exit }'
 }
 
-lid_state() { /usr/sbin/ioreg -r -k AppleClamshellState -d 1 | awk '/AppleClamshellState/ { print $NF; exit }'; }
+lid_state() { /usr/sbin/ioreg -r -k AppleClamshellState -d 1 | awk '/AppleClamshellState/ { if ($NF == "Yes" || $NF == "No") print $NF; exit }'; }
 
 get() { "$cli" get --name="$display" --"$1" 2>/dev/null; }
 set_value() { "$cli" set --name="$display" --"$1"="$2" >/dev/null 2>&1; }
@@ -113,7 +113,7 @@ while :; do
       # at most. A heartbeat every 10 minutes shows the loop is alive, and lid changes are logged since
       # opening the lid resets the dimming.
       hid=$(hid_idle_seconds) now=$(date +%s)
-      if [ "${hid:-$idle}" -le "$interval" ] && [ $((now - noted)) -ge 60 ]; then
+      if [ -n "$hid" ] && [ "$hid" -le "$interval" ] && [ $((now - noted)) -ge 60 ]; then
         log "HID input the session idle signal didn't count (HID idle ${hid}s, session idle ${idle}s)"
         noted=$now
       fi
@@ -122,8 +122,11 @@ while :; do
         beat=$now
       fi
       state=$(lid_state)
+      # The first reading that works is the baseline; only a change from it is logged.
       if [ -n "$state" ] && [ "$state" != "$lid" ]; then
-        if [ "$state" = Yes ]; then log "lid closed"; else log "lid opened"; fi
+        if [ -n "$lid" ]; then
+          if [ "$state" = Yes ]; then log "lid closed"; else log "lid opened"; fi
+        fi
         lid=$state
       fi
     fi
