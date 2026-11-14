@@ -15,7 +15,7 @@ Only on Max's Mac, where Codex is signed in to his ChatGPT account and Claude Co
 
 - You are Claude: reviewer is GPT Sol through Codex.
 - You are GPT: reviewer is Opus through Claude Code.
-- Never substitute another model or vendor. If the CLI is missing or signed out, stop and report. A round that fails, times out or returns nothing is not approval: retry it once, then escalate (step 5).
+- Never substitute another model or vendor. If the CLI is missing or signed out, stop and report. A round that fails, times out or returns nothing is not approval: retry it once, then escalate (step 6).
 - One reviewer per round, at effort high. The reviewer must not start subagents.
 
 Run each call in the background and wait for it to finish; rounds at high take minutes. Keep every brief and reply in a scratch dir `$R` outside the repo.
@@ -24,7 +24,7 @@ Codex (reviewer = Sol):
 
     codex exec -m gpt-6.1-sol -c model_reasoning_effort=high -s read-only --ignore-user-config \
       -C "$REPO" --json -o "$R/round1.md" - < "$R/brief.md" > "$R/round1.jsonl"
-    # follow-up in the same session (resume takes no -s; pass the sandbox as config):
+    # rounds 2 and 3 resume the same session (resume takes no -s; pass the sandbox as config):
     codex exec resume "$THREAD_ID" -c sandbox_mode='"read-only"' -c model_reasoning_effort=high \
       --ignore-user-config -o "$R/round2.md" - < "$R/followup.md"
 
@@ -72,13 +72,24 @@ Check every finding yourself and re-grade its severity: a rare case, another cod
 
 Keep a ledger: id, severity, outcome (fixed / disagree / declined), evidence. Re-run checks, commit, and compare `git diff --shortstat $BASE` before and after; if review grew the diff, cut first.
 
-## 4. Round 2: final review, same session
+## 4. Round 2: review the fixes, same session
 
 Skip it if round 1 approved and nothing changed behavior. If you made a review worktree, move it to the new head first (`git -C "$R/head" checkout --detach <new head>`) and re-run the checks there. Then resume the reviewer with the ledger (`fixed:` / `disagree:` / `declined:` + evidence) and `git diff <round1 head>..HEAD`. Ask it to mark each blocker and should `resolved` or `still open: <reason>`, and to flag new issues only in the changed code. Same reply format, same effort.
 
-## 5. Escalate to Max
+## 5. Round 3: check the round 2 fixes
 
-Escalate when, after round 2, any blocker or should is `still open` or newly raised, whether you disagree with the reviewer or the reviewer rejects your fix. Do not run a third round, switch models, or raise effort to settle it.
+Run it only when round 2 left a blocker or should `still open`, or raised a new one, and you agreed and fixed it. Triage those items as in step 3, re-run checks and commit, and move the review worktree to the new head as in round 2. Then resume the same session with the updated ledger and `git diff <round2 head>..HEAD`, and ask it to mark each of those items `resolved` or `still open: <reason>` and to flag new issues only in the lines changed since round 2. Same reply format, same effort.
+
+Round 3 only checks fixes. An item you disagree with is not argued again here; it goes to Max. Round 3 is the last round.
+
+## 6. Escalate to Max
+
+Escalate any blocker or should that is:
+
+- disputed after round 2: you disagree with the reviewer's finding, or with its reason for rejecting your fix;
+- `still open` or newly raised after round 3.
+
+Do not run a fourth round, switch models, or raise effort to settle it.
 
 - Leave the PR as a draft. Push what you have.
 - Message Max with one entry per open item:
@@ -92,7 +103,7 @@ Escalate when, after round 2, any blocker or should is `still open` or newly rai
 
 A round that times out, errors, or returns nothing is not approval: retry once, then escalate it as a blocker.
 
-## 6. Ship
+## 7. Ship
 
 Signed off means one of two things. Either the latest verdict is APPROVE, no blocker or should is open, and you have no concern of your own. Or Max has ruled on every open item. Checks must also pass. Then:
 
