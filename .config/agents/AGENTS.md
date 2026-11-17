@@ -35,7 +35,7 @@ If a task seems beyond your model, tell me, and suggest one more effort level be
 
 ## Files and Git
 
-- On my Mac, delete with `trash` on exact, resolved paths, so files stay recoverable. Delete permanently only when I ask.
+- On my Mac, delete with `trash` on exact, resolved paths, never `rm -r`, including your own scratch and build output: my settings make every `rm -r` wait for my approval, which stalls a run while I'm away. Delete permanently only when I ask.
 - Development projects live in `~/dev`, outside iCloud Drive. Desktop is the inbox for current files, PARA sits directly in `~/Documents` (`01 Projects`, `02 Areas`, `03 Resources`, `04 Archives`), and research reports go in `~/Documents/03 Resources/Research` unless they belong to a project.
 - Every repo's root branch is `master`, new ones included. Merge into it (`gh pr merge` included), or force-push over it, only when I ask.
 - Write the description of a pull request you open under my GitHub account with the pr-description skill. Its toggle line is the only attribution: remove any other, such as a "Generated with" footer, a session link or a "Requested by" line, including one a tool appends when it opens the PR.
