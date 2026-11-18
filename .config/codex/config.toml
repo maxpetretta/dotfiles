@@ -1,4 +1,4 @@
-model = "gpt-6.1-sol"
+model = "gpt-6.2-sol"
 model_reasoning_effort = "high"
 approval_policy = "on-request"
 approvals_reviewer = "auto_review"
@@ -12,7 +12,7 @@ notify = ["/Users/max/.codex/computer-use/Codex Computer Use.app/Contents/Shared
 personality = "pragmatic"
 sandbox_mode = "workspace-write"
 plan_mode_reasoning_effort = "medium"
-review_model = "gpt-6.1-sol"
+review_model = "gpt-6.2-sol"
 
 # Mirrors the autoMode environment and rules in ~/.claude/settings.json.
 [auto_review]
