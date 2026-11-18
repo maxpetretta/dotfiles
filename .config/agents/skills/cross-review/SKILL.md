@@ -22,7 +22,7 @@ Run each call in the background and wait for it to finish; rounds at high take m
 
 Codex (reviewer = Sol):
 
-    codex exec -m gpt-6.1-sol -c model_reasoning_effort=high -s read-only --ignore-user-config \
+    codex exec -m gpt-6.2-sol -c model_reasoning_effort=high -s read-only --ignore-user-config \
       -C "$REPO" --json -o "$R/round1.md" - < "$R/brief.md" > "$R/round1.jsonl"
     # rounds 2 and 3 resume the same session (resume takes no -s; pass the sandbox as config):
     codex exec resume "$THREAD_ID" -c sandbox_mode='"read-only"' -c model_reasoning_effort=high \
