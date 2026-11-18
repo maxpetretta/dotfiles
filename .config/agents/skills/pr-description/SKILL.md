@@ -96,4 +96,4 @@ One line: **Rollback:** two-way (revert) or one-way (why). **Blast radius:** who
 
 ## Keep it current
 
-Rewrite the body whenever the change moves, after review fixes and before marking the PR ready, so the evidence matches the head commit. Declined review nits go in Follow-ups.
+Rewrite the body when the change has moved, so the evidence matches the head commit. During a review, do it once, after the last round and before marking the PR ready, not after each round. Declined review nits go in Follow-ups.
