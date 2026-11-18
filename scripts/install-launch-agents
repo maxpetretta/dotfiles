@@ -3,17 +3,32 @@
 # ~/Library/LaunchAgents rather than links, so each one is copied there and loaded, but only when it's
 # missing. An installed copy that differs from the repo is left alone and reported; to apply a change,
 # run: launchctl bootout gui/$(id -u)/<label>, copy the file over, then launchctl bootstrap gui/$(id -u) <file>.
+# Agents in $disabled are copied but disabled rather than loaded, so they stay off until someone runs
+# launchctl enable gui/$(id -u)/<label>.
 set -eu
 src_dir=$(cd "$(dirname "$0")/../.config/launchd" && pwd)
 dest_dir="$HOME/Library/LaunchAgents"
 domain="gui/$(id -u)"
+# rex-home stays off: the Claude app serves ~/dev over Remote Control, and two hosts can't share a folder
+disabled="com.max.rex-home"
 mkdir -p "$dest_dir"
 for src in "$src_dir"/*.plist; do
   name=$(basename "$src")
   dest="$dest_dir/$name"
   if [ ! -e "$dest" ]; then
-    cp "$src" "$dest"
-    launchctl bootstrap "$domain" "$dest" && echo "installed ${name%.plist}"
+    label=${name%.plist}
+    case " $disabled " in
+      *" $label "*)
+        # Disable before copying so launchd never loads it at the next login
+        launchctl disable "$domain/$label"
+        cp "$src" "$dest"
+        echo "installed $label (disabled)"
+        ;;
+      *)
+        cp "$src" "$dest"
+        launchctl bootstrap "$domain" "$dest" && echo "installed $label"
+        ;;
+    esac
   elif ! plutil -convert xml1 -o - "$dest" | cmp -s - "$src"; then
     echo "${name%.plist}: the installed copy differs from .config/launchd/$name; left as is"
   fi
