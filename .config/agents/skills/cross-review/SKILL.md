@@ -1,6 +1,6 @@
 ---
 name: cross-review
-description: Cross-model review loop to run when implementation is complete. Opens a draft PR, gets a read-only review from the other vendor's model (GPT Sol if you are Claude, Opus if you are GPT), resolves findings, escalates unresolved disagreements to Max, and marks the PR ready only on sign-off. Use when work is done and before reporting it finished, or when the user says "cross review".
+description: Cross-model review loop to run when implementation is complete. Opens a draft PR, gets a read-only review from the other vendor's model (GPT Sol if you are Claude, Opus if you are GPT), resolves findings, escalates only real disagreements to Max, and marks the PR ready on sign-off. Use when work is done and before reporting it finished, or when the user says "cross review".
 ---
 
 # cross-review
@@ -70,26 +70,31 @@ Check every finding yourself and re-grade its severity: a rare case, another cod
 - Disagree: one line of reason plus evidence (file:line, test, output).
 - Nit or out of scope: decline in one line and list it as a follow-up.
 
-Keep a ledger: id, severity, outcome (fixed / disagree / declined), evidence. Re-run checks, commit, and compare `git diff --shortstat $BASE` before and after; if review grew the diff, cut first.
+Keep a ledger: id, severity, outcome (fixed / disagree / declined), evidence. Re-run only the checks a fix touches (its own tests, lint on the files it changed), commit, and compare `git diff --shortstat $BASE` before and after; if review grew the diff, cut first.
+
+Between rounds, leave the slow work alone: the full check suite, a full build, screenshots and recordings, and the PR description. A round takes a minute or two, and redoing that work after each one is what makes a review take hours. It all runs once, in Ship.
 
 ## 4. Round 2: review the fixes, same session
 
-Skip it if round 1 approved and nothing changed behavior. If you made a review worktree, move it to the new head first (`git -C "$R/head" checkout --detach <new head>`) and re-run the checks there. Then resume the reviewer with the ledger (`fixed:` / `disagree:` / `declined:` + evidence) and `git diff <round1 head>..HEAD`. Ask it to mark each blocker and should `resolved` or `still open: <reason>`, and to flag new issues only in the changed code. Same reply format, same effort.
+Skip it if round 1 approved and nothing changed behavior. If you made a review worktree, move it to the new head first (`git -C "$R/head" checkout --detach <new head>`). Then resume the reviewer with the ledger (`fixed:` / `disagree:` / `declined:` + evidence) and `git diff <round1 head>..HEAD`. Ask it to mark each blocker and should `resolved` or `still open: <reason>`, and to flag new issues only in the changed code. Same reply format, same effort.
 
 ## 5. Round 3: check the round 2 fixes
 
-Run it only when round 2 left a blocker or should `still open`, or raised a new one, and you agreed and fixed it. Triage those items as in step 3, re-run checks and commit, and move the review worktree to the new head as in round 2. Then resume the same session with the updated ledger and `git diff <round2 head>..HEAD`, and ask it to mark each of those items `resolved` or `still open: <reason>` and to flag new issues only in the lines changed since round 2. Same reply format, same effort.
+Run it only when round 2 left a blocker or should `still open`, or raised a new one, and you agreed and fixed it. Triage those items as in step 3, commit, and move the review worktree to the new head as in round 2. Then resume the same session with the updated ledger and `git diff <round2 head>..HEAD`, and ask it to mark each of those items `resolved` or `still open: <reason>` and to flag new issues only in the lines changed since round 2. Same reply format, same effort.
 
 Round 3 only checks fixes. An item you disagree with is not argued again here; it goes to Max. Round 3 is the last round.
 
+If round 3 leaves an item `still open` or raises a new one, and you agree with the reviewer, fix it and go to Ship. Record it in the ledger as `fixed after the last round, not re-reviewed`.
+
 ## 6. Escalate to Max
 
-Escalate any blocker or should that is:
+Escalate a blocker or should only when you and the reviewer disagree after round 2 or round 3: you reject its finding, or its reason for rejecting your fix. Waiting for Max can cost an hour, so nothing else waits for him:
 
-- disputed after round 2: you disagree with the reviewer's finding, or with its reason for rejecting your fix;
-- `still open` or newly raised after round 3.
+- A finding you agree with is fixed, whichever round raised it.
+- A finding you re-graded as a nit is declined and listed as a follow-up.
+- A product or design question the review turned up goes in your report. It does not hold the PR as a draft.
 
-Do not run a fourth round, switch models, or raise effort to settle it.
+Do not run a fourth round, switch models, or raise effort to settle a disagreement.
 
 - Leave the PR as a draft. Push what you have.
 - Message Max with one entry per open item:
@@ -99,15 +104,16 @@ Do not run a fourth round, switch models, or raise effort to settle it.
       Implementer: <your position and evidence, 1-2 lines>
       Options: fix as suggested / keep as is / <other>
 
-- Stop and wait. Max's call is final. Apply it, re-run checks, and go to Ship without another review round, unless Max asks for one.
+- Stop and wait. Max's call is final. Apply it and go to Ship without another review round, unless Max asks for one.
 
 A round that times out, errors, or returns nothing is not approval: retry once, then escalate it as a blocker.
 
 ## 7. Ship
 
-Signed off means one of two things. Either the latest verdict is APPROVE, no blocker or should is open, and you have no concern of your own. Or Max has ruled on every open item. Checks must also pass. Then:
+Signed off means every blocker and should is settled and you have no concern of your own. An item is settled when the reviewer marked it `resolved`, when you agreed and fixed it after the last round, or when Max ruled on it. A latest verdict of APPROVE settles them all. Then:
 
-- Push. Update the description per pr-description: refresh the evidence if review fixes changed behavior, and list declined nits under Follow-ups.
-- `gh pr ready <n>`. Never merge.
+- If review changed any code, run the project's full checks once more, on the final head. Fix what this change broke.
+- Push. Update the description per pr-description: refresh the evidence once, from the final head, if review fixes changed behavior. List declined nits under Follow-ups, and name every fix made after the last round as not re-reviewed.
+- `gh pr ready <n>`. Never merge, and never release or upload a build from the PR branch unless the project's instructions say to.
 
-Report: rounds, model, findings fixed or declined with reasons, anything Max ruled on, diff size before and after, PR link and state.
+Report: rounds, model, findings fixed or declined with reasons, fixes made after the last round, anything Max ruled on, diff size before and after, PR link and state.
