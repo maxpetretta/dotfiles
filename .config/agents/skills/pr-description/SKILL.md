@@ -15,7 +15,7 @@ The reader is Max skimming a list of PRs. Only the summary and any risk flag are
     > **High risk: <authentication | security | data schema>.** <what exactly changes, and what breaks if it's wrong>
 
     <details>
-    <summary><i>PR written by <model> (<effort>) on behalf of @maxpetretta</i></summary>
+    <summary><i>PR written by <model> on behalf of @maxpetretta</i></summary>
 
     ### Evidence
     ### Change
@@ -25,7 +25,7 @@ The reader is Max skimming a list of PRs. Only the summary and any risk flag are
     </details>
 
 - Leave a blank line after the `<summary>` line and before `</details>`, or the Markdown inside won't render. Markdown doesn't render inside `<summary>`, so the toggle line uses `<i>` for italics.
-- Include the effort only if you know it. Nothing goes after `</details>`.
+- Name the model only, such as Claude Opus 5.5 or GPT Sol 6.1, with no reasoning or effort level. Nothing goes after `</details>`.
 - Leave out empty sections, and leave out the warning when no flag applies.
 
 ## Evidence
