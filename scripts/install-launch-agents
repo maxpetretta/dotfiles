@@ -21,10 +21,18 @@ for src in "$src_dir"/*.plist; do
     *" $label "*)
       # Disable before copying so launchd never loads it at the next login
       launchctl disable "$domain/$label"
-      launchctl bootout "$domain/$label" 2>/dev/null && echo "stopped $label"
+      if launchctl print "$domain/$label" >/dev/null 2>&1; then
+        if launchctl bootout "$domain/$label"; then
+          echo "stopped $label"
+        else
+          echo "$label: still loaded, bootout failed" >&2
+        fi
+      fi
       if [ ! -e "$dest" ]; then
         cp "$src" "$dest"
         echo "installed $label (disabled)"
+      elif ! plutil -convert xml1 -o - "$dest" | cmp -s - "$src"; then
+        echo "$label: the installed copy differs from .config/launchd/$name; left as is"
       fi
       ;;
     *)
