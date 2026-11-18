@@ -62,4 +62,6 @@
       description: Refreshing Pi model catalogs so its default model resolves
       stderr: true
     - [test -x ~/.local/bin/ac-nosleep-helper || scripts/build-ac-nosleep-helper, Building the ac-nosleep helper]
-    - [scripts/install-launch-agents, Installing LaunchAgents]
+    - command: scripts/install-launch-agents
+      description: Installing LaunchAgents
+      stderr: true
