@@ -43,8 +43,8 @@ These flags are the read-only guard. The global allow lists permit edits under ~
 - On a feature branch, never master. Commit the work. Leave unrelated changes alone; if they don't separate cleanly from this change, stop and ask.
 - `git fetch origin`; `BASE=$(git merge-base HEAD origin/<default-branch>)`.
 - If uncommitted changes remain, `git worktree add --detach "$R/head" HEAD`, run the checks there, and give the reviewer that path as the repo, so neither sees code the PR doesn't contain. Remove the worktree when the review ends.
-- Run the project's checks (tests, lint, typecheck). Fix failures this change caused. Note checks that are missing or were already failing.
 - Write `git diff $BASE...HEAD` to `$R/diff.patch`.
+- Start round 1 (step 2) in the background now, then run the project's checks (tests, lint, typecheck) while it reviews. The reviewer reads the committed head and the checks don't change it, so neither waits for the other: a round and a check pass each take minutes. Fix failures this change caused and commit them; they go to round 2 with the review fixes. Note checks that are missing or were already failing.
 - Push and open a draft PR (`gh pr create --draft`), or reuse the existing one and turn it back into a draft with `gh pr ready <n> --undo` if it is ready. Write the description with the pr-description skill.
 
 ## 2. Round 1: full review
@@ -53,7 +53,7 @@ Brief:
 
     Review only. Do not edit, run commands that change anything, commit, push, comment, or start subagents.
     Repo: <abs path>  Base: <sha>  Head: <sha>
-    Intent: <1-2 sentences>  Out of scope: <list>  Checks: <results>
+    Intent: <1-2 sentences>  Out of scope: <list>  Checks: running while you review; failures and their fixes come in round 2
     Diff: <$R/diff.patch path>. Read the surrounding code and callers.
     Find bugs, broken callers, gaps against the intent, and missing handling the intent requires.
     Skip style unless it hides a bug. Flag code, tests, or guards the intent does not need.
@@ -76,7 +76,7 @@ Between rounds, leave the slow work alone: the full check suite, a full build, s
 
 ## 4. Round 2: review the fixes, same session
 
-Skip it if round 1 approved and nothing changed behavior. If you made a review worktree, move it to the new head first (`git -C "$R/head" checkout --detach <new head>`). Then resume the reviewer with the ledger (`fixed:` / `disagree:` / `declined:` + evidence) and `git diff <round1 head>..HEAD`. Ask it to mark each blocker and should `resolved` or `still open: <reason>`, and to flag new issues only in the changed code. Same reply format, same effort.
+Skip it if round 1 approved and nothing changed behavior, a fix for a failed check included. If you made a review worktree, move it to the new head first (`git -C "$R/head" checkout --detach <new head>`). Then resume the reviewer with the check results, the ledger (`fixed:` / `disagree:` / `declined:` + evidence) and `git diff <round1 head>..HEAD`. Ask it to mark each blocker and should `resolved` or `still open: <reason>`, and to flag new issues only in the changed code. Same reply format, same effort.
 
 ## 5. Round 3: check the round 2 fixes
 
