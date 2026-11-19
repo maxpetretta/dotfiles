@@ -42,7 +42,7 @@ These flags are the read-only guard. The global allow lists permit edits under ~
 
 - On a feature branch, never master. Commit the work. Leave unrelated changes alone; if they don't separate cleanly from this change, stop and ask.
 - `git fetch origin`; `BASE=$(git merge-base HEAD origin/<default-branch>)`.
-- `git worktree add --detach "$R/head" HEAD` and give the reviewer that path as the repo, so it reads the committed head while you go on working. If uncommitted changes remain, run the checks there too, so neither sees code the PR doesn't contain. Remove the worktree when the review ends.
+- `git worktree add --detach "$R/head" HEAD` and give the reviewer that path as the repo, so it reads the committed head while you go on working. If uncommitted changes remain, run the checks in a second one (`git worktree add --detach "$R/checks" HEAD`), so they test only what the PR contains and their build output never lands in the reviewer's. Remove the worktrees when the review ends.
 - Write `git diff $BASE...HEAD` to `$R/diff.patch`.
 - Start round 1 (step 2) in the background now, then run the project's checks (tests, lint, typecheck) while it reviews: a round and a check pass each take minutes, and the reviewer's worktree doesn't move while you work. Fix failures this change caused and commit them; they go to round 2 with the review fixes. Note checks that are missing or were already failing.
 - Push and open a draft PR (`gh pr create --draft`), or reuse the existing one and turn it back into a draft with `gh pr ready <n> --undo` if it is ready. Write the description with the pr-description skill.
