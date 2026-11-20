@@ -25,8 +25,8 @@ Codex (reviewer = Sol):
 
     codex exec -m gpt-6.2-sol -c model_reasoning_effort=high -c service_tier='"ultrafast"' -s read-only \
       --ignore-user-config -C "$REPO" --json -o "$R/round1.md" - < "$R/brief.md" > "$R/round1.jsonl"
-    # rounds 2 and 3 resume the same session (resume takes no -s; pass the sandbox as config):
-    codex exec resume "$THREAD_ID" -c sandbox_mode='"read-only"' -c model_reasoning_effort=high \
+    # rounds 2 and 3 resume the same session (resume takes no -s or -C; pass the sandbox as config, run it in the repo):
+    cd "$REPO" && codex exec resume "$THREAD_ID" -c sandbox_mode='"read-only"' -c model_reasoning_effort=high \
       -c service_tier='"ultrafast"' --ignore-user-config -o "$R/round2.md" - < "$R/followup.md"
 
 Take `$THREAD_ID` from the session-start event in round1.jsonl.
