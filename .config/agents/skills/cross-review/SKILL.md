@@ -17,7 +17,7 @@ Only on Max's Mac, where Codex is signed in to his ChatGPT account and Claude Co
 - You are GPT: reviewer is Opus through Claude Code.
 - Never substitute another model or vendor. If the CLI is missing or signed out, stop and report. A round that fails, times out or returns nothing is not approval: retry it once, then escalate (step 6).
 - One reviewer per round, at effort high. The reviewer must not start subagents.
-- Codex reviews at Ultrafast speed (`service_tier = "ultrafast"`), which uses about 6x the ChatGPT plan's allowance per token. Pass it on every call, since `--ignore-user-config` drops the config's tier. If Codex warns that the tier is not advertised for the model, it has dropped it and the round runs at Standard; say so in the report and use Fast (`"priority"`) for the rest of the review.
+- Codex reviews at Ultrafast speed (`service_tier = "ultrafast"`). Pass it on every call, since `--ignore-user-config` drops the config's tier. If a round's output warns that the tier is not advertised for the model, Codex dropped it: run that round again with `-c service_tier='"priority"'` (Fast) before reading its verdict, use Fast for the rest of the review, and say so in the report.
 
 Run each call in the background and wait for it to finish; rounds at high take minutes. Keep every brief and reply in a scratch dir `$R` outside the repo.
 
