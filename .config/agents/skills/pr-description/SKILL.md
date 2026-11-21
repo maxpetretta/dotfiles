@@ -49,7 +49,7 @@ Upload with `gh pr create|edit --attach`. Write each reference to the local file
 gh uploads each file and rewrites the reference in place. A video reference must sit alone in its own paragraph to render as a player. Keep each file under 10 MB. Write media to a scratch dir outside the repo and never commit it.
 
 - Capture: iOS Simulator `xcrun simctl io <udid> screenshot <file>` and `recordVideo --codec=h264 <file>`; macOS `screencapture -x` and `screencapture -v`; web pages with the browser tool's screenshot.
-- Before shots: capture them before changing the code, or from a build of the merge base.
+- Before shots: capture them before changing the code, or from a build of the merge base. For a fix to something Max reported with a screenshot or recording, his is the before: show the after alone, and don't build the base for a before shot.
 - Trim recordings to the changed interaction, 15 s or less:
   `ffmpeg -ss <start> -to <end> -i in.mov -an -vf scale=1280:-2 -c:v libx264 -crf 28 -preset veryfast -movflags +faststart out.mp4`
 - When updating a body, references already rewritten to uploaded URLs stay as they are. Attach only new files.
