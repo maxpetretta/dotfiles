@@ -43,7 +43,7 @@ These flags are the read-only guard. The global allow lists permit edits under ~
 
 - On a feature branch, never master. Commit the work. Leave unrelated changes alone; if they don't separate cleanly from this change, stop and ask.
 - `git fetch origin`; `BASE=$(git merge-base HEAD origin/<default-branch>)`.
-- `git worktree add --detach "$R/head" HEAD` and give the reviewer that path as the repo, so it reads the committed head while you go on working. If uncommitted changes remain, run the checks in a second one (`git worktree add --detach "$R/checks" HEAD`), so they test only what the PR contains and their build output never lands in the reviewer's. When the review ends, move each worktree to the Trash and prune (`trash "$R/head" && git worktree prune`), as a command of its own after `gh pr ready`. `git worktree remove --force` stops for Max's approval, and chained to another step it holds that step too: on 2026-11-20 that held four threads for 53 minutes.
+- `git worktree add --detach "$R/head" HEAD` and give the reviewer that path as the repo, so it reads the committed head while you go on working. If uncommitted changes remain, run the checks in a second one (`git worktree add --detach "$R/checks" HEAD`), so they test only what the PR contains and their build output never lands in the reviewer's. When the review ends, move each worktree to the Trash and prune (`trash "$R/head" && git worktree prune`), as a command of its own: after `gh pr ready`, or once you stop to escalate. `git worktree remove --force` stops for Max's approval, and chained to another step it holds that step too: on 2026-11-20 that held four threads for 53 minutes.
 - Write `git diff $BASE...HEAD` to `$R/diff.patch`.
 - Start round 1 (step 2) in the background now, then run the project's checks (tests, lint, typecheck) while it reviews: a round and a check pass each take minutes, and the reviewer's worktree doesn't move while you work. Fix failures this change caused and commit them; they go to round 2 with the review fixes. Note checks that are missing or were already failing.
 - Push and open a draft PR (`gh pr create --draft`), or reuse the existing one and turn it back into a draft with `gh pr ready <n> --undo` if it is ready. Write the description with the pr-description skill.
@@ -67,7 +67,7 @@ Brief:
 
 Check every finding yourself and re-grade its severity: a rare case, another code path, or a small cost is a nit whatever label it came with.
 
-The bar is that the change does what was intended and makes nothing worse than the base branch. A finding about something the base branch already does, or about a case outside the intent, is a follow-up, whatever its label and however real the bug: decline it in one line and list it. Fixing it here is how a small PR grows a second and third approach.
+The bar is that the change does what was intended and makes nothing worse than the base branch. A finding about something the base branch already does, or about a case outside the intent that the change leaves as it was, is a follow-up, whatever its label and however real the bug: decline it in one line and list it. Fixing it here is how a small PR grows a second and third approach.
 
 - Agree: smallest fix. Prefer deleting or narrowing over adding a lock, cache, helper, or option. Add one focused test that fails without the fix, if the intent needs it.
 - Disagree: one line of reason plus evidence (file:line, test, output).
@@ -115,9 +115,9 @@ A round that times out, errors, or returns nothing is not approval: retry once, 
 
 ## 7. Ship
 
-Signed off means every blocker and should is settled and you have no concern of your own. An item is settled when the reviewer marked it `resolved`, when you agreed and fixed it after the last round, or when Max ruled on it. A latest verdict of APPROVE settles them all. Then:
+Signed off means every blocker and should is settled and you have no concern of your own. An item is settled when the reviewer marked it `resolved`, when you agreed and fixed it after the last round, when Max ruled on it, or when the bar in Triage made it a follow-up and you listed it. A latest verdict of APPROVE settles them all. Then:
 
-- If review changed any code, run the project's full checks once more, on the final head. Fix what this change broke. Where the project lands PRs with a check of its own (Orchard's `scripts/land.sh`), that run is this one: don't run the checks twice.
+- If review changed any code, run the project's full checks once more, on the final head. Fix what this change broke. Where the project lands PRs with a check of its own (Orchard's `scripts/land.sh`), skip this one: that check runs after `gh pr ready` and is the final run.
 - Push. Update the description per pr-description: refresh the evidence once, from the final head, if review fixes changed behavior. List declined nits under Follow-ups, and name every fix made after the last round as not re-reviewed.
 - `gh pr ready <n>`. Then do what the project's instructions say about landing: where they have you land your own PR (Orchard does), follow them. Where they say nothing, never merge. Never release or upload a build from the PR branch.
 

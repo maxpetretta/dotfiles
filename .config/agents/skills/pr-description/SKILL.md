@@ -32,7 +32,7 @@ The reader is Max skimming a list of PRs. Only the summary and any risk flag are
 
 The most important section. It is proof, observed by you in this session, that the PR does what the summary says, shown as before and after.
 
-- UI: one MP4 recording trimmed to the changed interaction (15 s or less), plus before and after screenshots of each changed state, one per distinct flow. Put before and after side by side in a two-column table.
+- UI: one MP4 recording trimmed to the changed interaction (15 s or less), plus before and after screenshots of each changed state, one per distinct flow. Put before and after side by side in a two-column table. For a fix to something Max reported with a screenshot or recording, show the after alone (see Media).
 - Behavior and logic: the exact test or command, failing before and passing after, as trimmed output in a `console` block. Add logs when that's where the effect shows.
 - Architecture, dependencies, packages: a Mermaid diagram of only the affected part (see Diagrams).
 

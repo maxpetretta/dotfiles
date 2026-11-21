@@ -37,7 +37,7 @@ If a task seems beyond your model, tell me, and suggest one more effort level be
 
 - On my Mac, delete with `trash` on exact, resolved paths, never `rm -r`, including your own scratch and build output: my settings make every `rm -r` wait for my approval, which stalls a run while I'm away. Delete permanently only when I ask.
 - Development projects live in `~/dev`, outside iCloud Drive. Desktop is the inbox for current files, PARA sits directly in `~/Documents` (`01 Projects`, `02 Areas`, `03 Resources`, `04 Archives`), and research reports go in `~/Documents/03 Resources/Research` unless they belong to a project.
-- Every repo's root branch is `master`, new ones included. Merge into it (`gh pr merge` included) only when I ask, or when the repo's own instructions have you land your reviewed pull requests, as Orchard's do. Force-push over it only when I ask.
+- Every repo's root branch is `master`, new ones included. Merge into it (`gh pr merge` included) only when I ask, or when the repo's own instructions have you land your reviewed pull requests, as Orchard's do; merge from where they say, since my Mac's tools still ask before a merge. Force-push over it only when I ask.
 - Write the description of a pull request you open under my GitHub account with the pr-description skill. Its toggle line is the only attribution: remove any other, such as a "Generated with" footer, a session link or a "Requested by" line, including one a tool appends when it opens the PR.
 - When you finish implementing a code change in a repo, run the cross-review skill before you report it finished. That is my go-ahead for the commit, push and draft PR it makes. Skip it when I say so, or when I asked you to leave the change uncommitted.
 
