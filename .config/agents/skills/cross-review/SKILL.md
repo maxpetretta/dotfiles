@@ -43,7 +43,7 @@ These flags are the read-only guard. The global allow lists permit edits under ~
 
 - On a feature branch, never master. Commit the work. Leave unrelated changes alone; if they don't separate cleanly from this change, stop and ask.
 - `git fetch origin`; `BASE=$(git merge-base HEAD origin/<default-branch>)`.
-- `git worktree add --detach "$R/head" HEAD` and give the reviewer that path as the repo, so it reads the committed head while you go on working. If uncommitted changes remain, run the checks in a second one (`git worktree add --detach "$R/checks" HEAD`), so they test only what the PR contains and their build output never lands in the reviewer's. When the review ends, move each worktree to the Trash and prune (`trash "$R/head" && git worktree prune`), as a command of its own: after `gh pr ready`, or once you stop to escalate. `git worktree remove --force` stops for Max's approval, and chained to another step it holds that step too: on 2026-11-20 that held four threads for 53 minutes.
+- `git worktree add --detach "$R/head" HEAD` and give the reviewer that path as the repo, so it reads the committed head while you go on working. If uncommitted changes remain, run the checks in a second one (`git worktree add --detach "$R/checks" HEAD`), so they test only what the PR contains and their build output never lands in the reviewer's. When the review ends, move each worktree to the Trash and prune (`trash "$R/head" && git worktree prune`), as a command of its own once the review is over: after `gh pr ready`, or when you stop to escalate or to report a missing reviewer. `git worktree remove --force` stops for Max's approval, and chained to another step it holds that step too: on 2026-11-20 that held four threads for 53 minutes.
 - Write `git diff $BASE...HEAD` to `$R/diff.patch`.
 - Start round 1 (step 2) in the background now, then run the project's checks (tests, lint, typecheck) while it reviews: a round and a check pass each take minutes, and the reviewer's worktree doesn't move while you work. Fix failures this change caused and commit them; they go to round 2 with the review fixes. Note checks that are missing or were already failing.
 - Push and open a draft PR (`gh pr create --draft`), or reuse the existing one and turn it back into a draft with `gh pr ready <n> --undo` if it is ready. Write the description with the pr-description skill.
@@ -71,7 +71,7 @@ The bar is that the change does what was intended and makes nothing worse than t
 
 - Agree: smallest fix. Prefer deleting or narrowing over adding a lock, cache, helper, or option. Add one focused test that fails without the fix, if the intent needs it.
 - Disagree: one line of reason plus evidence (file:line, test, output).
-- Nit or out of scope: decline in one line and list it as a follow-up.
+- Nit, or a follow-up under the bar above: decline in one line and list it as a follow-up.
 - A finding that would need a different approach to one part of the change: if the rest stands without that part, move the part to its own PR and ship the rest.
 
 Keep a ledger: id, severity, outcome (fixed / disagree / declined), evidence. Re-run only the checks a fix touches (its own tests, lint on the files it changed), commit, and compare `git diff --shortstat $BASE` before and after; if review grew the diff, cut first.
@@ -86,7 +86,7 @@ Skip it if round 1 approved and nothing changed behavior, a fix for a failed che
 
 Run it only when round 2 left a blocker or should `still open`, or raised a new one, and you agreed and fixed it. Triage those items as in step 3, commit, and move the review worktree to the new head as in round 2. Then resume the same session with the updated ledger and `git diff <round2 head>..HEAD`, and ask it to mark each of those items `resolved` or `still open: <reason>` and to flag new issues only in the lines changed since round 2. Same reply format, same effort.
 
-Round 3 only checks fixes. An item you disagree with is not argued again here; it goes to Max. Round 3 is the last round.
+Round 3 only checks fixes. An item you disagree with is not argued again here; step 6 decides whether it goes to Max or under Follow-ups. Round 3 is the last round.
 
 If round 3 leaves an item `still open` or raises a new one, and you agree with the reviewer, fix it and go to Ship. Record it in the ledger as `fixed after the last round, not re-reviewed`.
 
