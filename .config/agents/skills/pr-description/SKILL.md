@@ -32,7 +32,7 @@ The reader is Max skimming a list of PRs. Only the summary and any risk flag are
 
 The most important section. It is proof, observed by you in this session, that the PR does what the summary says, shown as before and after.
 
-- UI: one MP4 recording trimmed to the changed interaction (15 s or less), plus before and after screenshots of each changed state, one per distinct flow. Put before and after side by side in a two-column table.
+- UI: one MP4 recording trimmed to the changed interaction (15 s or less), plus before and after screenshots of each changed state, one per distinct flow. Put before and after side by side in a two-column table. For a fix to something Max reported with a screenshot or recording, show the after alone (see Media).
 - Behavior and logic: the exact test or command, failing before and passing after, as trimmed output in a `console` block. Add logs when that's where the effect shows.
 - Architecture, dependencies, packages: a Mermaid diagram of only the affected part (see Diagrams).
 
@@ -49,7 +49,7 @@ Upload with `gh pr create|edit --attach`. Write each reference to the local file
 gh uploads each file and rewrites the reference in place. A video reference must sit alone in its own paragraph to render as a player. Keep each file under 10 MB. Write media to a scratch dir outside the repo and never commit it.
 
 - Capture: iOS Simulator `xcrun simctl io <udid> screenshot <file>` and `recordVideo --codec=h264 <file>`; macOS `screencapture -x` and `screencapture -v`; web pages with the browser tool's screenshot.
-- Before shots: capture them before changing the code, or from a build of the merge base.
+- Before shots: capture them before changing the code, or from a build of the merge base. For a fix to something Max reported with a screenshot or recording, his is the before: show the after alone, and don't build the base for a before shot.
 - Trim recordings to the changed interaction, 15 s or less:
   `ffmpeg -ss <start> -to <end> -i in.mov -an -vf scale=1280:-2 -c:v libx264 -crf 28 -preset veryfast -movflags +faststart out.mp4`
 - When updating a body, references already rewritten to uploaded URLs stay as they are. Attach only new files.
