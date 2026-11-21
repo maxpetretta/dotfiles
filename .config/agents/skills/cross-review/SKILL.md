@@ -65,7 +65,7 @@ Brief:
 
 ## 3. Triage
 
-Check every finding yourself and re-grade its severity: a rare case, another code path, or a small cost is a nit whatever label it came with.
+Check every finding yourself and re-grade its severity: a rare case, another code path, or a small cost is a nit whatever label it came with, unless the change makes it worse than the base branch.
 
 The bar is that the change does what was intended and makes nothing worse than the base branch. A finding about something the base branch already does, or about a case outside the intent that the change leaves as it was, is a follow-up, whatever its label and however real the bug: decline it in one line and list it. Fixing it here is how a small PR grows a second and third approach.
 
