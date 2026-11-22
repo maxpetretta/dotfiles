@@ -7,6 +7,10 @@ description: Cross-model review loop to run when implementation is complete. Ope
 
 You are the implementer. The reviewer is a different model that reads and reports only. You decide what to fix. Make the smallest changes that resolve real findings; push back with evidence when a finding is wrong. Never agree just to end the loop.
 
+## Size
+
+A small fix or tweak (one behavior or look, in a few files, with no new screen, setting, state, API or contract) gets one round. It gets round 2 only when round 1 raised a blocker or should that you agreed with and fixed; nits, follow-ups and findings you disagree with don't earn one, and neither does a fix for a failed check that changed no behavior. Larger work keeps up to three rounds, as below. When unsure, size by the diff the reviewer would see: under about 150 changed lines in one area is small.
+
 ## Where it runs
 
 Only on Max's Mac, where Codex is signed in to his ChatGPT account and Claude Code to his Claude account. In a cloud session, do step 1 (checks, push, draft PR with the pr-description skill), then stop and report that cross-review is pending and must run from a Mac session. Do not install or sign in to a reviewer CLI in the cloud.
@@ -80,7 +84,7 @@ Between rounds, leave the slow work alone: the full check suite, a full build, s
 
 ## 4. Round 2: review the fixes, same session
 
-Skip it if round 1 approved and nothing changed behavior, a fix for a failed check included. Move the review worktree to the new head first (`git -C "$R/head" checkout --detach <new head>`). Then resume the reviewer with the check results, the ledger (`fixed:` / `disagree:` / `declined:` + evidence) and `git diff <round1 head>..HEAD`. Ask it to mark each blocker and should `resolved` or `still open: <reason>`, and to flag new issues only in the changed code. Same reply format, same effort.
+Skip it if round 1 approved and nothing changed behavior, a fix for a failed check included. For a small fix (Size), skip it unless you fixed a blocker or should from round 1. Move the review worktree to the new head first (`git -C "$R/head" checkout --detach <new head>`). Then resume the reviewer with the check results, the ledger (`fixed:` / `disagree:` / `declined:` + evidence) and `git diff <round1 head>..HEAD`. Ask it to mark each blocker and should `resolved` or `still open: <reason>`, and to flag new issues only in the changed code. Same reply format, same effort.
 
 ## 5. Round 3: check the round 2 fixes
 
@@ -121,4 +125,4 @@ Signed off means every blocker and should is settled and you have no concern of 
 - Push. Update the description per pr-description: refresh the evidence once, from the final head, if review fixes changed behavior. List declined nits under Follow-ups, and name every fix made after the last round as not re-reviewed.
 - `gh pr ready <n>`. Then do what the project's instructions say about landing: where they have you land your own PR (Orchard does), follow them. Where they say nothing, never merge. Never release or upload a build from the PR branch.
 
-Report: rounds, model, findings fixed or declined with reasons, fixes made after the last round, anything Max ruled on, diff size before and after, PR link and state.
+Report: size (small or larger), rounds, model, findings fixed or declined with reasons, fixes made after the last round, anything Max ruled on, diff size before and after, PR link and state.
