@@ -97,6 +97,8 @@
       "Bash(git worktree prune*)",
       "Bash(git -C * worktree remove *)",
       "Bash(git -C * worktree prune*)",
+      "Bash(~/dev/orchard-pool/*/scripts/land.sh *)",
+      "Bash(/Users/max/dev/orchard-pool/*/scripts/land.sh *)",
       "Bash(cp *)",
       "Bash(mv *)",
       "mcp__Claude_Code_iOS_Simulator__control",
